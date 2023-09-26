@@ -1,7 +1,15 @@
+import Axios, { AxiosError, AxiosHeaders } from "axios"
 import { getServerSession } from "next-auth"
-import { authOptions } from "./authOptions"
 import { useSession } from "next-auth/react"
-import { merge } from "lodash"
+import { authOptions } from "./authOptions"
+
+const axios = Axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+})
 
 export const GetAPI = async <T>(path: string): Promise<T> => {
   const session = await getServerSession(authOptions)
@@ -42,55 +50,38 @@ export const ClientGetAPI = async <T>(path: string): Promise<T> => {
 
 type PostMethod = "POST" | "PUT" | "DELETE"
 interface IPostAPIProps {
-  path: string
-  options: {
-    method?: PostMethod
-  } & RequestInit
+  url: string
+  method?: PostMethod
   accessToken?: string
-}
-export const PostAPI = async <T>({
-  path,
-  options = {
-    method: "POST",
-  },
-}: IPostAPIProps): Promise<T> => {
-  const session = await getServerSession(authOptions)
-  let accessToken: string = ""
-  if (session) {
-    accessToken = session.accessToken
-  }
-  const url = process.env.NEXT_PUBLIC_API_URL + path
-  const mergedOption = merge(options, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-  const res = await fetch(url, mergedOption)
-  const response = await res.json()
-  return response
+  body?: any
+  headers?: any
 }
 
-export const ClientPostAPI = async <T>({
-  path,
-  options = {
-    method: "POST",
-  },
+export const PostAPI = async <T>({
+  url,
+  method = "POST",
   accessToken,
-}: IPostAPIProps): Promise<T | undefined> => {
-  const url = process.env.NEXT_PUBLIC_API_URL + path
-  const mergedOption = merge(options, {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
+  body,
+  headers,
+}: IPostAPIProps): Promise<T> => {
   try {
-    const res = await fetch(url, mergedOption)
-    const response = await res.json()
-    return response
+    const res = await axios({
+      method,
+      url,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        ...headers,
+      },
+      data: body,
+    })
+    return res.data as T
   } catch (error) {
-    console.error(error)
+    const axiosError = error as AxiosError
+    throw {
+      name: "AxiosError",
+      code: axiosError.code,
+      message: axiosError.message,
+      statusCode: axiosError.response?.status,
+    }
   }
 }

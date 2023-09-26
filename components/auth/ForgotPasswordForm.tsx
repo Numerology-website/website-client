@@ -1,20 +1,17 @@
 "use client"
 import { firebaseAuth } from "@/libs/firebase"
 import { toastify } from "@/libs/toastify"
-import { ClientPostAPI, PostAPI } from "@/utils/fetch"
+import { PostAPI } from "@/utils/fetch"
+import { getErrorMessage } from "@/utils/helpers"
 import {
   ConfirmationResult,
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth"
-import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
-type ForgotPasswordStep =
-  | "INPUT_PHONE_NUMBER"
-  | "VERIFY_OTP"
-  | "VERIFY_SUCCESS"
-  | "VERIFY_FAILED"
+type ForgotPasswordStep = "INPUT_PHONE_NUMBER" | "VERIFY_OTP"
 
 export const ForgotPasswordForm = () => {
   const [step, setStep] = useState<ForgotPasswordStep>("INPUT_PHONE_NUMBER")
@@ -25,32 +22,36 @@ export const ForgotPasswordForm = () => {
   )
   const [newPassword, setNewPassword] = useState<string>("")
   const [confirmNewPassword, setConfirmNewPassword] = useState<string>("")
-  const { data, status } = useSession()
+  const router = useRouter()
 
-  const checkPhoneNumber = async () => {
-    if (!phoneNumber) return false
-
-    console.log("submitPhoneNumber")
-    let accessToken: string = ""
-    if (status === "authenticated") {
-      accessToken = data.accessToken
+  const checkPhoneNumber = async (): Promise<boolean> => {
+    if (!phoneNumber) {
+      toastify({ type: "error", message: "Please input phone number" })
+      return false
     }
-    const isValidPhoneNumber = await ClientPostAPI<boolean>({
-      path: "/auth/check-phone-number",
-      options: {
+    try {
+      const isValidPhoneNumber = await PostAPI<boolean>({
+        url: "/auth/check-phone-number",
+        body: { phone_number: phoneNumber },
         headers: {
-          API_PUBLIC_KEY: process.env.NEXT_PUBLIC_API_PUBLIC_KEY as string,
+          API_PUBLIC_KEY: process.env.NEXT_PUBLIC_API_PUBLIC_KEY,
         },
-      },
-      accessToken,
-    })
-    console.log(isValidPhoneNumber)
-    if (!isValidPhoneNumber) throw new Error("Invalid phone number")
-    return true
+      })
+      if (!isValidPhoneNumber) throw "Invalid phone number"
+      return true
+    } catch (error) {
+      const errorMessage = getErrorMessage(error)
+      toastify({
+        type: "error",
+        message: errorMessage,
+      })
+      return false
+    }
   }
 
   const submitPhoneNumber = async () => {
-    const test = await checkPhoneNumber()
+    const isValid = await checkPhoneNumber()
+    if (!isValid) return
     const appVerifier = window.recaptchaVerifier
     signInWithPhoneNumber(firebaseAuth, phoneNumber, appVerifier)
       .then((confirmationResult) => {
@@ -66,16 +67,46 @@ export const ForgotPasswordForm = () => {
       })
   }
 
-  const validateOTP = () => {
+  const validateOTP = async () => {
     if (!otp.toString()) return
     if (!result) return
     try {
       if (!comparePassword()) return
-      result
-        .confirm(otp)
-        .then(() => setStep("VERIFY_SUCCESS"))
-        .catch(() => setStep("VERIFY_FAILED"))
-    } catch (error) {}
+      const confirm = await result.confirm(otp)
+      if (!confirm) throw "OTP is invalid"
+      await resetPassword()
+    } catch (error) {
+      const errorMessage = getErrorMessage(error)
+      toastify({
+        type: "error",
+        message: errorMessage,
+      })
+    }
+  }
+
+  const resetPassword = async () => {
+    try {
+      // TODO: add localId of firebase to user schema to double check user when reset password
+      // TODO: edit public api key to encrypt
+      const response = await PostAPI<string>({
+        url: "/auth/reset-password",
+        body: {
+          phone_number: phoneNumber,
+          password: newPassword,
+        },
+        headers: {
+          API_PUBLIC_KEY: process.env.NEXT_PUBLIC_API_PUBLIC_KEY,
+        },
+      })
+      if (!response) throw "Reset password failed"
+      toastify({
+        type: "success",
+        message: "Reset password successfully",
+      })
+      return router.push("/login")
+    } catch (error) {
+      throw error
+    }
   }
 
   const comparePassword = () => {

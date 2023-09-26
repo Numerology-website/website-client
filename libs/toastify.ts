@@ -4,10 +4,11 @@ interface IToastifyProps {
   message: string
   type?: TypeOptions
 }
-export const toastify = ({ message, type }: IToastifyProps) => {
+export const toastify = ({ message, type = "info" }: IToastifyProps) => {
   toast(message, {
     position: "top-right",
     autoClose: 3000,
     closeOnClick: true,
+    type,
   })
 }
