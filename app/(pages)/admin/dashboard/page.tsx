@@ -1,11 +1,7 @@
-import { authOptions } from "@/utils/authOptions"
-import { getServerSession } from "next-auth"
-import { redirect } from "next/navigation"
-
 export default async function AdminDashboard() {
   return (
-    <div>
+    <div className="h-[2000px]">
       <h1>Admin Dashboard</h1>
     </div>
-  )
+  );
 }
