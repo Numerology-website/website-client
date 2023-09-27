@@ -9,9 +9,9 @@ export default function AdminLayout({
   return (
     <div className="flex">
       <Sidebar />
-      <div className="w-full pl-64">
-        <Navbar />
-        <section className="h-full pt-16">{children}</section>
+      <Navbar />
+      <div className="w-full bg-slate-200 pl-64 pt-16">
+        <section className="mx-10 mt-5 h-full">{children}</section>
       </div>
     </div>
   );
