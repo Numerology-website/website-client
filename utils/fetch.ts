@@ -1,7 +1,7 @@
-import Axios, { AxiosError, AxiosHeaders } from "axios"
-import { getServerSession } from "next-auth"
-import { useSession } from "next-auth/react"
-import { authOptions } from "./authOptions"
+import Axios, { AxiosError, AxiosHeaders } from "axios";
+import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
+import { authOptions } from "./authOptions";
 
 const axios = Axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -9,15 +9,15 @@ const axios = Axios.create({
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
   },
-})
+});
 
 export const GetAPI = async <T>(path: string): Promise<T> => {
-  const session = await getServerSession(authOptions)
-  let accessToken: string = ""
+  const session = await getServerSession(authOptions);
+  let accessToken: string = "";
   if (session) {
-    accessToken = session.accessToken
+    accessToken = session.accessToken;
   }
-  const url = process.env.NEXT_PUBLIC_API_URL + path
+  const url = process.env.NEXT_PUBLIC_API_URL + path;
   const res = await fetch(url, {
     next: {
       revalidate: 5,
@@ -26,35 +26,41 @@ export const GetAPI = async <T>(path: string): Promise<T> => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
     },
-  })
-  const response = await res.json()
-  return response
-}
+  });
+  const response = await res.json();
+  return response;
+};
 
-export const ClientGetAPI = async <T>(path: string): Promise<T> => {
-  const { data, status } = useSession()
-  let accessToken: string = ""
-  if (status === "authenticated") {
-    accessToken = data.accessToken
+export const ClientGetAPI = async <T>(
+  path: string,
+  params?: any,
+  headers?: any,
+): Promise<T> => {
+  const url = process.env.NEXT_PUBLIC_API_URL + path;
+  try {
+    const res = await axios.get(url, {
+      params,
+      headers,
+    });
+    return res.data as T;
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    throw {
+      name: "AxiosError",
+      code: axiosError.code,
+      message: axiosError.message,
+      statusCode: axiosError.response?.status,
+    };
   }
-  const url = process.env.NEXT_PUBLIC_API_URL + path
-  const res = await fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-  const response = await res.json()
-  return response
-}
+};
 
-type PostMethod = "POST" | "PUT" | "DELETE"
+type PostMethod = "POST" | "PUT" | "DELETE";
 interface IPostAPIProps {
-  url: string
-  method?: PostMethod
-  accessToken?: string
-  body?: any
-  headers?: any
+  url: string;
+  method?: PostMethod;
+  accessToken?: string;
+  body?: any;
+  headers?: any;
 }
 
 export const PostAPI = async <T>({
@@ -73,15 +79,15 @@ export const PostAPI = async <T>({
         ...headers,
       },
       data: body,
-    })
-    return res.data as T
+    });
+    return res.data as T;
   } catch (error) {
-    const axiosError = error as AxiosError
+    const axiosError = error as AxiosError;
     throw {
       name: "AxiosError",
       code: axiosError.code,
       message: axiosError.message,
       statusCode: axiosError.response?.status,
-    }
+    };
   }
-}
+};

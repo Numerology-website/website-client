@@ -21,6 +21,11 @@ export const SidebarList = ({}) => {
       href: "/admin/plans",
       segment: "plans",
     },
+    {
+      name: "Blogs",
+      href: "/admin/blogs",
+      segment: "blogs",
+    },
   ];
   return (
     <div className="px-3">

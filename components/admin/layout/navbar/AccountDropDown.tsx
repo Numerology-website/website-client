@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export const AccountDropDown = () => {
   return (
     <Dropdown inline label="Account">
-      <Dropdown.Item onClick={() => redirect("/admin/change-password")}>
+      <Dropdown.Item onClick={() => redirect("/admin/users/change-password")}>
         Change password
       </Dropdown.Item>
       <Dropdown.Item onClick={() => signOut()}>Sign out</Dropdown.Item>

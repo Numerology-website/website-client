@@ -7,10 +7,10 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex">
+    <div className="flex min-h-screen bg-slate-200">
       <Sidebar />
       <Navbar />
-      <div className="w-full bg-slate-200 pl-64 pt-16">
+      <div className="w-full pl-64 pt-16">
         <section className="mx-10 mt-5 h-full">{children}</section>
       </div>
     </div>
