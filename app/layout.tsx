@@ -4,6 +4,8 @@ import { Inter } from "next/font/google"
 import NextAuthSessionProvider from "@/app/providers/NextAuthSessionProvider"
 import ToastifyProvider from "@/app/providers/ToastifyProvider"
 import "react-toastify/dist/ReactToastify.css"
+import AppHeader from "@/components/common/AppHeader"
+import AppFooter from "@/components/common/AppFooter"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,7 +25,11 @@ export default function RootLayout({
     <html lang="en">
       <NextAuthSessionProvider>
         <body className={inter.className}>
-          <ToastifyProvider>{children}</ToastifyProvider>
+          <ToastifyProvider>
+            <AppHeader />
+            {children}
+            <AppFooter />
+          </ToastifyProvider>
         </body>
       </NextAuthSessionProvider>
     </html>
