@@ -1,26 +1,26 @@
-"use client";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { countryCode, getFlagEmoji } from "@/utils/countryCode";
-import { Checkbox } from "flowbite-react";
-import Link from "next/link";
-import { AuthService } from "@/app/services/auth/auth.service";
-import { toastify } from "@/libs/toastify";
-import { useRouter } from "next/navigation";
-import { getErrorMessage } from "@/utils/helpers";
+"use client"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { countryCode, getFlagEmoji } from "@/utils/countryCode"
+import { Checkbox } from "flowbite-react"
+import Link from "next/link"
+import { AuthService } from "@/app/services/auth/auth.service"
+import { toastify } from "@/libs/toastify"
+import { useRouter } from "next/navigation"
+import { getErrorMessage } from "@/utils/helpers"
 
 interface RegisterFormData {
-  country_code: string;
-  phone_number: string;
-  password: string;
-  confirm_password: string;
-  confirm_term_of_use: boolean;
-  first_name: string;
-  last_name: string;
+  country_code: string
+  phone_number: string
+  password: string
+  confirm_password: string
+  confirm_term_of_use: boolean
+  first_name: string
+  last_name: string
 }
 
-const numberRegex = /^[0-9]*$/;
+const numberRegex = /^[0-9]*$/
 const registerSchema = yup.object({
   phone_number: yup
     .string()
@@ -36,7 +36,7 @@ const registerSchema = yup.object({
   confirm_password: yup
     .string()
     .test("passwords-match", "Mật khẩu không trùng khớp", function (value) {
-      return this.parent.password === value;
+      return this.parent.password === value
     })
     .required("Vui lòng nhập lại mật khẩu"),
   country_code: yup.string().required("Vui lòng chọn quốc gia"),
@@ -44,9 +44,9 @@ const registerSchema = yup.object({
     .boolean()
     .oneOf([true], "Vui lòng đồng ý với điều khoản sử dụng")
     .required("Vui lòng đồng ý với điều khoản sử dụng"),
-});
+})
 export const RegisterForm = () => {
-  const router = useRouter();
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -62,27 +62,26 @@ export const RegisterForm = () => {
       confirm_term_of_use: false,
     },
     resolver: yupResolver(registerSchema),
-  });
+  })
 
   const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
-    const { phone_number, password, country_code, last_name, first_name } =
-      data;
-    const phoneNumber = country_code + phone_number;
+    const { phone_number, password, country_code, last_name, first_name } = data
+    const phoneNumber = country_code + phone_number
     try {
       await AuthService.register({
         phone_number: phoneNumber,
         password,
         last_name,
         first_name,
-      });
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error)
       toastify({
         message: getErrorMessage(error),
         type: "error",
-      });
+      })
     }
-  };
+  }
   return (
     <>
       <form
@@ -179,5 +178,5 @@ export const RegisterForm = () => {
         </Link>
       </div>
     </>
-  );
-};
+  )
+}
