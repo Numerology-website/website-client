@@ -1,8 +1,9 @@
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
 
 export const LogoAuth = () => {
   return (
-    <div className="flex gap-2">
+    <Link href={"/"} className="flex gap-2 hover:text-gray-300">
       <Image
         src={"/assets/images/logo-white.png"}
         alt="transparent logo"
@@ -10,6 +11,6 @@ export const LogoAuth = () => {
         height={25}
       />
       <h1>Tra cứu thần số học</h1>
-    </div>
-  );
-};
+    </Link>
+  )
+}

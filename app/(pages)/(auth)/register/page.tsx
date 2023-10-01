@@ -1,7 +1,14 @@
-import { LogoAuth } from "@/components/auth/LogoAuth";
-import { RegisterForm } from "@/components/auth/RegisterForm";
+import { LogoAuth } from "@/components/auth/LogoAuth"
+import { RegisterForm } from "@/components/auth/RegisterForm"
+import { authOptions } from "@/utils/authOptions"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 
-export default function RegisterPage() {
+export default async function RegisterPage() {
+  const session = await getServerSession(authOptions)
+  if (session) {
+    redirect("/")
+  }
   return (
     <div className="flex max-w-[450px] flex-col items-center gap-2">
       <LogoAuth />
@@ -11,5 +18,5 @@ export default function RegisterPage() {
       </p>
       <RegisterForm />
     </div>
-  );
+  )
 }
