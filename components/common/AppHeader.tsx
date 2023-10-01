@@ -709,7 +709,7 @@ const AppHeader = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default AppHeader;
+export default AppHeader
