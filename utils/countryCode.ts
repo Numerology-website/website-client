@@ -1210,3 +1210,8 @@ export const countryCode = [
     code: "ZW",
   },
 ];
+
+export const getFlagEmoji = (countryCode: string) =>
+  countryCode
+    .toUpperCase()
+    .replace(/./g, (char) => String.fromCodePoint(127397 + char.charCodeAt(0)));

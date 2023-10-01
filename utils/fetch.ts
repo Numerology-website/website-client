@@ -1,6 +1,5 @@
-import Axios, { AxiosError, AxiosHeaders } from "axios";
+import Axios, { AxiosError } from "axios";
 import { getServerSession } from "next-auth";
-import { useSession } from "next-auth/react";
 import { authOptions } from "./authOptions";
 
 const axios = Axios.create({
@@ -70,24 +69,19 @@ export const PostAPI = async <T>({
   body,
   headers,
 }: IPostAPIProps): Promise<T> => {
-  try {
-    const res = await axios({
-      method,
-      url,
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        ...headers,
-      },
-      data: body,
-    });
-    return res.data as T;
-  } catch (error) {
-    const axiosError = error as AxiosError;
-    throw {
-      name: "AxiosError",
-      code: axiosError.code,
-      message: axiosError.message,
-      statusCode: axiosError.response?.status,
-    };
+  const fullUrl = process.env.NEXT_PUBLIC_API_URL + url;
+  const res = await fetch(fullUrl, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      ...headers,
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  if (!res.ok) {
+    throw response.message;
   }
+  return response;
 };
