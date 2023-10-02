@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-inline": "^39.0.2",
+    "@ckeditor/ckeditor5-react": "^6.1.0",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.3.1",
     "@types/lodash": "^4.14.199",
