@@ -1,11 +1,9 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import NextAuthSessionProvider from "@/app/providers/NextAuthSessionProvider"
 import ToastifyProvider from "@/app/providers/ToastifyProvider"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "react-toastify/dist/ReactToastify.css"
-import AppHeader from "@/components/common/AppHeader"
-import AppFooter from "@/components/common/AppFooter"
+import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
