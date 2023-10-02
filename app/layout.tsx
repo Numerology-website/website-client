@@ -25,11 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <NextAuthSessionProvider>
         <body className={inter.className}>
-          <ToastifyProvider>
-            <AppHeader />
-            {children}
-            <AppFooter />
-          </ToastifyProvider>
+          <ToastifyProvider>{children}</ToastifyProvider>
         </body>
       </NextAuthSessionProvider>
     </html>
