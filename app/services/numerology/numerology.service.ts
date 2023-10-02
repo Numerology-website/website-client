@@ -9,4 +9,10 @@ export const NumerologyService = {
     }>("/admin/numerology")
     return items
   },
+  async getNumerologyById(id: string) {
+    const numerologyDocument = await GetAPI<INumerology>(
+      `/admin/numerology/${id}`,
+    )
+    return numerologyDocument
+  },
 }
