@@ -1,5 +1,6 @@
 import { NumerologyService } from "@/app/services/numerology/numerology.service"
-import { EditSection } from "@/components/admin/numerology/EditSection"
+import { EditNumerology } from "@/components/admin/numerology/EditNumerology"
+import { EditNumerologySection } from "@/components/admin/numerology/EditNumerologySection"
 
 interface INumerologyDocumentPage {
   params: {
@@ -13,20 +14,15 @@ export default async function NumerologyDocument({
     params.id,
   )
   return (
-    <section>
-      <h1>Thần số học số {numerologyDocument.number}</h1>
-      <p className="text-xs">
-        Created by: {"  "}
-        {numerologyDocument.created_by?.last_name || "unknown"}
-      </p>
-
-      {numerologyDocument.contents.map((content, index) => (
-        <div key={index}>
-          <EditSection value={content.title} />
-          <EditSection value={content.description || ""} />
-          <EditSection value={content.value} />
-        </div>
-      ))}
+    <section className="flex flex-col gap-5 p-2">
+      <div className="rounded-lg bg-white p-2">
+        {/* <h1>Thần số học số {numerologyDocument.number}</h1> */}
+        <p className="text-xs">
+          Created by: {"  "}
+          {numerologyDocument.created_by?.last_name || "unknown"}
+        </p>
+      </div>
+      <EditNumerology contents={numerologyDocument.contents} />
     </section>
   )
 }
