@@ -17,6 +17,10 @@ const nextConfig = {
       source: "/nghe-nghiep",
       destination: "/landing-pages/nghe-nghiep.htm",
     },
+    {
+      source: "/khoa-hoc-than-so-hoc",
+      destination: "/landing-pages/khoa-hoc-than-so-hoc.htm",
+    },
   ],
 }
 
