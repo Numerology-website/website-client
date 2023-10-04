@@ -13,6 +13,10 @@ const nextConfig = {
       source: "/ten-khai-sinh",
       destination: "/landing-pages/ten-khai-sinh.htm",
     },
+    {
+      source: "/nghe-nghiep",
+      destination: "/landing-pages/nghe-nghiep.htm",
+    },
   ],
 }
 
