@@ -23,7 +23,7 @@ export default async function AdminLayout({
       <Sidebar />
       <Navbar />
       <div className="w-full pl-64 pt-16">
-        <section className="mx-10 mt-5 h-full">{children}</section>
+        <section className="h-full bg-slate-200 px-10 pt-5">{children}</section>
       </div>
     </div>
   )

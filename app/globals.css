@@ -16,6 +16,24 @@
     @apply text-blue-600 underline;
   }
 }
+
+@layer components {
+  .btn {
+    @apply rounded-md px-4 py-2 shadow-md transition-shadow hover:opacity-80 hover:shadow-lg;
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white;
+  }
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800;
+  }
+  .btn-add {
+    @apply bg-green-600 text-white;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white;
+  }
+}
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

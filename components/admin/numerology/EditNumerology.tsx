@@ -6,10 +6,11 @@ import { NumerologyProvider } from "@/app/providers/admin/numerology/NumerologyP
 
 interface IEditSectionProps {
   contents: INumerologyContent[]
+  id: string
 }
-export const EditNumerology = ({ contents }: IEditSectionProps) => {
+export const EditNumerology = ({ contents, id }: IEditSectionProps) => {
   return (
-    <NumerologyProvider initContents={contents}>
+    <NumerologyProvider initContents={contents} id={id}>
       <EditNumerologySection />
     </NumerologyProvider>
   )

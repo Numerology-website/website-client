@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
+import Link from "next/link"
+import { useSelectedLayoutSegment } from "next/navigation"
 
 export const SidebarList = ({}) => {
-  const segment = useSelectedLayoutSegment();
+  const segment = useSelectedLayoutSegment()
   const sidebarOptions = [
     {
       name: "Dashboard",
@@ -26,7 +26,12 @@ export const SidebarList = ({}) => {
       href: "/admin/blogs",
       segment: "blogs",
     },
-  ];
+    {
+      name: "Numerology",
+      href: "/admin/numerology",
+      segment: "numerology",
+    },
+  ]
   return (
     <div className="px-3">
       <ul>
@@ -38,15 +43,15 @@ export const SidebarList = ({}) => {
                   segment === option.segment
                     ? "bg-gray-900 text-white"
                     : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                } group flex items-center rounded-md px-2 py-2 text-sm font-medium`}
+                } group flex items-center rounded-md px-2 py-2 text-sm font-medium no-underline`}
                 href={option.href}
               >
                 {option.name}
               </Link>
             </li>
-          );
+          )
         })}
       </ul>
     </div>
-  );
-};
+  )
+}

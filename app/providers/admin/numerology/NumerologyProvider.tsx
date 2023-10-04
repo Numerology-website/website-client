@@ -1,30 +1,94 @@
 "use client"
 
-import { INumerologyContent } from "@/interfaces/numerology.service"
+import {
+  INumerology,
+  INumerologyContent,
+} from "@/interfaces/numerology.service"
+import { toastify } from "@/libs/toastify"
+import { PostAPI } from "@/utils/fetch"
+import { useSession } from "next-auth/react"
 import { createContext, useState } from "react"
 
 interface INumerologyContext {
   contents: INumerologyContent[]
-  editContent: (content: INumerologyContent) => void
+  saveContents: () => void
+  addNewContent: () => void
+  updateContent: (content: INumerologyContent) => void
+  deleteContent: (content: INumerologyContent) => void
 }
 export const NumerologyContext = createContext<INumerologyContext>({
   contents: [],
-  editContent: (content: INumerologyContent) => {},
+  saveContents: () => {},
+  addNewContent: () => {},
+  updateContent: () => {},
+  deleteContent: () => {},
 })
 
 export const NumerologyProvider = ({
   children,
   initContents,
+  id,
 }: {
   children: React.ReactNode
   initContents: INumerologyContent[]
+  id: string
 }) => {
+  const { data, status } = useSession()
+  let accessToken: string = ""
+  if (status === "authenticated") {
+    accessToken = data.accessToken
+  }
   const [contents, setContents] = useState<INumerologyContent[]>(initContents)
-  const editContent = (content: INumerologyContent) => {
-    console.log(content)
+  const addNewContent = () => {
+    setContents([
+      ...contents,
+      {
+        title: "New section",
+        description: "New description",
+        blockOrder: contents.length + 1,
+        value: "<p>New content</p>",
+      },
+    ])
+  }
+  const updateContent = (content: INumerologyContent) => {
+    setContents(
+      contents.map((item) =>
+        item.blockOrder === content.blockOrder ? content : item,
+      ),
+    )
+  }
+  const saveContents = async () => {
+    const newNumerology = await PostAPI<INumerology>({
+      method: "PATCH",
+      url: "/admin/numerology/" + id,
+      body: { contents },
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+    if (newNumerology) {
+      setContents(newNumerology.contents)
+      toastify({
+        type: "success",
+        message: `Numerology ${newNumerology.number} updated`,
+      })
+    }
+  }
+  const deleteContent = (content: INumerologyContent) => {
+    setContents(
+      contents.filter((item) => item.blockOrder !== content.blockOrder),
+    )
   }
   return (
-    <NumerologyContext.Provider value={{ editContent, contents }}>
+    <NumerologyContext.Provider
+      value={{
+        saveContents,
+        contents,
+        addNewContent,
+        updateContent,
+        deleteContent,
+      }}
+    >
       {children}
     </NumerologyContext.Provider>
   )

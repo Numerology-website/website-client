@@ -1,11 +1,11 @@
 import { INumerology } from "@/interfaces/numerology.service"
+import { PlusIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 
 interface ITableNumerology {
   documents: INumerology[]
 }
 export const TableNumerology = ({ documents }: ITableNumerology) => {
-  console.log(documents)
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -18,7 +18,9 @@ export const TableNumerology = ({ documents }: ITableNumerology) => {
               Tạo bởi
             </th>
             <th scope="col" className="px-6 py-3">
-              <span className="sr-only">Edit</span>
+              <Link href={"/admin/numerology/create"} className="float-right">
+                <PlusIcon className="h-6 w-6" />
+              </Link>
             </th>
           </tr>
         </thead>

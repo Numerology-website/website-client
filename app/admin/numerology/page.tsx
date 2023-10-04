@@ -5,7 +5,6 @@ export default async function NumerologyPanel() {
   const numerologyDocuments = await NumerologyService.getAllNumerology()
   return (
     <>
-      <div>NumerologyPanel</div>
       <TableNumerology documents={numerologyDocuments} />
     </>
   )

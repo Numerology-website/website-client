@@ -1,7 +1,9 @@
+import { NumerologyContext } from "@/app/providers/admin/numerology/NumerologyProvider"
 import { INumerologyContent } from "@/interfaces/numerology.service"
-import dynamic from "next/dynamic"
-import { useState } from "react"
+import { TrashIcon } from "@heroicons/react/24/solid"
 import { Accordion } from "flowbite-react"
+import dynamic from "next/dynamic"
+import { useContext, useState } from "react"
 
 const InlineEditor = dynamic(() => import("@/components/common/InlineEditor"), {
   ssr: false,
@@ -15,6 +17,7 @@ export const EditNumerologySectionItem = ({
   const [localContent, setLocalContent] = useState(content)
   const [isEditTitle, setIsEditTitle] = useState(false)
   const [isEditDescription, setIsEditDescription] = useState(false)
+  const { updateContent, deleteContent } = useContext(NumerologyContext)
   return (
     <div className="rounded-lg bg-white">
       <Accordion collapseAll>
@@ -27,12 +30,16 @@ export const EditNumerologySectionItem = ({
                   <input
                     className="w-full"
                     value={localContent.title}
-                    onChange={(value) =>
+                    onChange={(value) => {
                       setLocalContent({
                         ...localContent,
                         title: value.target.value,
                       })
-                    }
+                      updateContent({
+                        ...localContent,
+                        title: value.target.value,
+                      })
+                    }}
                     placeholder="Enter title"
                   />
                 ) : (
@@ -51,12 +58,16 @@ export const EditNumerologySectionItem = ({
                     className="w-full text-black"
                     placeholder="Enter description"
                     value={localContent.description}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setLocalContent({
                         ...localContent,
                         description: e.target.value,
                       })
-                    }
+                      updateContent({
+                        ...localContent,
+                        description: e.target.value,
+                      })
+                    }}
                   />
                 ) : (
                   <i>{localContent.description || "No description provided"}</i>
@@ -71,21 +82,24 @@ export const EditNumerologySectionItem = ({
               </div>
               <InlineEditor
                 value={localContent.value}
-                onChange={(value) =>
+                onChange={(value) => {
                   setLocalContent({
                     ...localContent,
                     value,
                   })
-                }
+                  updateContent({
+                    ...localContent,
+                    value,
+                  })
+                }}
               />
-              <div className="text-right">
+              <div className="flex items-center justify-end">
                 <button
-                  className="rounded-full border border-solid border-gray-400 bg-cyan-300 px-4 py-2 text-xs text-black hover:bg-white hover:text-[#3F4254]"
-                  onClick={() => {
-                    console.log(localContent)
-                  }}
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => deleteContent(localContent)}
                 >
-                  Save
+                  <TrashIcon className="h-4 w-4" />
                 </button>
               </div>
             </div>

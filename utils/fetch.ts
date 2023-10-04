@@ -1,6 +1,6 @@
-import Axios, { AxiosError } from "axios";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./authOptions";
+import Axios, { AxiosError } from "axios"
+import { getServerSession } from "next-auth"
+import { authOptions } from "./authOptions"
 
 const axios = Axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -8,58 +8,58 @@ const axios = Axios.create({
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
   },
-});
+})
 
 export const GetAPI = async <T>(path: string): Promise<T> => {
-  const session = await getServerSession(authOptions);
-  let accessToken: string = "";
+  const session = await getServerSession(authOptions)
+  let accessToken: string = ""
   if (session) {
-    accessToken = session.accessToken;
+    accessToken = session.accessToken
   }
-  const url = process.env.NEXT_PUBLIC_API_URL + path;
+  const url = process.env.NEXT_PUBLIC_API_URL + path
   const res = await fetch(url, {
-    next: {
-      revalidate: 5,
-    },
+    // next: {
+    //   revalidate: 5,
+    // },
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
     },
-  });
-  const response = await res.json();
-  return response;
-};
+  })
+  const response = await res.json()
+  return response
+}
 
 export const ClientGetAPI = async <T>(
   path: string,
   params?: any,
   headers?: any,
 ): Promise<T> => {
-  const url = process.env.NEXT_PUBLIC_API_URL + path;
+  const url = process.env.NEXT_PUBLIC_API_URL + path
   try {
     const res = await axios.get(url, {
       params,
       headers,
-    });
-    return res.data as T;
+    })
+    return res.data as T
   } catch (error) {
-    const axiosError = error as AxiosError;
+    const axiosError = error as AxiosError
     throw {
       name: "AxiosError",
       code: axiosError.code,
       message: axiosError.message,
       statusCode: axiosError.response?.status,
-    };
+    }
   }
-};
+}
 
-type PostMethod = "POST" | "PUT" | "DELETE";
+type PostMethod = "POST" | "PUT" | "DELETE" | "PATCH"
 interface IPostAPIProps {
-  url: string;
-  method?: PostMethod;
-  accessToken?: string;
-  body?: any;
-  headers?: any;
+  url: string
+  method?: PostMethod
+  accessToken?: string
+  body?: any
+  headers?: any
 }
 
 export const PostAPI = async <T>({
@@ -69,7 +69,7 @@ export const PostAPI = async <T>({
   body,
   headers,
 }: IPostAPIProps): Promise<T> => {
-  const fullUrl = process.env.NEXT_PUBLIC_API_URL + url;
+  const fullUrl = process.env.NEXT_PUBLIC_API_URL + url
   const res = await fetch(fullUrl, {
     method,
     headers: {
@@ -78,10 +78,10 @@ export const PostAPI = async <T>({
       ...headers,
     },
     body: JSON.stringify(body),
-  });
-  const response = await res.json();
+  })
+  const response = await res.json()
   if (!res.ok) {
-    throw response.message;
+    throw response.message
   }
-  return response;
-};
+  return response
+}

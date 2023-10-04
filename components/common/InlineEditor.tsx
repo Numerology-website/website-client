@@ -1,5 +1,5 @@
-import { CKEditor } from "@ckeditor/ckeditor5-react"
 import InlineEditorCK from "@ckeditor/ckeditor5-build-inline"
+import { CKEditor } from "@ckeditor/ckeditor5-react"
 
 interface IInlineEditorProps {
   value: string
