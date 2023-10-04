@@ -5,6 +5,10 @@ const nextConfig = {
       source: "/than-so-hoc-tron-doi",
       destination: "/landing-pages/than-so-hoc-tron-doi.htm",
     },
+    {
+      source: "/danh-xung",
+      destination: "/landing-pages/danh-xung.htm",
+    },
   ],
 }
 
