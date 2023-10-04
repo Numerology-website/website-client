@@ -9,6 +9,10 @@ const nextConfig = {
       source: "/danh-xung",
       destination: "/landing-pages/danh-xung.htm",
     },
+    {
+      source: "/ten-khai-sinh",
+      destination: "/landing-pages/ten-khai-sinh.htm",
+    },
   ],
 }
 
