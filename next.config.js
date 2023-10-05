@@ -25,6 +25,10 @@ const nextConfig = {
       source: "/dat-ten-thuong-hieu",
       destination: "/landing-pages/dat-ten-thuong-hieu.htm",
     },
+    {
+      source: "/coaching",
+      destination: "/landing-pages/coaching.htm",
+    },
   ],
 }
 
