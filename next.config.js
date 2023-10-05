@@ -33,6 +33,10 @@ const nextConfig = {
       source: "/can-bang-nang-luong",
       destination: "/landing-pages/can-bang-nang-luong.htm",
     },
+    {
+      source: "/affiliate",
+      destination: "/landing-pages/affiliate.htm",
+    },
   ],
 }
 
