@@ -1,5 +1,7 @@
+import { FormCreateNumerologyProps } from "@/components/admin/numerology/FormCreateNumerology"
 import { INumerology } from "@/interfaces/numerology.service"
-import { GetAPI } from "@/utils/fetch"
+import { toastify } from "@/libs/toastify"
+import { GetAPI, PostAPI } from "@/utils/fetch"
 
 export const NumerologyService = {
   async getAllNumerology() {
@@ -14,5 +16,23 @@ export const NumerologyService = {
       `/admin/numerology/${id}`,
     )
     return numerologyDocument
+  },
+  async createNumerology(
+    numerology: FormCreateNumerologyProps,
+    accessToken: string,
+  ) {
+    try {
+      const numerologyDocument = await PostAPI<INumerology>({
+        url: "/admin/numerology",
+        body: numerology,
+        accessToken,
+      })
+      return numerologyDocument
+    } catch (error) {
+      toastify({
+        type: "error",
+        message: error as string,
+      })
+    }
   },
 }
