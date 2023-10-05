@@ -21,6 +21,10 @@ const nextConfig = {
       source: "/khoa-hoc-than-so-hoc",
       destination: "/landing-pages/khoa-hoc-than-so-hoc.htm",
     },
+    {
+      source: "/dat-ten-thuong-hieu",
+      destination: "/landing-pages/dat-ten-thuong-hieu.htm",
+    },
   ],
 }
 
