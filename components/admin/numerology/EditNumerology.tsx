@@ -1,6 +1,6 @@
 "use client"
 
-import { INumerologyContent } from "@/interfaces/numerology.service"
+import { INumerologyContent } from "@/interfaces/numerology.interface"
 import { EditNumerologySection } from "./EditNumerologySection"
 import { NumerologyProvider } from "@/app/providers/admin/numerology/NumerologyProvider"
 

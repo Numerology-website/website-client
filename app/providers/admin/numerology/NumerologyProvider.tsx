@@ -3,7 +3,7 @@
 import {
   INumerology,
   INumerologyContent,
-} from "@/interfaces/numerology.service"
+} from "@/interfaces/numerology.interface"
 import { toastify } from "@/libs/toastify"
 import { PostAPI } from "@/utils/fetch"
 import { useSession } from "next-auth/react"

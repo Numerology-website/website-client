@@ -1,5 +1,5 @@
 import { NumerologyContext } from "@/app/providers/admin/numerology/NumerologyProvider"
-import { INumerologyContent } from "@/interfaces/numerology.service"
+import { INumerologyContent } from "@/interfaces/numerology.interface"
 import { TrashIcon } from "@heroicons/react/24/solid"
 import { Accordion } from "flowbite-react"
 import dynamic from "next/dynamic"

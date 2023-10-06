@@ -27,6 +27,9 @@ export const GetAPI = async <T>(path: string): Promise<T> => {
     },
   })
   const response = await res.json()
+  if (!res.ok) {
+    throw response.message
+  }
   return response
 }
 
@@ -70,18 +73,22 @@ export const PostAPI = async <T>({
   headers,
 }: IPostAPIProps): Promise<T> => {
   const fullUrl = process.env.NEXT_PUBLIC_API_URL + url
-  const res = await fetch(fullUrl, {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-      ...headers,
-    },
-    body: JSON.stringify(body),
-  })
-  const response = await res.json()
-  if (!res.ok) {
-    throw response.message
+  try {
+    const res = await fetch(fullUrl, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+        ...headers,
+      },
+      body: JSON.stringify(body),
+    })
+    const response = await res.json()
+    if (!res.ok) {
+      throw response.message
+    }
+    return response
+  } catch (error) {
+    throw error
   }
-  return response
 }

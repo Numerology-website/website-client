@@ -1,5 +1,5 @@
 import { FormCreateNumerologyProps } from "@/components/admin/numerology/FormCreateNumerology"
-import { INumerology } from "@/interfaces/numerology.service"
+import { INumerology } from "@/interfaces/numerology.interface"
 import { toastify } from "@/libs/toastify"
 import { GetAPI, PostAPI } from "@/utils/fetch"
 

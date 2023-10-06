@@ -1,4 +1,4 @@
-import { INumerology } from "@/interfaces/numerology.service"
+import { INumerology } from "@/interfaces/numerology.interface"
 import { PlusIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 
