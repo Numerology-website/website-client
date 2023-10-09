@@ -5,7 +5,7 @@ import { GetAPI, PostAPI } from "@/utils/fetch"
 
 export const PlanService = {
   async getPlans() {
-    return await GetAPI<{ count: number; items: IPlan[] }>("/admin/plans")
+    return await GetAPI<{ total: number; items: IPlan[] }>("/admin/plans")
   },
   async getPlan(id: string) {
     return await GetAPI<IPlan>(`/admin/plans/${id}`)

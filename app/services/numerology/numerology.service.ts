@@ -6,7 +6,7 @@ import { GetAPI, PostAPI } from "@/utils/fetch"
 export const NumerologyService = {
   async getAllNumerology() {
     const { items } = await GetAPI<{
-      count: number
+      total: number
       items: INumerology[]
     }>("/admin/numerology")
     return items
