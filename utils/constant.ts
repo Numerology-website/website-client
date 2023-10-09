@@ -12,3 +12,9 @@ export enum EStatusCode {
   InternalServerError = 500,
   Conflict = 409,
 }
+
+export enum EGenderType {
+  Male = "Male",
+  Female = "Female",
+  Other = "Other",
+}

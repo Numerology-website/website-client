@@ -18,6 +18,24 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "galaxy-pattern": "url('/assets/images/bg.jpg')",
         "footer-bg": "url('/assets/images/footer-bg.png')",
+        "sign-mandala-bg": "url('/assets/sign-carousel/sign-mandala-bg.png')",
+        "sign-balance-bg": "url('/assets/sign-carousel/sign-balance-bg.png')",
+        "sign-birthday-bg": "url('/assets/sign-carousel/sign-birthday-bg.png')",
+        "sign-core-bg": "url('/assets/sign-carousel/sign-core-number-bg.png')",
+        "sign-personality-bg":
+          "url('/assets/sign-carousel/sign-personality-bg.png')",
+        "sign-rational-bg": "url('/assets/sign-carousel/sign-rational-bg.png')",
+        "sign-soulurge-bg": "url('/assets/sign-carousel/sign-soulurge-bg.png')",
+      },
+      animation: {
+        "spin-slow": "spin 60s linear infinite",
+        "sign-pulse": "sign-pulse 2.5s linear infinite",
+      },
+      keyframes: {
+        "sign-pulse": {
+          "0%, 100%": { scale: "1" },
+          "50%": { scale: "1.05" },
+        },
       },
     },
   },
