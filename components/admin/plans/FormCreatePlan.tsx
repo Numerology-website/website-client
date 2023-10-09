@@ -1,15 +1,16 @@
 "use client"
-import { EPlanType, IPlan } from "@/interfaces/plans.interface"
-import { Button, Label, Select, TextInput } from "flowbite-react"
-import { FC } from "react"
-import { Controller, SubmitHandler, useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers/yup"
-import * as yup from "yup"
-import { PlanService } from "@/app/services/plans/plans.service"
-import { useSession } from "next-auth/react"
-import { toastify } from "@/libs/toastify"
 
-export type FormEditPlanProps = {
+import { PlanService } from "@/app/services/plans/plans.service"
+import { EPlanType } from "@/interfaces/plans.interface"
+import { toastify } from "@/libs/toastify"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { Button, Label, Select, TextInput } from "flowbite-react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
+import * as yup from "yup"
+
+export type FormCreatePlanProps = {
   name: string
   full_name: string
   price: {
@@ -49,40 +50,35 @@ const schema = yup.object().shape(
   [["discount", "discount"]],
 )
 
-interface IFormEditPlan {
-  plan: IPlan
-}
-export const FormEditPlan: FC<IFormEditPlan> = ({ plan }) => {
+export const FormCreatePlan = () => {
   const { data, status } = useSession()
   let accessToken: string = ""
   if (status === "authenticated") {
     accessToken = data.accessToken
   }
+  const router = useRouter()
   const {
     handleSubmit,
     register,
     formState: { errors },
     control,
-  } = useForm<FormEditPlanProps>({
-    defaultValues: {
-      ...plan,
-    },
+  } = useForm<FormCreatePlanProps>({
     resolver: yupResolver(schema),
   })
-  const onSubmit: SubmitHandler<FormEditPlanProps> = (data) => {
-    PlanService.editPlan(plan.id, data, accessToken)
-      .then((res) => {
+  const onSubmit: SubmitHandler<FormCreatePlanProps> = (data) => {
+    PlanService.createPlan(data, accessToken)
+      .then(() => {
         toastify({
-          type: "success",
-          message: `Gói ${res.name} đã được cập nhật`,
-        })
+          message: "Tạo gói thành công",
+        }),
+          router.push("/admin/plans")
       })
-      .catch((err) => {
+      .catch((err) =>
         toastify({
           type: "error",
-          message: JSON.stringify(err),
-        })
-      })
+          message: err,
+        }),
+      )
   }
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>

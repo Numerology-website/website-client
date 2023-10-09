@@ -1,3 +1,4 @@
+import { FormCreatePlanProps } from "@/components/admin/plans/FormCreatePlan"
 import { FormEditPlanProps } from "@/components/admin/plans/FormEditPlan"
 import { IPlan } from "@/interfaces/plans.interface"
 import { GetAPI, PostAPI } from "@/utils/fetch"
@@ -13,6 +14,13 @@ export const PlanService = {
     return await PostAPI<IPlan>({
       method: "PATCH",
       url: `/admin/plans/${id}`,
+      body,
+      accessToken,
+    })
+  },
+  async createPlan(body: FormCreatePlanProps, accessToken: string) {
+    return await PostAPI<IPlan>({
+      url: `/admin/plans`,
       body,
       accessToken,
     })

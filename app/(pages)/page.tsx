@@ -1,5 +1,4 @@
 import { SignOutButton } from "@/components/auth/SignOutButton"
-import Image from "next/image"
 
 export default function Home() {
   return (

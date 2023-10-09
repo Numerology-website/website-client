@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   content: [
@@ -17,9 +17,10 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "galaxy-pattern": "url('/assets/images/bg.jpg')",
+        "footer-bg": "url('/assets/images/footer-bg.png')",
       },
     },
   },
   plugins: [require("flowbite/plugin")],
-};
-export default config;
+}
+export default config
