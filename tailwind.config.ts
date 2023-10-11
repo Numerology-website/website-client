@@ -8,6 +8,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+    },
     extend: {
       colors: {
         "auth-input-gray": "rgba(243, 246, 249, 0.36)",
@@ -26,6 +32,8 @@ const config: Config = {
           "url('/assets/sign-carousel/sign-personality-bg.png')",
         "sign-rational-bg": "url('/assets/sign-carousel/sign-rational-bg.png')",
         "sign-soulurge-bg": "url('/assets/sign-carousel/sign-soulurge-bg.png')",
+        "lifepath-bg": "url('/assets/images/lifepath-bg.jpg')",
+        "block-bg-light": "url('/assets/images/block_bg_light_right.jpg')",
       },
       animation: {
         "spin-slow": "spin 60s linear infinite",

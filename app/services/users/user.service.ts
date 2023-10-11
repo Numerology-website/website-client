@@ -1,3 +1,4 @@
+import { TNumerologyRecord } from "@/interfaces/numerology-records.interface"
 import { IUsers } from "@/interfaces/users.interface"
 import { GetAPI } from "@/utils/fetch"
 

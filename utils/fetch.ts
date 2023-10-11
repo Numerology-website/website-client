@@ -18,9 +18,9 @@ export const GetAPI = async <T>(path: string): Promise<T> => {
   }
   const url = process.env.NEXT_PUBLIC_API_URL + path
   const res = await fetch(url, {
-    // next: {
-    //   revalidate: 5,
-    // },
+    next: {
+      revalidate: 2,
+    },
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,

@@ -23,10 +23,10 @@ export default async function Layout({
 
 const Footer = () => {
   return (
-    <footer className="bg-footer-bg bg-[#15143e] bg-[center_20px] bg-no-repeat text-white">
+    <footer className="bg-[#15143e] bg-footer-bg bg-[center_20px] bg-no-repeat text-white">
       <div className="container mx-auto px-4 py-5">
-        <div className="flex flex-col lg:flex-row lg:gap-3">
-          <div className="flex w-1/3 flex-col gap-1">
+        <div className="flex flex-col gap-5 md:flex-row md:gap-3">
+          <div className="flex flex-col gap-1 md:w-1/3">
             <div className="flex gap-1">
               <Image
                 alt="logo-footer"
@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
             <span>Hãy chia sẻ trang web để lan toả giá trị bạn nhé</span>
           </div>
-          <div className="flex w-1/3 flex-col gap-4">
+          <div className="flex flex-col gap-4 md:w-1/3">
             <h2 className="uppercase">Thông tin chuyển khoản thanh toán</h2>
             <div className="flex flex-col gap-2 text-sm text-[#b7b7b7]">
               <p className="flex flex-col gap-1">
@@ -58,7 +58,7 @@ const Footer = () => {
               <b>* NỘI DUNG CHUYỂN KHOẢN: Số điện thoại của bạn</b>
             </div>
           </div>
-          <div className="flex w-1/3 flex-col gap-4">
+          <div className="flex flex-col gap-4 md:w-1/3">
             <h2 className="uppercase">Liên hệ</h2>
             <div className="flex flex-col gap-4 text-sm text-[#b7b7b7]">
               <div className="flex items-center gap-1">
