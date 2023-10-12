@@ -14,6 +14,7 @@ export type TCreateNumerologyRecord = {
 }
 
 export type TNumerologyRecord = {
+  is_read: boolean
   expose_id: string
   full_name: string
   nickname?: string

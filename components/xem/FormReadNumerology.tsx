@@ -252,77 +252,85 @@ export const FormReadNumerology = () => {
           <span className="text-center">{errors.yearOfBirth.message}</span>
         )}
       </div>
-      <div className="flex flex-col gap-2 rounded-md border border-solid border-white p-2">
-        <div className="flex items-center gap-1">
-          <Checkbox id="relationship" {...register("hasPartner")} />
-          <Label htmlFor="relationship" className="text-white">
-            Xem tương hợp tình duyên, hôn nhân
-          </Label>
-        </div>
-        {watchHasPartner && (
-          <>
-            <div className="flex flex-col gap-1">
-              <input
-                type="text"
-                className="w-full rounded-lg text-black"
-                placeholder="Nhập họ tên người yêu/vợ/chồng"
-                {...register("partner.full_name")}
-              />
+      <div className="flex flex-col gap-2 lg:flex-row">
+        <div className="w-full lg:w-1/2">
+          <div className="flex min-h-[144px] flex-col gap-2 rounded-md border border-solid border-white  p-2 ">
+            <div className="flex items-center gap-1">
+              <Checkbox id="relationship" {...register("hasPartner")} />
+              <Label htmlFor="relationship" className="text-white">
+                Xem tương hợp tình duyên, hôn nhân
+              </Label>
             </div>
-            <div className="flex flex-col">
-              <div className="flex gap-1">
-                <div className="flex w-2/3 gap-1">
-                  <select
-                    className="w-1/2 rounded-lg text-black"
-                    {...register("partner.dayOfBirth")}
-                  >
-                    {Array.from(Array(31).keys()).map((item, index) => (
-                      <option key={index} value={addLeadingZero(item + 1)}>
-                        Ngày {addLeadingZero(item + 1)}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    className="w-1/2 rounded-lg text-black"
-                    {...register("partner.monthOfBirth")}
-                  >
-                    {Array.from(Array(12).keys()).map((item, index) => (
-                      <option key={index} value={addLeadingZero(item + 1)}>
-                        Tháng {addLeadingZero(item + 1)}
-                      </option>
-                    ))}
-                  </select>
+            {watchHasPartner && (
+              <>
+                <div className="flex flex-col gap-1">
+                  <input
+                    type="text"
+                    className="w-full rounded-lg text-black"
+                    placeholder="Nhập họ tên người yêu/vợ/chồng"
+                    {...register("partner.full_name")}
+                  />
                 </div>
-                <input
-                  type="text"
-                  className="w-1/3 rounded-lg text-black"
-                  placeholder="Năm sinh"
-                  {...register("partner.yearOfBirth")}
-                />
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-      <div className="flex flex-col gap-2 rounded-md border border-solid border-white p-2">
-        <div className="flex items-center gap-1">
-          <Checkbox id="phoneNumber" {...register("hasPhoneNumber")} />
-          <Label htmlFor="phoneNumber" className="text-white">
-            Xem số điện thoại hợp
-          </Label>
-        </div>
-        {watchHasPhoneNumber && (
-          <>
-            <Textarea
-              rows={3}
-              placeholder="Nhập tối đa 5 điện thoại, mỗi dòng là 1 số"
-              {...register("phoneNumbers")}
-            />
-            {errors.phoneNumbers && (
-              <span className="text-center">{errors.phoneNumbers.message}</span>
+                <div className="flex flex-col">
+                  <div className="flex gap-1">
+                    <div className="flex w-2/3 gap-1">
+                      <select
+                        className="w-1/2 rounded-lg text-black"
+                        {...register("partner.dayOfBirth")}
+                      >
+                        {Array.from(Array(31).keys()).map((item, index) => (
+                          <option key={index} value={addLeadingZero(item + 1)}>
+                            Ngày {addLeadingZero(item + 1)}
+                          </option>
+                        ))}
+                      </select>
+                      <select
+                        className="w-1/2 rounded-lg text-black"
+                        {...register("partner.monthOfBirth")}
+                      >
+                        {Array.from(Array(12).keys()).map((item, index) => (
+                          <option key={index} value={addLeadingZero(item + 1)}>
+                            Tháng {addLeadingZero(item + 1)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <input
+                      type="text"
+                      className="w-1/3 rounded-lg text-black"
+                      placeholder="Năm sinh"
+                      {...register("partner.yearOfBirth")}
+                    />
+                  </div>
+                </div>
+              </>
             )}
-          </>
-        )}
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2">
+          <div className="flex flex-col gap-2 rounded-md border border-solid border-white p-2">
+            <div className="flex items-center gap-1">
+              <Checkbox id="phoneNumber" {...register("hasPhoneNumber")} />
+              <Label htmlFor="phoneNumber" className="text-white">
+                Xem số điện thoại hợp
+              </Label>
+            </div>
+            {watchHasPhoneNumber && (
+              <>
+                <Textarea
+                  rows={4}
+                  placeholder="Nhập tối đa 5 điện thoại, mỗi dòng là 1 số"
+                  {...register("phoneNumbers")}
+                />
+                {errors.phoneNumbers && (
+                  <span className="text-center">
+                    {errors.phoneNumbers.message}
+                  </span>
+                )}
+              </>
+            )}
+          </div>
+        </div>
       </div>
       <button
         type="submit"

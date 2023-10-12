@@ -34,10 +34,14 @@ const config: Config = {
         "sign-soulurge-bg": "url('/assets/sign-carousel/sign-soulurge-bg.png')",
         "lifepath-bg": "url('/assets/images/lifepath-bg.jpg')",
         "block-bg-light": "url('/assets/images/block_bg_light_right.jpg')",
+        "mandala-bg": "url('/assets/images/mandala-bg.png')",
+        "mandala-object": "url('/assets/images/mandala-object-1.png')",
       },
       animation: {
         "spin-slow": "spin 60s linear infinite",
         "sign-pulse": "sign-pulse 2.5s linear infinite",
+        "mandala-pulse": "sign-pulse 1s linear infinite",
+        "mandala-object": "spin-reverse 30s linear infinite",
       },
       keyframes: {
         "sign-pulse": {

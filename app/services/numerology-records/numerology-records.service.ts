@@ -22,4 +22,16 @@ export const NumerologyRecordService = {
     }>("/numerology-records/my")
     return response
   },
+  async getReadNumerologyById(id: string) {
+    const response = await GetAPI<TNumerologyRecord>(
+      `/numerology-records/${id}`,
+    )
+    return response
+  },
+  async setReadNumerologyRecord(expose_id: string) {
+    const response = await PostAPI<TNumerologyRecord>({
+      url: `/numerology-records/${expose_id}/read`,
+    })
+    return response
+  },
 }
