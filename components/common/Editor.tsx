@@ -1,16 +1,18 @@
-import InlineEditorCK from "@ckeditor/ckeditor5-build-inline"
+import Editor from "ckeditor5-custom-classic/build/ckeditor"
 import { CKEditor } from "@ckeditor/ckeditor5-react"
 
 interface IInlineEditorProps {
   value: string
   onChange: (value: string) => void
 }
-const InlineEditor = ({ value, onChange }: IInlineEditorProps) => {
+const ClassicEditor = ({ value, onChange }: IInlineEditorProps) => {
   return (
     <CKEditor
-      editor={InlineEditorCK}
+      // @ts-ignore
+      editor={Editor}
       data={value}
       onChange={(event, editor) => {
+        // @ts-ignore
         const data = editor.getData()
         onChange(data)
       }}
@@ -18,4 +20,4 @@ const InlineEditor = ({ value, onChange }: IInlineEditorProps) => {
   )
 }
 
-export default InlineEditor
+export default ClassicEditor

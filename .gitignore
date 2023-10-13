@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/libs/ckeditor5-classic/node_modules
+/libs/ckeditor5-classic/build
 /.pnp
 .pnp.js
 

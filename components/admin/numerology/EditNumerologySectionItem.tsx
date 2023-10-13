@@ -5,7 +5,7 @@ import { Accordion } from "flowbite-react"
 import dynamic from "next/dynamic"
 import { useContext, useState } from "react"
 
-const InlineEditor = dynamic(() => import("@/components/common/InlineEditor"), {
+const InlineEditor = dynamic(() => import("@/components/common/Editor"), {
   ssr: false,
 })
 

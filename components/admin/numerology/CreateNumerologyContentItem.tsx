@@ -11,7 +11,7 @@ import {
   UseFormRegister,
 } from "react-hook-form"
 
-const InlineEditor = dynamic(() => import("@/components/common/InlineEditor"), {
+const InlineEditor = dynamic(() => import("@/components/common/Editor"), {
   ssr: false,
 })
 

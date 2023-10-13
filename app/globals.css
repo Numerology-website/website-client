@@ -30,6 +30,9 @@
   .btn-danger {
     @apply bg-red-600 text-white;
   }
+  .text-danger {
+    @apply text-red-600;
+  }
 }
 /* :root {
   --foreground-rgb: 0, 0, 0;
