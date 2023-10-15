@@ -1,30 +1,25 @@
 "use client"
 
 import { NumerologyContext } from "@/app/providers/admin/numerology/NumerologyProvider"
+import { ArrowDownOnSquareIcon } from "@heroicons/react/24/outline"
 import { useContext } from "react"
 import { EditNumerologySectionItem } from "./EditNumerologySectionItem"
-import {
-  ArrowDownOnSquareIcon,
-  DocumentPlusIcon,
-} from "@heroicons/react/24/outline"
+import { NumerologyTitleConstant } from "@/components/admin/numerology/NumerologyTitleConstant"
 
 export const EditNumerologySection = () => {
-  const { contents, addNewContent, saveContents } =
-    useContext(NumerologyContext)
+  const { contents, saveContents } = useContext(NumerologyContext)
   return (
     <>
-      {contents.map((content, index) => (
-        <EditNumerologySectionItem key={index} content={content} />
+      {NumerologyTitleConstant.map((section, index) => (
+        <EditNumerologySectionItem
+          key={index}
+          content={contents[index]}
+          index={index}
+          title={section.title}
+        />
       ))}
 
       <div className="flex items-center justify-center gap-10">
-        <button
-          type="button"
-          onClick={() => addNewContent()}
-          className="btn btn-add flex gap-2"
-        >
-          <DocumentPlusIcon className="h-6 w-6 text-white" /> Add new section
-        </button>
         <button
           type="button"
           onClick={() => saveContents()}

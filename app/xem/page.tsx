@@ -27,16 +27,42 @@ export default async function ReaderPage() {
           {session ? (
             <div className="text-center">
               <span className="text-white">
-                Bạn có{" "}
-                <b className="text-red-500">{myProfile.vip_turn_remain}</b> lần
-                tra Vip, mua{" "}
+                {myProfile.vip_turn_remain > 0 && (
+                  <>
+                    Bạn có{" "}
+                    <b className="text-red-500">{myProfile.vip_turn_remain}</b>{" "}
+                    lần tra Vip
+                  </>
+                )}
+                {!myProfile.vip_turn_remain &&
+                  myProfile.online_turn_remain > 0 && (
+                    <>
+                      Bạn có{" "}
+                      <b className="text-red-500">
+                        {myProfile.online_turn_remain}
+                      </b>{" "}
+                      lần tra Vip online
+                    </>
+                  )}
+                {!myProfile.vip_turn_remain &&
+                  !myProfile.online_turn_remain && (
+                    <>
+                      Bạn có{" "}
+                      <b className="text-red-500">
+                        {myProfile.vip_turn_remain}
+                      </b>{" "}
+                      lần tra Vip, mua
+                    </>
+                  )}
               </span>
-              <Link
-                href={"/purchase"}
-                className="text-[#007bFF] hover:underline"
-              >
-                tại đây
-              </Link>
+              {!myProfile.vip_turn_remain && !myProfile.online_turn_remain && (
+                <Link
+                  href={"/purchase"}
+                  className="text-[#007bFF] hover:underline"
+                >
+                  tại đây
+                </Link>
+              )}
             </div>
           ) : (
             <></>

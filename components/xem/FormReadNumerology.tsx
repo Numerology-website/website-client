@@ -254,7 +254,7 @@ export const FormReadNumerology = () => {
       </div>
       <div className="flex flex-col gap-2 lg:flex-row">
         <div className="w-full lg:w-1/2">
-          <div className="flex min-h-[144px] flex-col gap-2 rounded-md border border-solid border-white  p-2 ">
+          <div className="flex h-full flex-col gap-2 rounded-md border border-solid border-white  p-2 ">
             <div className="flex items-center gap-1">
               <Checkbox id="relationship" {...register("hasPartner")} />
               <Label htmlFor="relationship" className="text-white">

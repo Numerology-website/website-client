@@ -1,5 +1,8 @@
 import { FormCreateNumerologyProps } from "@/components/admin/numerology/FormCreateNumerology"
-import { INumerology } from "@/interfaces/numerology.interface"
+import {
+  INumerology,
+  INumerologyContent,
+} from "@/interfaces/numerology.interface"
 import { toastify } from "@/libs/toastify"
 import { GetAPI, PostAPI } from "@/utils/fetch"
 
@@ -16,6 +19,28 @@ export const NumerologyService = {
       `/admin/numerology/${id}`,
     )
     return numerologyDocument
+  },
+  async getNumerologyContentById(
+    id: string,
+    blockOrder: number,
+  ): Promise<INumerologyContent> {
+    const numerologyContent = await GetAPI<INumerologyContent>(
+      `/admin/numerology/${id}/${blockOrder}`,
+    )
+    return numerologyContent
+  },
+  async updateNumerologyContentById(
+    id: string,
+    data: INumerologyContent,
+    accessToken: string,
+  ) {
+    const numerologyContent = await PostAPI<INumerologyContent>({
+      url: `/admin/numerology/${id}/${data.blockOrder}`,
+      body: data,
+      method: "PATCH",
+      accessToken,
+    })
+    return numerologyContent
   },
   async createNumerology(
     numerology: FormCreateNumerologyProps,

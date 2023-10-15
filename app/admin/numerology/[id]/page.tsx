@@ -22,7 +22,7 @@ export default async function NumerologyDocument({
         </p>
       </div>
       <EditNumerology
-        contents={numerologyDocument.contents}
+        // contents={numerologyDocument.contents}
         id={numerologyDocument.id}
       />
     </section>

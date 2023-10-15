@@ -1,0 +1,221 @@
+enum SectionEnum {
+  A = "A",
+  B = "B",
+  C = "C",
+  D = "D",
+}
+export type TNumerologyTitleConstant = {
+  title: string
+  tableOfContentTitle: string
+  id: string
+  sectionType: SectionEnum
+} & (HasTailText | NotHaveTailText)
+type HasTailText = {
+  hasTailText: true
+  isVipTailText: boolean
+}
+type NotHaveTailText = {
+  hasTailText: false
+}
+export const NumerologyTitleConstant: TNumerologyTitleConstant[] = [
+  {
+    title: "CHU KỲ VẬN SỐ CỦA BẠN",
+    tableOfContentTitle: "Chu kỳ vận số",
+    hasTailText: false,
+    id: "chu-ky-van-so",
+    sectionType: SectionEnum.A,
+  },
+  {
+    title: "NHÓM TÍNH CÁCH THEO BẢN NGÃ CỦA BẠN (có thể thay đổi do luyện tập)",
+    tableOfContentTitle: "Nhóm tính cách theo bản ngã",
+    hasTailText: false,
+    id: "nhom-tinh-cach-theo-ban-nga",
+    sectionType: SectionEnum.A,
+  },
+  {
+    title: "CHỈ SỐ ĐƯỜNG ĐỜI (SỐ CHỦ ĐẠO) CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số đường đời (Số chủ đạo)",
+    hasTailText: true,
+    isVipTailText: false,
+    id: "chi-so-duong-doi",
+    sectionType: SectionEnum.B,
+  },
+  {
+    title: "CHU KỲ ĐƯỜNG ĐỜI",
+    tableOfContentTitle: "Chu kỳ đường đời",
+    hasTailText: false,
+    id: "chu-ky-duong-doi",
+    sectionType: SectionEnum.B,
+  },
+  {
+    title: "KIM TỰ THÁP THẦN SỐ HỌC",
+    tableOfContentTitle: "Kim tự tháp thần số học",
+    hasTailText: false,
+    id: "kim-tu-thap-than-so-hoc",
+    sectionType: SectionEnum.B,
+  },
+  {
+    title: "CÁC CHỈ SỐ NĂM",
+    tableOfContentTitle: "Các chỉ số năm",
+    hasTailText: false,
+    id: "cac-chi-so-nam",
+    sectionType: SectionEnum.B,
+  },
+  {
+    title: "CÁC CHỈ SỐ THÁNG",
+    tableOfContentTitle: "Các chỉ số tháng",
+    hasTailText: false,
+    id: "cac-chi-so-thang",
+    sectionType: SectionEnum.B,
+  },
+  {
+    title: "CHỈ SỐ SỨ MỆNH",
+    tableOfContentTitle: "Chỉ số sứ mệnh",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-su-menh",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ THỬ THÁCH SỨ MỆNH CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số thử thách sứ mệnh",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-thu-thach-su-menh",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ TRƯỞNG THÀNH CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số trưởng thành",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-truong-thanh",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ NĂNG LỰC TRƯỞNG THÀNH CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số năng lực trưởng thành",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-nang-luc-truong-thanh",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ LINH HỒN CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số linh hồn",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-linh-hon",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ THỬ THÁCH LINH HỒN CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số thử thách linh hồn",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-thu-thach-linh-hon",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ NHÂN CÁCH CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số nhân cách",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-nhan-cach",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CHỈ SỐ THỬ THÁCH NHÂN CÁCH CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số thử thách nhân cách",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-thu-thach-nhan-cach",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CÁC CHỈ SỐ ĐIỂM YẾU CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Các chỉ số điểm yếu",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "cac-chi-so-yeu-diem",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "CÁC CHỈ SỐ NỢ NGHIỆP CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Các chỉ số nợ nghiệp",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "cac-chi-so-no-nghiep",
+    sectionType: SectionEnum.C,
+  },
+  {
+    title: "BIỂU ĐỒ SỨC MẠNH CỦA BẠN (rất quan trọng)",
+    tableOfContentTitle: "Biểu đồ sức mạnh",
+    hasTailText: false,
+    id: "bieu-do-suc-manh",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "BIỂU ĐỒ TÊN VÀ BIỂU ĐỒ TỔNG HỢP",
+    tableOfContentTitle: "Biểu đồ tên và tổng hợp",
+    hasTailText: false,
+    id: "bieu-do-ten-va-tong-hop",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ THÁI ĐỘ CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số thái độ",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-thai-do",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ NĂNG LỰC TỰ NHIÊN CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số năng lực tự nhiên",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-nang-luc-tu-nhien",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ VƯỢT KHÓ CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số vượt khó",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-vuot-kho",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ NĂNG LỰC TƯ DUY CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số năng lực tư duy",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-nang-luc-tu-duy",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ ĐỘNG LỰC TIẾP CẬN CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số động lực tiếp cận",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-dong-luc-tiep-can",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ NĂNG LỰC TIẾP CẬN CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số năng lực tiếp cận",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-nang-luc-tiep-can",
+    sectionType: SectionEnum.D,
+  },
+  {
+    title: "CHỈ SỐ THÁI ĐỘ TIẾP CẬN CỦA BẠN LÀ: ",
+    tableOfContentTitle: "Chỉ số thái độ tiếp cận",
+    hasTailText: true,
+    isVipTailText: true,
+    id: "chi-so-thai-do-tiep-can",
+    sectionType: SectionEnum.D,
+  },
+]

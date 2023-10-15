@@ -11,6 +11,6 @@ export interface INumerology {
 export interface INumerologyContent {
   blockOrder: number
   value: string
-  title: string
-  description?: string
+  title?: string
+  description: string
 }

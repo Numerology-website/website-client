@@ -51,11 +51,17 @@ export const NumerologyProvider = ({
     ])
   }
   const updateContent = (content: INumerologyContent) => {
-    setContents(
-      contents.map((item) =>
-        item.blockOrder === content.blockOrder ? content : item,
-      ),
+    const updateContentBlockOrder = content.blockOrder
+    const updateContentIndex = contents.findIndex(
+      (item) => item.blockOrder === updateContentBlockOrder,
     )
+    if (updateContentIndex === -1) {
+      return setContents([...contents, content])
+    } else {
+      const newContents = [...contents]
+      newContents[updateContentIndex] = content
+      return setContents(newContents)
+    }
   }
   const saveContents = async () => {
     const newNumerology = await PostAPI<INumerology>({
