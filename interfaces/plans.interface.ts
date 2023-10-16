@@ -1,6 +1,6 @@
 export enum EPlanType {
   OWNER = "owner",
-  MEMBER = "member",
+  KID = "kid",
 }
 
 export interface IPlan {

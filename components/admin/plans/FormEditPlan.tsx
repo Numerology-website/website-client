@@ -131,7 +131,7 @@ export const FormEditPlan: FC<IFormEditPlan> = ({ plan }) => {
             helperText={errors.type?.message}
           >
             <option value={EPlanType.OWNER}>Cho chính mình</option>
-            <option value={EPlanType.MEMBER}>Cho con</option>
+            <option value={EPlanType.KID}>Cho con</option>
           </Select>
         </div>
       </div>
