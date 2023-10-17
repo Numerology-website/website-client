@@ -61,4 +61,30 @@ export const KidNumerologyService = {
       throw error
     }
   },
+  async updateContent({
+    description,
+    value,
+    numerologyId,
+    accessToken,
+    blockOrder,
+    title,
+  }: {
+    description: string
+    value: string
+    numerologyId: string
+    accessToken: string
+    blockOrder: number
+    title: string
+  }) {
+    try {
+      await PostAPI({
+        url: `/admin/kid-numerology/${numerologyId}/content`,
+        method: "PATCH",
+        accessToken,
+        body: { title, description, value, blockOrder },
+      })
+    } catch (error) {
+      throw error
+    }
+  },
 }

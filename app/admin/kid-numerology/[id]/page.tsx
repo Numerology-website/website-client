@@ -40,6 +40,24 @@ export default async function EditKidNumerologyPage({
           </Link>
         </div>
       </div>
+      <div className="rounded-lg bg-white p-2">
+        <div className="flex justify-between">
+          <h3 className="border-b border-solid border-gray-100">
+            Sửa nội dung
+          </h3>
+        </div>
+        <div className="my-2 flex flex-col gap-2 border-b border-solid border-gray-100">
+          {document.contents.map((content, index) => (
+            <Link
+              key={index}
+              href={`/admin/kid-numerology/${document.id}/${content.blockOrder}`}
+              className="hover:underline"
+            >
+              {index + 1}. {content.tableOfContentTitle}
+            </Link>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

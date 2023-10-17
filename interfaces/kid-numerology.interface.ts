@@ -6,7 +6,7 @@ export type TKidNumerology = {
   description: string
   matchNumerology: TKidNumerologyInteract
   againstNumerology: TKidNumerologyInteract
-  content: KidNumerologyContent[]
+  contents: KidNumerologyContent[]
   created_by: IUsers
 }
 
@@ -29,5 +29,7 @@ type KidNumerologyContent = {
   blockOrder: number
   value: string
   title: string
+  tableOfContentTitle: string
+  id: string
   description: string
 }

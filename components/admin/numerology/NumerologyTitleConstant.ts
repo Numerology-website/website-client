@@ -1,8 +1,11 @@
-enum SectionEnum {
+export enum SectionEnum {
   A = "A",
   B = "B",
   C = "C",
   D = "D",
+  E = "E",
+  F = "F",
+  G = "G",
 }
 export type TNumerologyTitleConstant = {
   title: string
