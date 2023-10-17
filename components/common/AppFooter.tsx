@@ -1,111 +1,85 @@
-import { BeakerIcon } from "@heroicons/react/24/solid";
-
+import Link from "next/link"
+import { BiLogoTiktok } from "react-icons/bi"
+import { AiOutlineTwitter, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
+import { LiaPinterest } from "react-icons/lia"
+import { IoLogoTwitch } from "react-icons/io"
 function AppFooter() {
   return (
     <>
-      <div className="font-arial h-max bg-indigo-950 pb-5 pt-14">
-        <div className="container mx-auto flex w-[1230px] justify-between text-white">
-          <div className="mb-[21px] w-[380px] px-[15px]">
-            <img
-              className="w-[300px]"
-              src="https://tracuuthansohoc.com/wp-content/uploads/2021/04/logo-text.png"
-              alt=""
-            />
+      <div className="bg-[#15143e] bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/footer-bg.png')] bg-center bg-no-repeat pb-[20px]  pt-[55px]">
+        <div className="mx-auto mb-0 flex w-[100%] max-w-[1230px] flex-col flex-wrap text-white md:flex-row">
+          <div className="relative mb-6 w-[100%] max-w-[33.33%] basis-[33.33%] p-[0_15px_30px] pb-0">
+            <Link href="/" className="mb-[30px] max-w-[300px]">
+              <img
+                className="mb-8 w-[300px]"
+                src="https://tracuuthansohoc.com/wp-content/uploads/2021/04/logo-text.png"
+                alt=""
+              />
+            </Link>
 
             <div className="mt-7">
               <div className="border-l-2 border-fuchsia-700">
                 <div className="ml-8 italic">
-                  <a href="https://www.facebook.com/tracuuthansohoc/">
+                  <Link href="https://www.facebook.com/tracuuthansohoc/">
                     Tra Cứu Thần Số Học Louis Nguyễn
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
-            <div>
-              <div className="social-icons follow-icons full-width mt-[25px] text-left">
-                <a
+            <div className="mt-[25px] text-white">
+              <div className="flex w-[100%] max-w-[100%] px-0 text-left">
+                <Link
+                  className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-black"
+                  target="_blank"
+                  type="button"
                   href="https://www.tiktok.com/@tracuuthansohoc"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  data-label="TikTok"
-                  className="icon button circle is-outline tiktok tooltip"
-                  title="Follow on TikTok"
-                  aria-label="Follow on TikTok"
-                  data-wpel-link="external"
                 >
-                  <i className="icon-tiktok"></i>
-                </a>
-                <a
-                  href="https://twitter.com/thansohocPitago"
+                  <BiLogoTiktok />
+                </Link>
+                <Link
+                  className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-[#0693e3]"
                   target="_blank"
-                  data-label="Twitter"
-                  rel="noopener noreferrer nofollow"
-                  className="icon button circle is-outline  twitter tooltip"
-                  title="Follow on Twitter"
-                  aria-label="Follow on Twitter"
+                  type="button"
+                  href="https://twitter.com/i/flow/login?redirect_after_login=%2FthansohocPitago"
                 >
-                  <i className="icon-twitter"></i>
-                </a>
-                <a
-                  href="https://www.pinterest.com/tracuuthansohocofficial/"
+                  <AiOutlineTwitter />
+                </Link>
+                <Link
+                  className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-red-600"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  data-label="Pinterest"
-                  className="icon button circle is-outline  pinterest tooltip"
-                  title="Follow on Pinterest"
-                  aria-label="Follow on Pinterest"
+                  type="button"
+                  href="https://www.pinterest.com/tracuuthansohoc/"
                 >
-                  <i className="icon-pinterest"></i>
-                </a>
-                <a
+                  <LiaPinterest />
+                </Link>
+                <Link
+                  className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-[#0693e3]"
+                  target="_blank"
+                  type="button"
                   href="https://www.linkedin.com/showcase/tracuuthansohocofficial"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  data-label="LinkedIn"
-                  className="icon button circle is-outline  linkedin tooltip"
-                  title="Follow on LinkedIn"
-                  aria-label="Follow on LinkedIn"
                 >
-                  <i className="icon-linkedin"></i>
-                </a>
-                <a
+                  <AiFillLinkedin />
+                </Link>
+                <Link
+                  className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-red-600"
+                  target="_blank"
+                  type="button"
                   href="https://www.youtube.com/channel/UCuTD16Y8UfPDKGr0OPgcmAA"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  data-label="YouTube"
-                  className="icon button circle is-outline  youtube tooltip"
-                  title="Follow on YouTube"
-                  aria-label="Follow on YouTube"
                 >
-                  <i className="icon-youtube"></i>
-                </a>
-                <a
-                  href="https://www.flickr.com/people/tracuuthansohocofficial/"
+                  <AiFillYoutube />
+                </Link>
+                <Link
+                  className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-[#9b51e0]"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  data-label="Flickr"
-                  className="icon button circle is-outline  flickr tooltip"
-                  title="Flickr"
-                  aria-label="Flickr"
-                >
-                  <i className="icon-flickr"></i>
-                </a>
-                <a
+                  type="button"
                   href="https://www.twitch.tv/tracuuthansohoc"
-                  target="_blank"
-                  data-label="Twitch"
-                  rel="noopener noreferrer nofollow"
-                  className="icon button circle is-outline twitch tooltip"
-                  title="Follow on Twitch"
-                  aria-label="Follow on Twitch"
-                  data-wpel-link="external"
                 >
-                  <i className="icon-twitch"></i>
-                </a>
+                  <IoLogoTwitch />
+                </Link>
               </div>
             </div>
           </div>
-          <div className="mb-[21px] w-[380px] px-[15px]">
+          <div className="relative mb-6 w-[100%] max-w-[33.33%] basis-[33.33%] p-[0_15px_30px] pb-0">
             <div className="mb-5">
               <span className="text-lg font-semibold">Thông tin chung</span>
             </div>
@@ -143,7 +117,7 @@ function AppFooter() {
               <p className="mb-[18px]">Đội ngũ admin</p>
             </div>
           </div>
-          <div className="mb-[21px] w-[380px] px-[15px]">
+          <div className="relative mb-6 w-[100%] max-w-[33.33%] basis-[33.33%] p-[0_15px_30px] pb-0">
             <div className="mb-5">
               <span className="text-lg font-semibold">
                 Liên hệ với chúng tôi
@@ -161,28 +135,58 @@ function AppFooter() {
                     loading="lazy"
                   ></iframe>
                 </li>
-                <li className="mb-2">
-                  {" "}
-                  <span className="devvn_icon_location"></span>Địa chỉ: 71
-                  Nguyễn Chí Thanh, Hà Nội
-                </li>
-                <li className="mb-2">Điện thoại: 0962.984.269</li>
-                <li className="mb-2">
-                  {/* <svg
+                <li className="mb-2 flex">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-5 w-5"
+                    className="mr-2 h-6 w-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                  </svg>
+                  Địa chỉ: 71 Nguyễn Chí Thanh, Hà Nội
+                </li>
+                <li className="mb-2 flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="mr-2 h-5 w-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                    />
+                  </svg>
+                  Điện thoại: 0962.984.269
+                </li>
+                <li className="mb-2 flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="mr-2 h-5 w-5"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
                     />
-                  </svg> */}
-                  Liên hệ hợp tác: tracuuthansohoc@gmail.com
+                  </svg>
+                  Liên hệ hợp tác:
+                  <Link href="mailto:tracuuthansohoc@gmail.com"></Link>
+                  tracuuthansohoc@gmail.com
                 </li>
               </ul>
               <p className="mb-4">
@@ -203,7 +207,7 @@ function AppFooter() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default AppFooter;
+export default AppFooter

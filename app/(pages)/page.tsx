@@ -9,8 +9,8 @@ export default function Home() {
       <div className="">
         <section className="overflow-hidden py-[40px]">
           <div className=" relative bg-[url('/assets/images/861-20221007022759-jydbt-1-1536x689.png.webp')] bg-cover bg-[50%_50%] bg-no-repeat opacity-100">
-            <div className="w[100%]">
-              <div className="w-[1230px ] mx-auto flex flex-wrap justify-center">
+            <div className="w-[100%]">
+              <div className="mx-auto flex w-[1230px] flex-wrap justify-center">
                 <div className=" px-[10px]">
                   <div></div>
                   <div className="  box-border block w-[100%]">

@@ -1,8 +1,18 @@
+"use client"
+
+import { Modal } from "flowbite-react"
+import Link from "next/link"
+import { useState } from "react"
+import MenuItemHeader from "./MenuItemHeader"
+
 const AppHeader = () => {
+  const [openModal, setOpenModal] = useState<string | undefined>()
+  const props = { openModal, setOpenModal }
+
   return (
     <>
-      <div className="sticky top-0 bg-white ">
-        <div className="container mx-auto flex h-[63px] w-[1230px] justify-between px-[15px] ">
+      <div className="sticky top-0 z-10 bg-white">
+        <div className="container mx-auto flex h-[63px] w-[100%] max-w-[1230px] justify-between px-[15px] ">
           <div className="my-auto flex lg:flex-1">
             <a href="#" className="">
               <img
@@ -13,399 +23,40 @@ const AppHeader = () => {
             </a>
           </div>
           {/* Mobile Right Elements */}
-          <div className="flex lg:hidden">
+          <div className=" mt-2 md:hidden ">
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              // onClick={() => setMobileMenuOpen(true)}
+              onClick={() => props.setOpenModal("default")}
             >
-              <div className="show-for-medium flex-right flex-col">
-                <ul className="mobile-nav nav nav-right ">
-                  <li className="nav-icon has-icon">
-                    <a
-                      href="#"
-                      data-open="#main-menu"
-                      data-pos="right"
-                      data-bg="main-menu-overlay"
-                      data-color=""
-                      className="is-small"
-                      aria-label="Menu"
-                      aria-controls="main-menu"
-                      aria-expanded="false"
-                    >
-                      <i className="icon-menu"></i>
-                      <span className="menu-title hide-for-small uppercase">
+              <div className="show-for-medium flex flex-col">
+                <ul>
+                  <li>
+                    <Link href="#" className="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="h-10 w-10 text-[#af3689]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                      </svg>
+                      <span className="absolute right-4 top-10  text-xs uppercase text-[#af3689]">
                         Menu
                       </span>{" "}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
             </button>
           </div>
-          {/* Mobile Right Elements */}
-          <div id="main-menu" className="flex lg:hidden">
-            <div className="sidebar-menu no-scrollbar ">
-              <ul
-                className="nav nav-sidebar nav-vertical nav-uppercase"
-                data-tab="1"
-              >
-                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-791 current_page_item menu-item-793">
-                  <a
-                    href="index-3.htm"
-                    aria-current="page"
-                    data-wpel-link="internal"
-                  >
-                    Trang Chủ
-                  </a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6082">
-                  <a href="ve-chung-toi/index-1.htm" data-wpel-link="internal">
-                    Giới thiệu
-                  </a>
-                  <ul className="sub-menu nav-sidebar-ul children">
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-6083">
-                      <a href="lien-he/index-1.htm" data-wpel-link="internal">
-                        Liên hệ
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-980">
-                  <a
-                    href="index-4.htm"
-                    data-wpel-link="external"
-                    rel="nofollow"
-                  >
-                    Tra Cứu
-                  </a>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-12738">
-                  <a
-                    href="purchase.html"
-                    data-wpel-link="external"
-                    rel="nofollow"
-                  >
-                    Mua vip
-                  </a>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1398">
-                  <a>Dịch vụ</a>
-                  <ul className="sub-menu nav-sidebar-ul children">
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4520">
-                      <a
-                        href="thansohoctrondoi/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Thần số học trọn đời
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4091">
-                      <a href="danhxung/index-1.htm" data-wpel-link="internal">
-                        Đặt tên danh xưng
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4090">
-                      <a
-                        href="tenkhaisinh/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Đặt Tên Khai Sinh
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-6525">
-                      <a
-                        href="nghenghiep/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Báo cáo định hướng nghề nghiệp
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4314">
-                      <a
-                        href="khoahocthansohoc/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Đào tạo thần số học
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7219">
-                      <a
-                        href="dattenthuonghieu/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Đặt tên thương hiệu
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4092">
-                      <a href="coaching/index-1.htm" data-wpel-link="internal">
-                        Coaching 1-1 với chuyên gia
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-6516">
-                      <a
-                        href="canbangnangluong/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Khóa học: Cân bằng năng lượng
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1935">
-                  <a href="affiliate/index-1.htm" data-wpel-link="internal">
-                    Affiliate
-                  </a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1868">
-                  <a href="kien-thuc/index-1.htm" data-wpel-link="internal">
-                    Kiến thức
-                  </a>
-                  <ul className="sub-menu nav-sidebar-ul children">
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4268">
-                      <a
-                        href="boi-tinh-yeu/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Bói Tình Yêu
-                      </a>
-                      <ul className="sub-menu nav-sidebar-ul">
-                        <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-11346">
-                          <a
-                            href="boi-tinh-yeu-theo-cung/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Bói Tình Yêu Theo Cung Hoàng Đạo
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-13447">
-                          <a
-                            href="boi-tu-vi-tinh-yeu/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Bói Tử Vi Tình Yêu
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-13448">
-                          <a
-                            href="boi-duong-tinh-duyen/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Bói Đường Tình Duyên
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-13449">
-                          <a
-                            href="boi-bai-tarot-tinh-yeu/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Bói Bài Tarot Tình Yêu
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-13450">
-                          <a
-                            href="boi-tinh-yeu-bang-bai-52-la/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Bói Tình Yêu Bằng Bài 52 Lá
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-13451">
-                          <a
-                            href="boi-tinh-yeu-bang-ten-tren-giay/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Bói Tình Yêu Bằng Tên Trên Giấy
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-9844">
-                      <a
-                        href="category/cung-hoang-dao/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Cung Hoàng Đạo
-                      </a>
-                      <ul className="sub-menu nav-sidebar-ul">
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-11598">
-                          <a
-                            href="12-cung-hoang-dao/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            12 cung hoàng đạo
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4269">
-                      <a
-                        href="xem-y-nghia-ten/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Xem Ý Nghĩa Tên
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2660">
-                      <a
-                        href="y-nghia-cac-con-so/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Ý nghĩa các con số
-                      </a>
-                      <ul className="sub-menu nav-sidebar-ul">
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1205">
-                          <a
-                            href="than-so-hoc-so-1/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 1
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1207">
-                          <a
-                            href="than-so-hoc-so-2/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 2
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1208">
-                          <a
-                            href="than-so-hoc-so-3/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 3
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1209">
-                          <a
-                            href="than-so-hoc-so-4/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 4
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1210">
-                          <a
-                            href="than-so-hoc-so-5/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 5
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1211">
-                          <a
-                            href="than-so-hoc-so-6/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 6
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1212">
-                          <a
-                            href="than-so-hoc-so-7/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 7
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1213">
-                          <a
-                            href="than-so-hoc-so-8/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 8
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1214">
-                          <a
-                            href="than-so-hoc-so-9/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 9
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-3057">
-                          <a
-                            href="than-so-hoc-so-10/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 10
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1796">
-                          <a
-                            href="y-nghia-than-so-hoc-so-11/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 11
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-3056">
-                          <a
-                            href="than-so-hoc-22/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Thần số học số 22
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-12751">
-                      <a
-                        href="category/dat-ten/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        Đặt tên
-                      </a>
-                      <ul className="sub-menu nav-sidebar-ul">
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2220">
-                          <a
-                            href="dat-ten-con-trai/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Đặt tên con trai
-                          </a>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2221">
-                          <a
-                            href="ten-con-gai/index-1.htm"
-                            data-wpel-link="internal"
-                          >
-                            Đặt tên con gái
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13445">
-                      <a
-                        href="category/disc/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        DISC
-                      </a>
-                    </li>
-                    <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13661">
-                      <a
-                        href="category/mbti/index-1.htm"
-                        data-wpel-link="internal"
-                      >
-                        MBTI
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7855">
-                  <a href="login.html" data-wpel-link="external" rel="nofollow">
-                    Đăng nhập
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="my-auto hidden text-base font-semibold text-black lg:flex lg:gap-x-12">
+          <div className="my-auto hidden text-base font-semibold text-black md:block lg:flex ">
             <ul className="justify-start">
               <li className="mr-[35px] inline-block ">
                 <a href="">Home</a>
@@ -665,7 +316,7 @@ const AppHeader = () => {
                       />
                     </svg>
                   </button>
-                  <ul className="absolute hidden border bg-white p-5 group-hover:block">
+                  <ul className="absolute hidden border bg-white p-5 pr-8 group-hover:block">
                     <li className="w-[260px]">
                       <div className="m-auto">
                         <div className="searchform-wrapper ux-search-box is-normal relative">
@@ -675,7 +326,7 @@ const AppHeader = () => {
                             action="https://beta.tracuuthansohoc.com/"
                             role="search"
                           >
-                            <div className="relative flex-row">
+                            <div className="relative flex flex-row">
                               <div className="flex-grow flex-col">
                                 <input
                                   type="search"
@@ -686,13 +337,26 @@ const AppHeader = () => {
                                   placeholder="Search&hellip;"
                                 />
                               </div>
-                              <div className="flex-col">
+                              <div className=" mr-4 flex-col">
                                 <button
                                   type="submit"
-                                  className="ux-search-submit submit-button secondary button icon mb-0"
+                                  className=" mb-0 h-[42px] w-[42px] bg-orange-500"
                                   aria-label="Submit"
                                 >
-                                  <i className="icon-search"></i>{" "}
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="mx-auto h-7 w-7 text-white"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                    />
+                                  </svg>
                                 </button>
                               </div>
                             </div>
@@ -708,6 +372,72 @@ const AppHeader = () => {
           </div>
         </div>
       </div>
+      <Modal
+        show={props.openModal === "default"}
+        onClose={() => props.setOpenModal(undefined)}
+      >
+        <Modal.Body className="fixed bottom-0 left-auto right-0 top-0 w-[300px] bg-[url(https://tracuuthansohoc.com/wp-content/themes/devvn-child/images/bg_mobile_menu.jpg)] bg-cover bg-center bg-no-repeat p-0">
+          <button
+            onClick={() => props.setOpenModal(undefined)}
+            className="absolute right-3 top-3 flex h-[30px] w-[30px] items-center justify-center bg-[#af3589]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-6 w-6 text-white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <div className="p-[30px_0]">
+            <ul className="relative flex w-[100%] list-none flex-col items-center px-[30px] pt-[30px] text-left text-white">
+              {MenuItemHeader("Home", [])}
+              {MenuItemHeader("Giới thiệu", ["Liên hệ"])}
+              {MenuItemHeader("Tra cứu", [
+                "Tra cứu thần số học",
+                "Tra cứu thần số học cho con",
+                "Tra cứu DISC",
+              ])}
+              {MenuItemHeader("Dịch vụ", [
+                "Mua vip thần số học",
+                "Mua vip thần số học cho con",
+                "Thần số học trọn đời",
+                "Đặt tên danh xưng",
+                "Đặt Tên Khai Sinh",
+                "Báo cáo định hướng nghề nghiệp",
+                "Đào tạo thần số học",
+                "Đặt tên thương hiệu",
+                "Coaching 1-1 với chuyên gia",
+                "Khóa học: Cân bằng năng lượng",
+              ])}
+              {MenuItemHeader("Blog", [
+                "Kiến thức Thần số học",
+                "DISC",
+                "Cung Hoàng Đạo",
+                "Đặt tên",
+                "Bói Tình Yêu",
+                "Ý nghĩa các con số",
+                "MBTI",
+              ])}
+              {MenuItemHeader("Affiliate", [])}
+              <li className="relative m-0 flex w-[100%] flex-row flex-wrap  p-0">
+                <div className="flex w-[100%] justify-between">
+                  <Link className="p-[13px_0] text-base font-semibold" href="">
+                    Đăng nhập
+                  </Link>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   )
 }
