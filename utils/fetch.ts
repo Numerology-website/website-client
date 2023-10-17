@@ -17,20 +17,24 @@ export const GetAPI = async <T>(path: string): Promise<T> => {
     accessToken = session.accessToken
   }
   const url = process.env.NEXT_PUBLIC_API_URL + path
-  const res = await fetch(url, {
-    next: {
-      revalidate: 2,
-    },
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-  const response = await res.json()
-  if (!res.ok) {
-    throw response.message
+  try {
+    const res = await fetch(url, {
+      next: {
+        revalidate: 0,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+    const response = await res.json()
+    if (!res.ok) {
+      throw response.message
+    }
+    return response
+  } catch (error) {
+    throw error
   }
-  return response
 }
 
 export const ClientGetAPI = async <T>(

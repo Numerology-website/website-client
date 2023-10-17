@@ -31,6 +31,11 @@ export const SidebarList = ({}) => {
       href: "/admin/numerology",
       segment: "numerology",
     },
+    {
+      name: "Kid Numerology",
+      href: "/admin/kid-numerology",
+      segment: "kid-numerology",
+    },
   ]
   return (
     <div className="px-3">

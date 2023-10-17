@@ -1,20 +1,22 @@
-"use client";
+"use client"
 
-import { countryCode, getFlagEmoji } from "@/utils/countryCode";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { signIn } from "next-auth/react";
-import { Checkbox } from "flowbite-react";
-import Link from "next/link";
+import { countryCode, getFlagEmoji } from "@/utils/countryCode"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+import { signIn } from "next-auth/react"
+import { Checkbox } from "flowbite-react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { toastify } from "@/libs/toastify"
 
 type LoginFormData = {
-  phone_number: string;
-  password: string;
-  country_code: string;
-};
+  phone_number: string
+  password: string
+  country_code: string
+}
 
-const numberRegex = /^[0-9]*$/;
+const numberRegex = /^[0-9]*$/
 const loginSchema = yup.object({
   phone_number: yup
     .string()
@@ -22,8 +24,9 @@ const loginSchema = yup.object({
     .required("Vui lòng nhập số điện thoại"),
   password: yup.string().required("Vui lòng nhập mật khẩu"),
   country_code: yup.string().required("Vui lòng chọn quốc gia"),
-});
+})
 export const LoginForm = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -35,17 +38,33 @@ export const LoginForm = () => {
       password: "",
     },
     resolver: yupResolver(loginSchema),
-  });
+  })
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
-    const { phone_number, password, country_code } = data;
-    const phoneNumber = country_code + phone_number;
+    const { phone_number, password, country_code } = data
+    const phoneNumber = country_code + phone_number
     signIn("credentials", {
-      redirect: true,
+      redirect: false,
       phone_number: phoneNumber,
       password,
       callbackUrl: "/",
-    });
-  };
+    }).then((res) => {
+      if (!res)
+        return toastify({
+          type: "error",
+          message: "Có lỗi xảy ra",
+        })
+      const { ok } = res
+
+      if (ok) {
+        router.push("/")
+      } else {
+        toastify({
+          type: "error",
+          message: "Sai số điện thoại hoặc mật khẩu",
+        })
+      }
+    })
+  }
   return (
     <>
       <form
@@ -56,7 +75,7 @@ export const LoginForm = () => {
           <div className="w-fit">
             <select
               id="countries"
-              className="bg-auth-input-gray block w-full rounded-md border  text-sm text-white"
+              className="block w-full rounded-md border bg-auth-input-gray  text-sm text-white"
               style={{ backgroundColor: "rgba(243, 246, 249, 0.36)" }}
               {...register("country_code")}
             >
@@ -73,7 +92,7 @@ export const LoginForm = () => {
 
           <div className="w-full">
             <input
-              className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+              className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
               type={"text"}
               placeholder={"Số điện thoại đăng nhập"}
               {...register("phone_number")}
@@ -82,7 +101,7 @@ export const LoginForm = () => {
           </div>
         </div>
         <input
-          className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+          className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
           type={"password"}
           placeholder={"Mật khẩu"}
           {...register("password")}
@@ -107,5 +126,5 @@ export const LoginForm = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}

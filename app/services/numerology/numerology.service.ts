@@ -8,11 +8,15 @@ import { GetAPI, PostAPI } from "@/utils/fetch"
 
 export const NumerologyService = {
   async getAllNumerology() {
-    const { items } = await GetAPI<{
-      total: number
-      items: INumerology[]
-    }>("/admin/numerology")
-    return items
+    try {
+      const { items } = await GetAPI<{
+        total: number
+        items: INumerology[]
+      }>("/admin/numerology")
+      return items
+    } catch (error) {
+      throw error
+    }
   },
   async getNumerologyById(id: string) {
     const numerologyDocument = await GetAPI<INumerology>(

@@ -8,7 +8,8 @@ export default function CreateNumerology() {
         <BackButton href="/admin/numerology" />
         <h1>Create Numerology</h1>
       </div>
-      <FormCreateNumerology />
+      <h1>This section temporary disabled</h1>
+      {/* <FormCreateNumerology /> */}
     </section>
   )
 }
