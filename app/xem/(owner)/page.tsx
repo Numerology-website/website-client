@@ -6,12 +6,14 @@ import { authOptions } from "@/utils/authOptions"
 import { getServerSession } from "next-auth"
 import Link from "next/link"
 import Image from "next/image"
+import { IUsers } from "@/interfaces/users.interface"
 
 export default async function ReaderPage() {
-  const [session, myProfile] = await Promise.all([
-    getServerSession(authOptions),
-    UserService.myProfile(),
-  ])
+  const session = await getServerSession(authOptions)
+  let myProfile: IUsers | undefined = undefined
+  if (session) {
+    myProfile = await UserService.myProfile()
+  }
   return (
     <section className="w-full bg-galaxy-pattern">
       <div className="container mx-auto px-5 md:px-0">
@@ -24,7 +26,7 @@ export default async function ReaderPage() {
               đoạn thuận lợi - khó khăn, tương hợp tình duyên, hôn nhân,...
             </p>
           </div>
-          {session ? (
+          {session && myProfile ? (
             <div className="text-center">
               <span className="text-white">
                 {myProfile.vip_turn_remain > 0 && (

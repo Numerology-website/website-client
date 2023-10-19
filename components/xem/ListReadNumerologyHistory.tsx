@@ -1,9 +1,13 @@
 import { NumerologyRecordService } from "@/app/services/numerology-records/numerology-records.service"
 import { ENumerologyRecordPlanType } from "@/interfaces/numerology-records.interface"
+import { authOptions } from "@/utils/authOptions"
 import { EyeIcon } from "@heroicons/react/24/outline"
 import moment from "moment"
+import { getServerSession } from "next-auth"
 
 export const ListReadNumerologyHistory = async () => {
+  const session = await getServerSession(authOptions)
+  if (!Boolean(session)) return <></>
   const { total, items: records } =
     await NumerologyRecordService.getReadNumerologyHistory()
   if (!Boolean(total)) return <></>
