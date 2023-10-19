@@ -16,7 +16,10 @@ export type FormEditPlanProps = {
     vnd: number
     usd: number
   }
-  discount?: number
+  discount?: {
+    vnd: number
+    usd: number
+  }
   price_after_discount?: {
     vnd: number
     usd: number
@@ -28,26 +31,23 @@ export type FormEditPlanProps = {
   online_turn?: number
 }
 
-const schema = yup.object().shape(
-  {
-    name: yup.string().required("Vui lòng nhập tên gói"),
-    full_name: yup.string().required("Vui lòng nhập tên đầy đủ gói"),
-    price: yup.object({
-      vnd: yup.number().min(0, "Please").required("Vui lòng nhập giá tiền"),
-      usd: yup.number().min(0, "Please").required("Vui lòng nhập giá tiền"),
-    }),
-    turn: yup
-      .number()
-      .min(1, "Vui lòng nhập số lượt")
-      .required("Vui lòng nhập số lượt"),
-    type: yup
-      .mixed<EPlanType>()
-      .oneOf(Object.values(EPlanType))
-      .required("Vui lòng chọn thể loại"),
-    recommend_text: yup.string(),
-  },
-  [["discount", "discount"]],
-)
+const schema = yup.object().shape({
+  name: yup.string().required("Vui lòng nhập tên gói"),
+  full_name: yup.string().required("Vui lòng nhập tên đầy đủ gói"),
+  price: yup.object({
+    vnd: yup.number().min(0, "Please").required("Vui lòng nhập giá tiền"),
+    usd: yup.number().min(0, "Please").required("Vui lòng nhập giá tiền"),
+  }),
+  turn: yup
+    .number()
+    .min(1, "Vui lòng nhập số lượt")
+    .required("Vui lòng nhập số lượt"),
+  type: yup
+    .mixed<EPlanType>()
+    .oneOf(Object.values(EPlanType))
+    .required("Vui lòng chọn thể loại"),
+  recommend_text: yup.string(),
+})
 
 interface IFormEditPlan {
   plan: IPlan
@@ -171,19 +171,34 @@ export const FormEditPlan: FC<IFormEditPlan> = ({ plan }) => {
         </div>
         <div className="mb-2 w-1/3">
           <Label htmlFor="discount" value="Discount (%)" />
-          <Controller
-            control={control}
-            name="discount"
-            render={({ field }) => (
-              <TextInput
-                id="discount"
-                placeholder="0"
-                type="number"
-                {...field}
-                onChange={(e) => field.onChange(+e.target.value)}
-              />
-            )}
-          />
+          <div className="flex flex-col gap-2">
+            <Controller
+              control={control}
+              name="discount.vnd"
+              render={({ field }) => (
+                <TextInput
+                  addon="₫"
+                  placeholder="0"
+                  type="number"
+                  {...field}
+                  onChange={(e) => field.onChange(+e.target.value)}
+                />
+              )}
+            />
+            <Controller
+              control={control}
+              name="discount.usd"
+              render={({ field }) => (
+                <TextInput
+                  addon="$"
+                  placeholder="0"
+                  type="number"
+                  {...field}
+                  onChange={(e) => field.onChange(+e.target.value)}
+                />
+              )}
+            />
+          </div>
         </div>
         <div className="mb-2 w-1/3">
           <Label htmlFor="discountPrice" value="Discount price" />
@@ -222,7 +237,7 @@ export const FormEditPlan: FC<IFormEditPlan> = ({ plan }) => {
         <div className="w-1/2">
           <Label value="Marketing text" />
           <TextInput
-            placeholder="Được mua nhiều nhất"
+            placeholder="Ex: Được mua nhiều nhất"
             {...register("recommend_text")}
           />
         </div>

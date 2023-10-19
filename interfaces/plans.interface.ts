@@ -15,8 +15,13 @@ export interface IPlan {
     vnd: number
     usd: number
   }
-  discount: number
+  discount: {
+    vnd: number
+    usd: number
+  }
   type: EPlanType
   recommend_text?: string
   gift_text?: string
+  turn: number
+  online_turn: number
 }
