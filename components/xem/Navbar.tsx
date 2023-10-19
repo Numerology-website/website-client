@@ -21,15 +21,20 @@ import { RiUserSettingsLine } from "react-icons/ri"
 
 export const NavbarWithDropdown = ({
   session,
+  isForKid = false,
 }: {
   session: Session | null
+  isForKid?: boolean
 }) => {
   const router = useRouter()
+  const background = isForKid
+    ? "from-[#592397] to-[#590491]"
+    : "from-[#001c31] to-[#17143f]"
   return (
-    <div className="bg-gradient-to-b from-[#001c31] to-[#17143f]">
+    <div className={`bg-gradient-to-b ${background}`}>
       <Navbar
         fluid
-        className="container mx-auto bg-gradient-to-b from-[#001c31] to-[#17143f]"
+        className={`container mx-auto bg-gradient-to-b ${background}`}
       >
         <Navbar.Brand href="/">
           <Image src={LogoWhiteText} alt="logo" width={180} height={50} />

@@ -1,36 +1,19 @@
 import { CopyTextButton } from "@/components/xem/CopyTextButton"
-import { NavbarWithDropdown } from "@/components/xem/Navbar"
-import { authOptions } from "@/utils/authOptions"
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid"
-import { Metadata } from "next"
-import { getServerSession } from "next-auth"
 import Image from "next/image"
 import Link from "next/link"
 
-export default async function Layout({
-  children,
+export const ReadNumerologyFooter = ({
+  isForKid = false,
 }: {
-  children: React.ReactNode
-}) {
-  const session = await getServerSession(authOptions)
+  isForKid?: boolean
+}) => {
+  const background = isForKid ? "bg-[#b450fe]" : "bg-[#15143e] bg-footer-bg"
+  const textColor = isForKid ? "text-white" : "text-[#b7b7b7]"
   return (
-    <>
-      <NavbarWithDropdown session={session} />
-      {children}
-      <Footer />
-    </>
-  )
-}
-
-export const metadata: Metadata = {
-  title: "Xem báo cáo thần số học",
-  description:
-    "Công cụ tra cứu thần số học online miễn phí được thầy Louis Nguyễn nghiên cứu sáng lập. Xem thần số học theo tên và ngày sinh của bạn ngay tại đây nhé!",
-}
-
-const Footer = () => {
-  return (
-    <footer className="bg-[#15143e] bg-footer-bg bg-[center_20px] bg-no-repeat text-white">
+    <footer
+      className={`${background} bg-[center_20px] bg-no-repeat text-white`}
+    >
       <div className="container mx-auto px-4 py-5">
         <div className="flex flex-col gap-5 md:flex-row md:gap-3">
           <div className="flex flex-col gap-1 md:w-1/3">
@@ -50,7 +33,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-4 md:w-1/3">
             <h2 className="uppercase">Thông tin chuyển khoản thanh toán</h2>
-            <div className="flex flex-col gap-2 text-sm text-[#b7b7b7]">
+            <div className={`flex flex-col gap-2 text-sm ${textColor}`}>
               <p className="flex flex-col gap-1">
                 <b>- Ngân hàng Vietcombank</b>
                 <span>
@@ -67,7 +50,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-4 md:w-1/3">
             <h2 className="uppercase">Liên hệ</h2>
-            <div className="flex flex-col gap-4 text-sm text-[#b7b7b7]">
+            <div className={`flex flex-col gap-2 text-sm ${textColor}`}>
               <div className="flex items-center gap-1">
                 <PhoneIcon className="h-3 w-3" />
                 <span>

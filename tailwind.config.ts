@@ -23,6 +23,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "galaxy-pattern": "url('/assets/images/bg.jpg')",
+        "kids-bg": "url('/assets/images/bg_kid.jpeg')",
         "footer-bg": "url('/assets/images/footer-bg.png')",
         "sign-mandala-bg": "url('/assets/sign-carousel/sign-mandala-bg.png')",
         "sign-balance-bg": "url('/assets/sign-carousel/sign-balance-bg.png')",
