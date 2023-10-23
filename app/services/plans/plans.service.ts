@@ -3,7 +3,7 @@ import { FormEditPlanProps } from "@/components/admin/plans/FormEditPlan"
 import { IPlan } from "@/interfaces/plans.interface"
 import { GetAPI, PostAPI } from "@/utils/fetch"
 
-export const PlanService = {
+export const AdminPlanService = {
   async getPlans() {
     return await GetAPI<{ total: number; items: IPlan[] }>("/admin/plans")
   },
@@ -24,5 +24,11 @@ export const PlanService = {
       body,
       accessToken,
     })
+  },
+}
+
+export const PlanService = {
+  async getPlans() {
+    return await GetAPI<{ total: number; items: IPlan[] }>("/plans")
   },
 }

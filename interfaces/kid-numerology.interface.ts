@@ -33,3 +33,8 @@ type KidNumerologyContent = {
   id: string
   description: string
 }
+
+export enum EKidNumerologyPlan {
+  Vip = "Vip",
+  Free = "Free",
+}

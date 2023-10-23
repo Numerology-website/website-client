@@ -1,11 +1,11 @@
-import { PlanService } from "@/app/services/plans/plans.service"
+import { AdminPlanService } from "@/app/services/plans/plans.service"
 import { EPlanType } from "@/interfaces/plans.interface"
 import { getFormatNumber } from "@/utils/helpers"
 import { PlusIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 
 export default async function AdminPlanPage() {
-  const { items: plans } = await PlanService.getPlans()
+  const { items: plans } = await AdminPlanService.getPlans()
   const kidPlans = plans
     .filter((plan) => plan.type === EPlanType.KID)
     .sort((a, b) => a.turn - b.turn)

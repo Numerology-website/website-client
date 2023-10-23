@@ -11,7 +11,7 @@ export default async function Layout({
 }) {
   const session = await getServerSession(authOptions)
   return (
-    <section className="bg-kids-bg bg-cover">
+    <section className="bg-kids-bg bg-cover bg-top">
       <NavbarWithDropdown session={session} isForKid />
       {children}
       <ReadNumerologyFooter isForKid />

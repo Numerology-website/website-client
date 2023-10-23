@@ -4,6 +4,7 @@ import { NumerologyRecordService } from "@/app/services/numerology-records/numer
 import { TCreateNumerologyRecord } from "@/interfaces/numerology-records.interface"
 import { toastify } from "@/libs/toastify"
 import { EGenderType } from "@/utils/constant"
+import { addLeadingZero } from "@/utils/helpers"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { Checkbox, Label, Textarea } from "flowbite-react"
@@ -341,10 +342,6 @@ export const FormReadNumerology = () => {
       </button>
     </form>
   )
-}
-
-const addLeadingZero = (number: number) => {
-  return number < 10 ? `0${number}` : number
 }
 
 const genderList = [

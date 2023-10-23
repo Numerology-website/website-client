@@ -1,4 +1,4 @@
-import { PlanService } from "@/app/services/plans/plans.service"
+import { AdminPlanService } from "@/app/services/plans/plans.service"
 import { BackButton } from "@/components/admin/layout/common/BackButton"
 import { FormEditPlan } from "@/components/admin/plans/FormEditPlan"
 
@@ -8,7 +8,7 @@ interface IEditAdminPlanPage {
   }
 }
 export default async function EditAdminPlan({ params }: IEditAdminPlanPage) {
-  const plan = await PlanService.getPlan(params.id)
+  const plan = await AdminPlanService.getPlan(params.id)
   return (
     <section>
       <div className="mb-5 flex items-center gap-5">

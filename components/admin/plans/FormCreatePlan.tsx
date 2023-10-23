@@ -1,6 +1,6 @@
 "use client"
 
-import { PlanService } from "@/app/services/plans/plans.service"
+import { AdminPlanService } from "@/app/services/plans/plans.service"
 import { EPlanType } from "@/interfaces/plans.interface"
 import { toastify } from "@/libs/toastify"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -66,7 +66,7 @@ export const FormCreatePlan = () => {
     resolver: yupResolver(schema),
   })
   const onSubmit: SubmitHandler<FormCreatePlanProps> = (data) => {
-    PlanService.createPlan(data, accessToken)
+    AdminPlanService.createPlan(data, accessToken)
       .then(() => {
         toastify({
           message: "Tạo gói thành công",

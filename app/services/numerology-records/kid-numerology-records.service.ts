@@ -1,0 +1,36 @@
+import {
+  TCreateKidNumerologyRecord,
+  TKidNumerologyRecord,
+} from "@/interfaces/kid-numerology-records.interface"
+import { GetAPI, PostAPI } from "@/utils/fetch"
+
+export const KidNumerologyRecordService = {
+  async postKidNumerologyRecord(
+    numerologyRecord: TCreateKidNumerologyRecord,
+    accessToken: string,
+  ) {
+    if (!accessToken) {
+      return await PostAPI<{ expose_id: string }>({
+        url: "/kid-numerology-records/anonymous",
+        body: numerologyRecord,
+      })
+    }
+    return await PostAPI<{ expose_id: string }>({
+      url: "/kid-numerology-records",
+      body: numerologyRecord,
+      accessToken,
+    })
+  },
+  async getReadKidNumerologyById(expose_id: string) {
+    const response = await GetAPI<TKidNumerologyRecord>(
+      `/kid-numerology-records/${expose_id}`,
+    )
+    return response
+  },
+  async setReadKidNumerologyRecord(expose_id: string) {
+    const response = await PostAPI<{ message: string }>({
+      url: `/kid-numerology-records/${expose_id}/read`,
+    })
+    return response
+  },
+}

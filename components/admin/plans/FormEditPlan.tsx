@@ -5,7 +5,7 @@ import { FC } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
-import { PlanService } from "@/app/services/plans/plans.service"
+import { AdminPlanService } from "@/app/services/plans/plans.service"
 import { useSession } from "next-auth/react"
 import { toastify } from "@/libs/toastify"
 
@@ -70,7 +70,7 @@ export const FormEditPlan: FC<IFormEditPlan> = ({ plan }) => {
     resolver: yupResolver(schema),
   })
   const onSubmit: SubmitHandler<FormEditPlanProps> = (data) => {
-    PlanService.editPlan(plan.id, data, accessToken)
+    AdminPlanService.editPlan(plan.id, data, accessToken)
       .then((res) => {
         toastify({
           type: "success",
