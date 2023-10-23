@@ -7,9 +7,13 @@ export const Content = ({
 }) => {
   return (
     <div className="rounded-lg bg-[#f6f6f6] p-2">
-      <span className="text-base font-semibold uppercase">
-        {content.blockOrder + 3}. {content.title}
-      </span>
+      <div className="text-base font-semibold uppercase">
+        <span className="mr-1 inline-block">{content.blockOrder + 3}.</span>
+        <span
+          className="[&>*]:inline"
+          dangerouslySetInnerHTML={{ __html: content.title }}
+        ></span>
+      </div>
       <div
         className="text-xs italic"
         dangerouslySetInnerHTML={{ __html: content.description }}
