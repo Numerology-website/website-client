@@ -84,7 +84,7 @@ export default function UserInformation({ document }: { document: IUsers }) {
       </Modal>
       <Modal
         show={propsChangePass.openModalChangePass === "default"}
-        onClose={() => props.setOpenModal(undefined)}
+        onClose={() => propsChangePass.setOpenModalChangePass(undefined)}
       >
         <Modal.Header>
           <div className="flex text-2xl">

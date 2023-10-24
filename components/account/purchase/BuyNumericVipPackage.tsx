@@ -2,22 +2,30 @@
 import { AiFillGift } from "react-icons/ai"
 import { FaAward } from "react-icons/fa"
 import { BsCartPlusFill, BsFillQuestionCircleFill } from "react-icons/bs"
-import { Button, Tabs, Label, Radio } from "flowbite-react"
+import { Button, Tabs, Label, Radio, TabsRef } from "flowbite-react"
 import { IoDiamondSharp } from "react-icons/io5"
 import { IPlan } from "@/interfaces/plans.interface"
 import { getFormatNumber } from "@/utils/helpers"
 import { TransactionService } from "@/app/services/transactions/transaction.service"
 import { useSession } from "next-auth/react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
+import { ETransactionCurrency } from "@/interfaces/transactions.interface"
+import { toastify } from "@/libs/toastify"
 interface ITablePlan {
   documents: IPlan[]
 }
 
 type TFormBuyNumericVipPackage = {
-  planId: string
+  planVNDId: string
+  planUSDId: string
 }
+
 export default function BuyNumericVipPackage({ documents }: ITablePlan) {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [activeTab, setActiveTab] = useState<number>(0)
+  const tabsRef = useRef<TabsRef>(null)
+  const props = { setActiveTab, tabsRef }
   const [transaction, setTransaction] = useState<IPlan>()
   const { data, status } = useSession()
   let accessToken: string = ""
@@ -25,9 +33,27 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
     accessToken = data.accessToken
   }
 
-  const { register, handleSubmit } = useForm<TFormBuyNumericVipPackage>()
+  const { register, handleSubmit } = useForm<TFormBuyNumericVipPackage>({
+    defaultValues: {
+      planVNDId: documents[0]._id.toString(),
+      planUSDId: documents[0]._id.toString(),
+    },
+  })
   const onSubmit: SubmitHandler<TFormBuyNumericVipPackage> = async (data) => {
-    console.log(data)
+    let planId = data.planVNDId
+    let currencyType = ETransactionCurrency.VND
+    if (activeTab === 1) {
+      planId = data.planUSDId
+      currencyType = ETransactionCurrency.USD
+    }
+    setIsLoading(true)
+    TransactionService.createTransaction(planId, currencyType, accessToken)
+      .then(() =>
+        toastify({
+          message: "Đặt mua thành công",
+        }),
+      )
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -44,7 +70,12 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
               CHỌN MUA GÓI VIP THẦN SỐ HỌC
             </p>
           </div>
-          <Tabs.Group aria-label="Default tabs" style="default">
+          <Tabs.Group
+            ref={props.tabsRef}
+            onActiveTabChange={(tab) => props.setActiveTab(tab)}
+            aria-label="Default tabs"
+            style="default"
+          >
             <Tabs.Item active title="VND">
               <div className="border p-[10px_10px_0_10px]">
                 <div>
@@ -59,13 +90,12 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
                       >
                         <div className="mb-[10px] rounded border p-[10px] text-sm">
                           <Radio
-                            defaultChecked
-                            id={plan._id.toString()}
-                            {...register("planId")}
+                            id={plan._id.toString() + "_VND"}
+                            {...register("planVNDId")}
                             value={plan._id.toString()}
                             className="mr-1"
                           />
-                          <Label htmlFor={plan._id.toString()}>
+                          <Label htmlFor={plan._id.toString() + "_VND"}>
                             <b>{plan.name}</b>
                             <br />
                             {plan.recommend_text ? (
@@ -109,7 +139,7 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
                 </div>
               </div>
             </Tabs.Item>
-            <Tabs.Item active title="USD">
+            <Tabs.Item title="USD">
               <div className="border p-[10px_10px_0_10px]">
                 <div>
                   <fieldset
@@ -123,12 +153,12 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
                       >
                         <div className="mb-[10px] rounded border p-[10px] text-sm">
                           <Radio
-                            defaultChecked
-                            id={plan._id.toString()}
-                            {...register("planId")}
+                            id={plan._id.toString() + "_USD"}
+                            {...register("planUSDId")}
+                            value={plan._id.toString()}
                             className="mr-1"
                           />
-                          <Label htmlFor={plan._id.toString()}>
+                          <Label htmlFor={plan._id.toString() + "_USD"}>
                             <b>{plan.name}</b> {plan.id} <br />
                             {plan.recommend_text ? (
                               <div className="ml-5 flex text-xs text-blue-700">
@@ -189,7 +219,7 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
             </Tabs.Item>
           </Tabs.Group>
           <div className="mx-auto mb-[15px] mt-[10px] flex w-[100%] justify-center">
-            <Button color="blue" type="submit">
+            <Button disabled={isLoading} color="blue" type="submit">
               <div className="flex text-xl">
                 <BsCartPlusFill />
                 <p className="ml-2 text-base"> Đặt mua ngay</p>
