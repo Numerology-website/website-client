@@ -1,6 +1,11 @@
+import { UserService } from "@/app/services/users/user.service"
+import { IUsers } from "@/interfaces/users.interface"
 import Link from "next/link"
 
-export default function affiliate() {
+export default async function affiliate() {
+  let myProfile: IUsers | undefined = undefined
+  myProfile = await UserService.myProfile()
+  console.log(myProfile)
   return (
     <>
       <div className="m-0 h-5"></div>

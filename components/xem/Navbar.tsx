@@ -92,7 +92,7 @@ export const NavbarWithDropdown = ({
           >
             <Dropdown.Item>
               <Link
-                href={"/purchase"}
+                href={"/account/purchase"}
                 className="flex w-full items-center gap-2"
               >
                 <IoWater />
@@ -101,7 +101,7 @@ export const NavbarWithDropdown = ({
             </Dropdown.Item>
             <Dropdown.Item>
               <Link
-                href={"/purchase_kid"}
+                href={"/account/purchase_kid"}
                 className="flex w-full items-center gap-2"
               >
                 <FaPerson />
