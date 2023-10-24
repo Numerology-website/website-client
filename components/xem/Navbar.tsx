@@ -144,7 +144,7 @@ export const NavbarWithDropdown = ({
               </Dropdown.Item>
               <Dropdown.Item>
                 <Link
-                  href={"/purchased"}
+                  href={"/account/purchased"}
                   className="flex w-full items-center gap-2"
                 >
                   <ShoppingBagIcon className="h-4 w-4" />
