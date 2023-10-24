@@ -4,6 +4,7 @@ export enum EPlanType {
 }
 
 export interface IPlan {
+  _id: string
   id: string
   name: string
   full_name: string
