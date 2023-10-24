@@ -297,7 +297,7 @@ const AppHeader = () => {
                 <a href="">Affiliate</a>
               </li>
               <li className="mr-[35px] inline-block">
-                <a href="">Đăng nhập</a>
+                <Link href="/login">Đăng nhập</Link>
               </li>
               <li className="inline-block">
                 <div className="group relative inline-block">
@@ -429,7 +429,10 @@ const AppHeader = () => {
               {MenuItemHeader("Affiliate", [])}
               <li className="relative m-0 flex w-[100%] flex-row flex-wrap  p-0">
                 <div className="flex w-[100%] justify-between">
-                  <Link className="p-[13px_0] text-base font-semibold" href="">
+                  <Link
+                    className="p-[13px_0] text-base font-semibold"
+                    href="/login"
+                  >
                     Đăng nhập
                   </Link>
                 </div>
