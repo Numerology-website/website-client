@@ -8,6 +8,11 @@ export enum ETransactionStatus {
   CANCELLED = "CANCELLED",
 }
 
+export enum ETransactionCurrency {
+  VND = "VND",
+  USD = "USD",
+}
+
 export type TTransaction = {
   id: string
   invoice_id: string

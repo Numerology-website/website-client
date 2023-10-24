@@ -33,4 +33,11 @@ export const KidNumerologyRecordService = {
     })
     return response
   },
+  async getReadKidNumerologyHistory() {
+    const response = await GetAPI<{
+      total: number
+      items: TKidNumerologyRecord[]
+    }>("/kid-numerology-records/my")
+    return response
+  },
 }
