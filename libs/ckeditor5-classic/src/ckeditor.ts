@@ -61,7 +61,10 @@ import {
   TableProperties,
   TableToolbar,
 } from "@ckeditor/ckeditor5-table"
-import { Base64UploadAdapter } from "@ckeditor/ckeditor5-upload"
+import {
+  Base64UploadAdapter,
+  SimpleUploadAdapter,
+} from "@ckeditor/ckeditor5-upload"
 import { WordCount } from "@ckeditor/ckeditor5-word-count"
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
@@ -74,6 +77,7 @@ class Editor extends ClassicEditor {
     AutoLink,
     Autoformat,
     Base64UploadAdapter,
+    SimpleUploadAdapter,
     BlockQuote,
     Bold,
     CloudServices,
@@ -176,6 +180,9 @@ class Editor extends ClassicEditor {
         "tableCellProperties",
         "tableProperties",
       ],
+    },
+    simpleUpload: {
+      uploadUrl: "http://localhost:3001/api/upload/images",
     },
   }
 }
