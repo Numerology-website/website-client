@@ -9,10 +9,14 @@ import { getFormatNumber } from "@/utils/helpers"
 import { TransactionService } from "@/app/services/transactions/transaction.service"
 import { useSession } from "next-auth/react"
 import { useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
 interface ITablePlan {
   documents: IPlan[]
 }
 
+type TFormBuyNumericVipPackage = {
+  planId: string
+}
 export default function BuyNumericVipPackage({ documents }: ITablePlan) {
   const [transaction, setTransaction] = useState<IPlan>()
   const { data, status } = useSession()
@@ -21,9 +25,17 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
     accessToken = data.accessToken
   }
 
+  const { register, handleSubmit } = useForm<TFormBuyNumericVipPackage>()
+  const onSubmit: SubmitHandler<TFormBuyNumericVipPackage> = async (data) => {
+    console.log(data)
+  }
+
   return (
     <>
-      <form className="flex w-[100%] max-w-[99%] flex-col gap-4">
+      <form
+        className="flex w-[100%] max-w-[99%] flex-col gap-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="my-[15px] ">
           <div className="flex justify-center text-lg">
             <IoDiamondSharp />
@@ -48,12 +60,12 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
                         <div className="mb-[10px] rounded border p-[10px] text-sm">
                           <Radio
                             defaultChecked
-                            id={plan.id}
-                            name="countries"
-                            value="USA"
+                            id={plan._id.toString()}
+                            {...register("planId")}
+                            value={plan._id.toString()}
                             className="mr-1"
                           />
-                          <Label htmlFor={plan.id}>
+                          <Label htmlFor={plan._id.toString()}>
                             <b>{plan.name}</b>
                             <br />
                             {plan.recommend_text ? (
@@ -112,12 +124,11 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
                         <div className="mb-[10px] rounded border p-[10px] text-sm">
                           <Radio
                             defaultChecked
-                            id={plan.id}
-                            name="countries"
-                            value="USA"
+                            id={plan._id.toString()}
+                            {...register("planId")}
                             className="mr-1"
                           />
-                          <Label htmlFor={plan.id}>
+                          <Label htmlFor={plan._id.toString()}>
                             <b>{plan.name}</b> {plan.id} <br />
                             {plan.recommend_text ? (
                               <div className="ml-5 flex text-xs text-blue-700">
