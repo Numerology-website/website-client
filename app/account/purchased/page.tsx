@@ -1,10 +1,12 @@
 import VipPriceList from "@/components/account/purchased/VipPriceList"
 import FormOrder from "@/components/account/purchased/FormOder"
-import { KidNumerologyRecordService } from "@/app/services/numerology-records/kid-numerology-records.service"
+import { TransactionService } from "@/app/services/transactions/transaction.service"
+import { ETransactionStatus } from "@/interfaces/transactions.interface"
 
 export default async function Purchased() {
-  const response =
-    await KidNumerologyRecordService.getReadKidNumerologyHistory()
+  const response = await TransactionService.getMyTransactions(
+    ETransactionStatus.ACTIVE,
+  )
   console.log(response)
 
   return (
