@@ -11,9 +11,7 @@ export const TransactionService = {
     if (status) {
       url += `?status=${status}`
     }
-    const response = await GetAPI<{ total: number; items: TTransaction[] }>(
-      `/transactions`,
-    )
+    const response = await GetAPI<{ total: number; items: TTransaction[] }>(url)
     return response
   },
   async createTransaction(
