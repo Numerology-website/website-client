@@ -58,6 +58,27 @@ export default async function EditKidNumerologyPage({
           ))}
         </div>
       </div>
+      <div className="rounded-lg bg-white p-2">
+        <div className="flex justify-between">
+          <h3 className="border-b border-solid border-gray-100">
+            Sửa file pdf
+          </h3>
+        </div>
+        <div className="my-2 flex flex-col gap-2 border-b border-solid border-gray-100">
+          <Link
+            href={`/admin/kid-numerology/${document.id}/free-pdf`}
+            className="hover:underline"
+          >
+            1. File pdf miễn phí
+          </Link>
+          <Link
+            href={`/admin/kid-numerology/${document.id}/paid-pdf`}
+            className="hover:underline"
+          >
+            2. File pdf trả phí
+          </Link>
+        </div>
+      </div>
     </section>
   )
 }

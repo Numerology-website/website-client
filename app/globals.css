@@ -16,7 +16,7 @@
 
 @layer components {
   .btn {
-    @apply rounded-md px-4 py-2 shadow-md transition-shadow hover:opacity-80 hover:shadow-lg;
+    @apply rounded-md px-4 py-2 shadow-md transition-shadow hover:cursor-pointer hover:opacity-80 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
     @apply bg-blue-600 text-white;

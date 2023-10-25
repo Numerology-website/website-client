@@ -64,4 +64,26 @@ export const NumerologyService = {
       })
     }
   },
+  async updatePdfContent({
+    content,
+    vipPdf,
+    accessToken,
+    numerologyId,
+  }: {
+    content: string
+    vipPdf: boolean
+    accessToken: string
+    numerologyId: string
+  }) {
+    try {
+      return await PostAPI<{ message: string }>({
+        url: `/admin/numerology/${numerologyId}/pdf-content`,
+        method: "PATCH",
+        accessToken,
+        body: { content, vipPdf },
+      })
+    } catch (error) {
+      throw error
+    }
+  },
 }

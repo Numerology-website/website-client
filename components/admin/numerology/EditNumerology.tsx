@@ -20,7 +20,7 @@ interface IEditSectionProps {
 
 export const EditNumerology = ({ id }: IEditSectionProps) => {
   return (
-    <>
+    <div className="flex flex-col gap-2 rounded-lg bg-white p-2">
       {NumerologyTitleConstant.map((number, index) => (
         <Link
           href={`/admin/numerology/${id}/${index}`}
@@ -30,6 +30,6 @@ export const EditNumerology = ({ id }: IEditSectionProps) => {
           {index + 1}. {number.tableOfContentTitle}
         </Link>
       ))}
-    </>
+    </div>
   )
 }

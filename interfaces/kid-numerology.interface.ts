@@ -8,6 +8,8 @@ export type TKidNumerology = {
   againstNumerology: TKidNumerologyInteract
   contents: KidNumerologyContent[]
   created_by: IUsers
+  free_pdf: string
+  paid_pdf: string
 }
 
 export type TKidNumerologyInteract = {
