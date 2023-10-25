@@ -7,30 +7,28 @@ import { PlanService } from "@/app/services/plans/plans.service"
 import { EPlanType } from "@/interfaces/plans.interface"
 import { TransactionService } from "@/app/services/transactions/transaction.service"
 import TableMyTransaction from "@/components/account/purchase/TableMyTransaction"
-export default async function Purchase() {
+export default async function PurchaseKid() {
   const { items: plans } = await PlanService.getPlans()
-  const adultPlans = plans
-    .filter((plan) => plan.type === EPlanType.OWNER)
+  const kidPlans = plans
+    .filter((plan) => plan.type === EPlanType.KID)
     .sort((a, b) => a.turn - b.turn)
   const myTransaction = await TransactionService.getMyTransactions()
-
   return (
     <>
       <div className="mx-auto flex w-[100%] max-w-[99%] flex-col px-[15px] md:max-w-[1190px]">
         <div className=" flex flex-col  justify-center  p-[10px] ">
           {myTransaction.items.length === 0 ? (
             <>
-              <BuyNumericVipPackage documents={adultPlans} />
+              <BuyNumericVipPackage documents={kidPlans} />
               <PaymentTransferInformation />
             </>
           ) : (
             <>
               <TableMyTransaction documents={myTransaction.items} />
               <PaymentTransferInformation />
-              <BuyNumericVipPackage documents={adultPlans} />
+              <BuyNumericVipPackage documents={kidPlans} />
             </>
           )}
-
           <div className="my-[15px]">
             <div className="-mx-[15px] flex flex-wrap justify-center">
               <div className="relative w-[100%] max-w-[100%] basis-[100%] px-[15px] md:max-w-[50%] md:basis-[50%]">
@@ -99,7 +97,7 @@ export default async function Purchase() {
               </div>
             </div>
           </div>
-          <BuyNumericVipPackage documents={adultPlans} />
+          <BuyNumericVipPackage documents={kidPlans} />
           <div className="container mx-auto my-[15px] ">
             <div className="-mx-[15px] flex flex-wrap md:flex-row">
               <div className="relative w-[100%] max-w-[100%] basis-[100%] px-[15px] py-[5px] md:max-w-[50%] md:basis-[50%]">

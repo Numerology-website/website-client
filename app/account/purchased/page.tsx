@@ -2,19 +2,23 @@ import VipPriceList from "@/components/account/purchased/VipPriceList"
 import FormOrder from "@/components/account/purchased/FormOder"
 import { TransactionService } from "@/app/services/transactions/transaction.service"
 import { ETransactionStatus } from "@/interfaces/transactions.interface"
-
+import TableMyTransaction from "@/components/account/purchase/TableMyTransaction"
 export default async function Purchased() {
   const response = await TransactionService.getMyTransactions(
     ETransactionStatus.ACTIVE,
   )
-  console.log(response)
 
   return (
     <>
       <div className="mx-auto my-[15px] w-[100%] max-w-[99%] md:max-w-[1230px]">
-        <div className="mb-[30px] mt-5 text-center text-sm font-bold text-[#dc3545]">
-          Bạn chưa có đơn mua thành công nào!
-        </div>
+        {response.items.length === 0 ? (
+          <div className="mb-[30px] mt-5 text-center text-sm font-bold text-[#dc3545]">
+            Bạn chưa có đơn mua thành công nào!
+          </div>
+        ) : (
+          <TableMyTransaction documents={response.items} />
+        )}
+
         <div className=" flex  justify-center rounded-lg bg-[#f5f5f5] p-[10px] ">
           <FormOrder />
         </div>

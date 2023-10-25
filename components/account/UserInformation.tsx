@@ -5,14 +5,73 @@ import { FaShieldAlt } from "react-icons/fa"
 import { Modal, Button, Label, TextInput } from "flowbite-react"
 import { useState } from "react"
 import { IUsers } from "@/interfaces/users.interface"
-
+import { useSession } from "next-auth/react"
+import { UserService } from "@/app/services/users/user.service"
+import { toastify } from "@/libs/toastify"
 export default function UserInformation({ document }: { document: IUsers }) {
-  const [openModal, setOpenModal] = useState<string | undefined>()
-  const props = { openModal, setOpenModal }
+  const [firstName, setFirstName] = useState<string>(document.first_name)
+  const [lastName, setLastName] = useState<string>(document.last_name)
+  const [oldPass, setOldPass] = useState<string>("")
+  const [newPass, setNewPass] = useState<string>("")
+  const [confirmNewPass, setConfirmNewPass] = useState<string>("")
+
+  const { data, status } = useSession()
+  let accessToken: string = ""
+  if (status === "authenticated") {
+    accessToken = data.accessToken
+  }
+
+  const [openModalChangeName, setOpenModalChangeName] = useState<
+    string | undefined
+  >()
+  const propsChangeName = { openModalChangeName, setOpenModalChangeName }
   const [openModalChangePass, setOpenModalChangePass] = useState<
     string | undefined
   >()
   const propsChangePass = { openModalChangePass, setOpenModalChangePass }
+
+  const submitChangeName = () => {
+    UserService.changeName(
+      { first_name: firstName, last_name: lastName },
+      accessToken,
+    )
+      .then(() => {
+        toastify({ message: "Cập nhật thành công", type: "success" })
+        propsChangeName.setOpenModalChangeName(undefined)
+      })
+      .catch((err) => {
+        toastify({ message: err, type: "error" })
+      })
+  }
+  const submitChangePass = () => {
+    if (newPass.length < 6) {
+      return toastify({
+        message: "Lỗi! Mật khẩu phải có ít nhất 6 ký tự.",
+        type: "error",
+      })
+    }
+    if (newPass !== confirmNewPass) {
+      return toastify({
+        message: "Lỗi! Mật khẩu nhập không giống nhau.",
+        type: "error",
+      })
+    }
+    if (oldPass === "") {
+      return toastify({
+        message: "Lỗi! Chưa nhập mật khẩu cũ.",
+        type: "error",
+      })
+    }
+
+    UserService.changePassword(oldPass, newPass, accessToken)
+      .then(() => {
+        toastify({ message: "Cập nhật thành công", type: "success" })
+        propsChangePass.setOpenModalChangePass(undefined)
+      })
+      .catch((err) => {
+        toastify({ message: err, type: "error" })
+      })
+  }
   return (
     <>
       <div className="m-0 h-16"></div>
@@ -28,7 +87,7 @@ export default function UserInformation({ document }: { document: IUsers }) {
         </div>
         <div className="mt-5 text-center text-white">
           <button
-            onClick={() => props.setOpenModal("default")}
+            onClick={() => propsChangeName.setOpenModalChangeName("default")}
             className="rounded border-[#007bff] bg-[#007bff] px-3 py-2 text-base font-normal hover:bg-blue-600"
           >
             <div className="flex text-2xl">
@@ -49,8 +108,8 @@ export default function UserInformation({ document }: { document: IUsers }) {
       </div>
       <div className="m-0 h-40"></div>
       <Modal
-        show={props.openModal === "default"}
-        onClose={() => props.setOpenModal(undefined)}
+        show={propsChangeName.openModalChangeName === "default"}
+        onClose={() => propsChangeName.setOpenModalChangeName(undefined)}
       >
         <Modal.Header>
           <div className="flex text-2xl">
@@ -62,22 +121,42 @@ export default function UserInformation({ document }: { document: IUsers }) {
           <div className="space-y-6">
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="small" value="Họ và tên" />
+                <Label htmlFor="small" value="Họ" />
               </div>
               <TextInput
-                id="small"
                 sizing="sm"
                 type="text"
-                defaultValue={document.full_name}
+                defaultValue={document.first_name}
+                onChange={(event) => {
+                  setFirstName(event.target.value)
+                }}
+              />
+            </div>
+          </div>
+          <div className="space-y-6">
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="small" value="Tên" />
+              </div>
+              <TextInput
+                sizing="sm"
+                type="text"
+                defaultValue={document.last_name}
+                onChange={(event) => {
+                  setLastName(event.target.value)
+                }}
               />
             </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button color="success" onClick={() => props.setOpenModal(undefined)}>
+          <Button color="success" onClick={() => submitChangeName()}>
             Sửa thông tin
           </Button>
-          <Button color="failure" onClick={() => props.setOpenModal(undefined)}>
+          <Button
+            color="failure"
+            onClick={() => propsChangeName.setOpenModalChangeName(undefined)}
+          >
             Đóng
           </Button>
         </Modal.Footer>
@@ -98,27 +177,42 @@ export default function UserInformation({ document }: { document: IUsers }) {
               <div className="mb-2 block">
                 <Label htmlFor="small" value="Nhập mật khẩu cũ" />
               </div>
-              <TextInput id="small" sizing="sm" type="text" />
+              <TextInput
+                sizing="sm"
+                type="password"
+                onChange={(event) => {
+                  setOldPass(event.target.value)
+                }}
+              />
             </div>
             <div>
               <div className="mb-2 block">
                 <Label htmlFor="small" value="Nhập mật khẩu mới" />
               </div>
-              <TextInput id="small" sizing="sm" type="text" />
+              <TextInput
+                sizing="sm"
+                type="password"
+                onChange={(event) => {
+                  setNewPass(event.target.value)
+                }}
+              />
             </div>
             <div>
               <div className="mb-2 block">
                 <Label htmlFor="small" value="Nhập lại mật khẩu mới" />
               </div>
-              <TextInput id="small" sizing="sm" type="text" />
+              <TextInput
+                sizing="sm"
+                type="password"
+                onChange={(event) => {
+                  setConfirmNewPass(event.target.value)
+                }}
+              />
             </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button
-            color="success"
-            onClick={() => propsChangePass.setOpenModalChangePass(undefined)}
-          >
+          <Button color="success" onClick={() => submitChangePass()}>
             Đổi mật khẩu
           </Button>
           <Button
