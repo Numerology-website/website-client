@@ -15,11 +15,19 @@ export default async function affiliate() {
         </div>
         <div className="m-0 mt-5 p-0 text-left">
           <p className="mb-4">1. Link giới thiệu của bạn:</p>
-          <p className="mb-4 ml-[10px] font-bold">
-            Bạn phải là người đã xem luận giải đầy đủ (mua ít nhất 1 lần tra cứ
-            VIP hoặc PDF báo cáo) để được cấp mã giới thiệu tracuuthansohoc và
-            được nhận chính sách cùng lợi ích về tài chính cho bạn.
-          </p>
+
+          {myProfile.can_affiliate === true ? (
+            <p className="mb-4 ml-[10px] font-bold">
+              {" "}
+              https://tracuuthansohoc.com/affiliate?={myProfile.affiliate_id}
+            </p>
+          ) : (
+            <p className="mb-4 ml-[10px] font-bold">
+              Bạn phải là người đã xem luận giải đầy đủ (mua ít nhất 1 lần tra
+              cứ VIP hoặc PDF báo cáo) để được cấp mã giới thiệu tracuuthansohoc
+              và được nhận chính sách cùng lợi ích về tài chính cho bạn.
+            </p>
+          )}
           <p className="mb-4 mt-6">
             2. Xem chính sách nhận hoa hồng ở link sau:{" "}
             <Link className="text-[#007bff] no-underline" href="/affiliate">

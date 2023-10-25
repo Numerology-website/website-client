@@ -19,5 +19,7 @@ export type TTransaction = {
   customer: IUsers
   plan: IPlan
   status: ETransactionStatus
+  currency: ETransactionCurrency
   created_at: string
+  updated_at: string
 }
