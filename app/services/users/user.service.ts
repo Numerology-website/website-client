@@ -9,13 +9,17 @@ export const UserService = {
     const response = await GetAPI<IUsers>("/users/me")
     return response
   },
-  async changePassword(password: string, accessToken: string): Promise<string> {
+  async changePassword(
+    oldPassword: string,
+    newPassword: string,
+    accessToken: string,
+  ): Promise<string> {
     try {
       return await PostAPI<string>({
         url: "/users/password",
         method: "PATCH",
         accessToken,
-        body: { password },
+        body: { old_password: oldPassword, password: newPassword },
       })
     } catch (error) {
       throw error
