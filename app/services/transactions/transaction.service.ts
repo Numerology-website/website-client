@@ -30,4 +30,13 @@ export const TransactionService = {
       })
     } catch (error) {}
   },
+  async abortTransaction(transaction_id: string, accessToken: string) {
+    try {
+      return await PostAPI<TTransaction>({
+        url: `/transactions/${transaction_id}`,
+        accessToken,
+        method: "DELETE",
+      })
+    } catch (error) {}
+  },
 }
