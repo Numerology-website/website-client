@@ -6,12 +6,36 @@ import moment from "moment"
 import Link from "next/link"
 import { GiPlainCircle, GiCancel } from "react-icons/gi"
 import { getFormatNumber } from "@/utils/helpers"
-
+import { TransactionService } from "@/app/services/transactions/transaction.service"
+import { useSession } from "next-auth/react"
+import { toastify } from "@/libs/toastify"
 interface ITableTransaction {
   documents: TTransaction[]
 }
 
 export default function TableMyTransaction({ documents }: ITableTransaction) {
+  const { data, status } = useSession()
+  let accessToken: string = ""
+  if (status === "authenticated") {
+    accessToken = data.accessToken
+  }
+  const handleCancelOrder = (transactionId: string) => {
+    if (window.confirm("Bạn có chắc chắn muốn hủy đơn này?")) {
+      TransactionService.abortTransaction(transactionId, accessToken)
+        .then(() =>
+          toastify({
+            message: "Hủy đơn thành công",
+          }),
+        )
+        .catch((err) =>
+          toastify({
+            message: JSON.stringify(err),
+            type: "error",
+          }),
+        )
+    } else {
+    }
+  }
   return (
     <>
       <div className="my-[10px]">
@@ -84,7 +108,7 @@ export default function TableMyTransaction({ documents }: ITableTransaction) {
                   </div>
                 </Table.Cell>
                 <Table.Cell className="whitespace-nowrap p-3 font-medium dark:text-white">
-                  <div className="flex w-[100%] flex-col justify-center">
+                  <div className="flex w-[100%] flex-col justify-center text-center">
                     <b>
                       {item.currency === "VND"
                         ? getFormatNumber(item.plan.price_after_discount.vnd)
@@ -93,18 +117,19 @@ export default function TableMyTransaction({ documents }: ITableTransaction) {
                             "USD",
                           )}
                     </b>
-
-                    <span className="mt-5 flex cursor-pointer text-xs text-red-600">
-                      <div className="mr-1 mt-[0.15rem]">
-                        <GiCancel />
-                      </div>
-                      <p> Hủy mua</p>
-                    </span>
-                    {/* <Button color="success">
-                      <div className="flex justify-center text-base">
-                        <p className="ml-2 text-xs font-bold"> Xem trước</p>
-                      </div>
-                    </Button> */}
+                    {item.status === "ACTIVE" ? (
+                      <></>
+                    ) : (
+                      <span
+                        onClick={() => handleCancelOrder(item.id)}
+                        className="mt-5 flex w-[100%] cursor-pointer justify-center text-xs text-red-600"
+                      >
+                        <div className="mr-1 mt-[0.15rem]">
+                          <GiCancel />
+                        </div>
+                        <p> Hủy mua</p>
+                      </span>
+                    )}
                   </div>
                 </Table.Cell>
               </Table.Row>
