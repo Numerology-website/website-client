@@ -14,13 +14,13 @@ const AppHeader = () => {
       <div className="sticky top-0 z-10 bg-white">
         <div className="container mx-auto flex h-[63px] w-[100%] max-w-[1230px] justify-between px-[15px] ">
           <div className="my-auto flex lg:flex-1">
-            <a href="#" className="">
+            <Link href="#" className="">
               <img
                 className="w-[148px] "
                 src="https://tracuuthansohoc.com/wp-content/uploads/2023/02/logo-color-min.png"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
           {/* Mobile Right Elements */}
           <div className=" mt-2 md:hidden ">
@@ -59,12 +59,14 @@ const AppHeader = () => {
           <div className="my-auto hidden text-base font-semibold text-black md:block lg:flex ">
             <ul className="justify-start">
               <li className="mr-[35px] inline-block ">
-                <a href="">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li className="mr-[35px] inline-block">
                 <div className="group relative inline-block">
                   <button className="  inline-flex items-center rounded font-semibold">
-                    <a className="mr-1">Giới thiệu</a>
+                    <Link href="/ve-chung-toi" className="mr-1">
+                      Giới thiệu
+                    </Link>
                     <svg
                       className="h-4 w-4 fill-current"
                       xmlns="http://www.w3.org/2000/svg"
@@ -75,12 +77,12 @@ const AppHeader = () => {
                   </button>
                   <ul className="absolute hidden border bg-white pt-1 group-hover:block">
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/lien-he"
                       >
                         Liên hệ
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -88,7 +90,9 @@ const AppHeader = () => {
               <li className="mr-[35px] inline-block">
                 <div className="group relative inline-block">
                   <button className="  inline-flex items-center rounded font-semibold">
-                    <a className="mr-1">Tra cứu</a>
+                    <Link href="/xem" className="mr-1">
+                      Tra cứu
+                    </Link>
                     <svg
                       className="h-4 w-4 fill-current"
                       xmlns="http://www.w3.org/2000/svg"
@@ -99,29 +103,29 @@ const AppHeader = () => {
                   </button>
                   <ul className="absolute hidden border bg-white pt-1 group-hover:block">
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className="  mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/xem"
                       >
                         Tra cứu thần số học
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/xem/kids"
                       >
                         Thần số học cho con
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block px-[5px] py-[15px]  hover:text-fuchsia-800"
-                        href="lien-he/index-1.htm"
+                        href="/test-nghe-nghiep-disc"
                       >
                         {" "}
                         Tra cứu DISC
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -129,7 +133,7 @@ const AppHeader = () => {
               <li className="mr-[35px] inline-block">
                 <div className="group relative inline-block">
                   <button className="  inline-flex items-center rounded font-semibold">
-                    <a className="mr-1">Dịch vụ</a>
+                    <div className="mr-1">Dịch vụ</div>
                     <svg
                       className="h-4 w-4 fill-current"
                       xmlns="http://www.w3.org/2000/svg"
@@ -140,76 +144,94 @@ const AppHeader = () => {
                   </button>
                   <ul className="absolute hidden border bg-white pt-1 group-hover:block">
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="account/purchase"
+                      >
+                        {" "}
+                        Mua vip thần số học
+                      </Link>
+                    </li>
+                    <li className="w-[260px]">
+                      <Link
+                        className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
+                        href="account/purchase_kid"
+                      >
+                        {" "}
+                        Mua vip thần số học cho con
+                      </Link>
+                    </li>
+                    <li className="w-[260px]">
+                      <Link
+                        className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
+                        href="/than-so-hoc-tron-doi"
                       >
                         {" "}
                         Thần số học trọn đời
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/danh-xung"
                       >
                         {" "}
                         Đặt tên danh xưng
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/ten-khai-sinh"
                       >
                         {" "}
                         Đặt Tên Khai Sinh
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/nghe-nghiep"
                       >
                         {" "}
                         Báo cáo định hướng nghề nghiệp
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/khoa-hoc-than-so-hoc"
                       >
                         {" "}
                         Đào tạo thần số học
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/dat-ten-thuong-hieu"
                       >
                         {" "}
                         Đặt tên thương hiệu
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/coaching"
                       >
                         {" "}
                         Coaching 1-1 với chuyên gia
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/can-bang-nang-luong"
                       >
                         {" "}
                         Khóa học: Cân bằng năng lượng
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -217,7 +239,9 @@ const AppHeader = () => {
               <li className="mr-[35px] inline-block">
                 <div className="group relative inline-block">
                   <button className="  inline-flex items-center rounded font-semibold">
-                    <a className="mr-1">Blog</a>
+                    <Link href="" className="mr-1">
+                      Blog
+                    </Link>
                     <svg
                       className="h-4 w-4 fill-current"
                       xmlns="http://www.w3.org/2000/svg"
@@ -228,76 +252,76 @@ const AppHeader = () => {
                   </button>
                   <ul className="absolute hidden border bg-white pt-1 group-hover:block">
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         Kiến thức thần số học
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         DISC
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         Cung hoàng đạo
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         Đặt tên
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         Bói tình yêu
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px] ">
-                      <a
+                      <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         Ý nghĩa các con số
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-[260px]  ">
-                      <a
+                      <Link
                         className=" mx-[10px] block px-[5px] py-[15px]  hover:text-fuchsia-800 "
                         href="lien-he/index-1.htm"
                       >
                         {" "}
                         MBTI
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
               </li>
               <li className="mr-[35px] inline-block">
-                <a href="">Affiliate</a>
+                <Link href="/affiliate">Affiliate</Link>
               </li>
               <li className="mr-[35px] inline-block">
-                <Link href="/login">Đăng nhập</Link>
+                <Link href="/xem">Đăng nhập</Link>
               </li>
               <li className="inline-block">
                 <div className="group relative inline-block">

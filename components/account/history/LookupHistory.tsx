@@ -40,26 +40,29 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
             />
           </div>
         </div>
+
         <div className="overflow-y-auto overflow-x-hidden p-[10px]">
-          <Table className="">
-            <Table.Head>
-              <Table.HeadCell className="w-[10%] bg-[#86cfda] text-center">
-                #
-              </Table.HeadCell>
-              <Table.HeadCell className="bg-[#86cfda] text-center">
-                {" "}
-                Lịch sử tra cứu
-              </Table.HeadCell>
-              <Table.HeadCell className="w-[20%] bg-[#86cfda] text-center">
-                {" "}
-                PDF báo cáo
-              </Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y text-black">
-              {documents.length === 0 ? (
-                <></>
-              ) : (
-                documents.map(
+          {documents.length === 0 ? (
+            <p className="mb-[10px] mt-5 text-center text-red-600">
+              Chưa có lượt tra cứu nào!
+            </p>
+          ) : (
+            <Table className="">
+              <Table.Head>
+                <Table.HeadCell className="w-[10%] bg-[#86cfda] text-center">
+                  #
+                </Table.HeadCell>
+                <Table.HeadCell className="bg-[#86cfda] text-center">
+                  {" "}
+                  Lịch sử tra cứu
+                </Table.HeadCell>
+                <Table.HeadCell className="w-[20%] bg-[#86cfda] text-center">
+                  {" "}
+                  PDF báo cáo
+                </Table.HeadCell>
+              </Table.Head>
+              <Table.Body className="divide-y text-black">
+                {documents.map(
                   (
                     item: {
                       title: string
@@ -98,10 +101,10 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
                       </Table.Cell>
                     </Table.Row>
                   ),
-                )
-              )}
-            </Table.Body>
-          </Table>
+                )}
+              </Table.Body>
+            </Table>
+          )}
         </div>
       </div>
       <Modal
