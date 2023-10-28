@@ -216,7 +216,7 @@ const InteractionContent = ({
   if (!match) {
     return (
       <div className="flex flex-col items-center justify-center text-center">
-        <div className="max-h-[90px] w-1/2">
+        <div className="max-h-[90px] w-1/2 md:w-1/3">
           <Image
             src={"/assets/images/kid-numerology/against.png"}
             width={0}
@@ -232,7 +232,7 @@ const InteractionContent = ({
   }
   return (
     <div className="flex flex-col items-center justify-center text-center">
-      <div className="max-h-[90px] w-1/2">
+      <div className="max-h-[90px] w-1/2 md:w-1/3">
         <Image
           src={"/assets/images/kid-numerology/match.png"}
           width={0}

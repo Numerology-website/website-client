@@ -1,4 +1,5 @@
 import { FormReadKidNumerology } from "@/components/xem/kid/FormReadKidNumerology"
+import { ListReadKidNumerologyHistory } from "@/components/xem/kid/ListReadKidNumerologyHistory"
 import Image from "next/image"
 
 export default function ReadKidsNumerology() {
@@ -34,6 +35,7 @@ export default function ReadKidsNumerology() {
       </div>
       <div className="px-2">
         <FormReadKidNumerology />
+        <ListReadKidNumerologyHistory />
       </div>
     </div>
   )

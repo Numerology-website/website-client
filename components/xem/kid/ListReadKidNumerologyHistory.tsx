@@ -1,16 +1,15 @@
-import { NumerologyRecordService } from "@/app/services/numerology-records/numerology-records.service"
-import { ButtonShowModalPdf } from "@/components/xem/ButtonShowModalPdf"
-import { ENumerologyRecordPlanType } from "@/interfaces/numerology-records.interface"
+import { KidNumerologyRecordService } from "@/app/services/numerology-records/kid-numerology-records.service"
+import { EKidNumerologyPlan } from "@/interfaces/kid-numerology.interface"
 import { authOptions } from "@/utils/authOptions"
-import { EyeIcon } from "@heroicons/react/24/outline"
 import moment from "moment"
 import { getServerSession } from "next-auth"
+import Link from "next/link"
 
-export const ListReadNumerologyHistory = async () => {
+export const ListReadKidNumerologyHistory = async () => {
   const session = await getServerSession(authOptions)
   if (!Boolean(session)) return <></>
   const { total, items: records } =
-    await NumerologyRecordService.getReadNumerologyHistory()
+    await KidNumerologyRecordService.getReadKidNumerologyHistory()
   if (!Boolean(total)) return <></>
   return (
     <div className="max-h-[450px] w-full overflow-y-scroll bg-white p-2">
@@ -23,9 +22,6 @@ export const ListReadNumerologyHistory = async () => {
             <th scope="col" className="px-6 py-3">
               Lịch sử tra cứu
             </th>
-            <th scope="col" className="px-6 py-3">
-              PDF báo cáo
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -34,10 +30,13 @@ export const ListReadNumerologyHistory = async () => {
               <td>{index + 1}</td>
               <td>
                 <div className="flex flex-col">
-                  <b>
+                  <Link
+                    href={"/xem/kids/" + item.expose_id}
+                    className="font-bold hover:underline"
+                  >
                     {item.full_name} -{" "}
                     {moment(item.birthday).format("DD/MM/YYYY")}
-                  </b>
+                  </Link>
                   <i>
                     Thời gian:{" "}
                     {moment(item.created_at).format("YYYY-MM-DD hh:mm:ss")}
@@ -47,9 +46,6 @@ export const ListReadNumerologyHistory = async () => {
                     <b className="text-red-600">{translate(item.plan)}</b>
                   </span>
                 </div>
-              </td>
-              <td>
-                <ButtonShowModalPdf url={item.pdf_url} />
               </td>
             </tr>
           ))}
@@ -61,12 +57,10 @@ export const ListReadNumerologyHistory = async () => {
 
 const translate = (key: string) => {
   switch (key) {
-    case ENumerologyRecordPlanType.Free:
+    case EKidNumerologyPlan.Free:
       return "Miễn phí"
-    case ENumerologyRecordPlanType.Vip:
+    case EKidNumerologyPlan.Vip:
       return "Vip"
-    case ENumerologyRecordPlanType.OnlineVip:
-      return "Xem online"
     default:
       return key
   }

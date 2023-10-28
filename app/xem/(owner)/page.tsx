@@ -62,6 +62,7 @@ export default async function ReaderPage() {
                   href={"/purchase"}
                   className="text-[#007bFF] hover:underline"
                 >
+                  {" "}
                   tại đây
                 </Link>
               )}

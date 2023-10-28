@@ -70,6 +70,9 @@ export const NumerologyData = ({ record }: { record: TNumerologyRecord }) => {
         })}
       </div>
       {isFreePlan && <VipUpgradeRecommend />}
+      <div className="mx-auto mt-10 h-[300px] w-1/2">
+        <embed src={record.pdf_url} width="100%" height="100%" />
+      </div>
       <div className="fixed bottom-1 right-1 z-10">
         <TableOfContentButton />
       </div>

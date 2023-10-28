@@ -27,6 +27,7 @@ export type TKidNumerologyRecord = {
   numerology: TKidNumerology
   user?: IUsers
   plan: EKidNumerologyPlan
+  pdf_url: string
   relation: {
     father: {
       is_match: boolean
@@ -43,4 +44,5 @@ export type TKidNumerologyRecord = {
       birthday: string
     }
   }
+  created_at: string
 }

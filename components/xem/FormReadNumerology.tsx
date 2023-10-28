@@ -175,7 +175,7 @@ export const FormReadNumerology = () => {
           : undefined,
     }
     NumerologyRecordService.postNumerologyRecord(_data, accessToken)
-      .then((res) => router.push(`/xem/result/${res.expose_id}`))
+      .then((res) => router.push(`/xem/${res.expose_id}`))
       .catch((err) => toastify({ type: "error", message: err }))
   }
   return (

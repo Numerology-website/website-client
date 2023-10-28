@@ -7,10 +7,7 @@ import { PartFKidNumerology } from "@/components/xem/kid/result/PartFKidNumerolo
 import { PartGKidNumerology } from "@/components/xem/kid/result/PartGKidNumerology"
 import { KidVipUpgradeRecommend } from "@/components/xem/result/VipUpgradeRecommend"
 import { TKidNumerologyRecord } from "@/interfaces/kid-numerology-records.interface"
-import {
-  EKidNumerologyPlan,
-  EKidNumerologySectionType,
-} from "@/interfaces/kid-numerology.interface"
+import { EKidNumerologyPlan } from "@/interfaces/kid-numerology.interface"
 import moment from "moment"
 
 export type TGroupRecordBySectionType = {
@@ -40,7 +37,7 @@ export const KidNumerologyData = ({
     {},
   )
   return (
-    <section className="flex flex-col gap-5 pb-10 pt-5">
+    <section className="container mx-auto flex flex-col gap-5 pb-10 pt-5">
       <div className="flex flex-col text-center text-yellow-200">
         <span className="mb-2 font-bold uppercase">
           Báo cáo thần số học cho con
@@ -64,6 +61,9 @@ export const KidNumerologyData = ({
       <PartFKidNumerology contents={groupRecordBySectionType.F} />
       <PartGKidNumerology contents={groupRecordBySectionType.G} />
       {isFreePlan && <KidVipUpgradeRecommend />}
+      <div className="mx-auto mt-10 h-[300px] w-1/2">
+        <embed src={record.pdf_url} width="100%" height="100%" />
+      </div>
     </section>
   )
 }
