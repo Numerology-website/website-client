@@ -27,7 +27,7 @@ export type TCreateBlog = {
   description: string
   status?: EBlogStatus
   type: EBlogType
-  is_show_on_navbar: boolean
+  is_show_on_navbar?: boolean
   category?: EBlogType[]
   is_top?: boolean
   is_highlight?: boolean

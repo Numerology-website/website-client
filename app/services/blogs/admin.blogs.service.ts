@@ -1,5 +1,6 @@
 import { TBlog, TCreateBlog } from "@/interfaces/blogs.interface"
 import { GetAPI, PostAPI } from "@/utils/fetch"
+import { FormEditBlogProps } from "@/components/admin/blogs/FormEditBlog"
 
 export const AdminBlogService = {
   async uploadThumbnail(
@@ -30,6 +31,14 @@ export const AdminBlogService = {
       throw error
     }
   },
+  async getBlog(id: string) {
+    return await GetAPI<TBlog>(`/admin/blogs/${id}`)
+  },
+
+  async getBlogBySlug(slug: string) {
+    return await GetAPI<TBlog>(`/blogs/${slug}`)
+  },
+
   async createBlog(blog: TCreateBlog, accessToken: string) {
     try {
       return await PostAPI<{ message: string }>({
@@ -42,10 +51,11 @@ export const AdminBlogService = {
       throw error
     }
   },
-  async updateBlog(blog: TBlog, accessToken: string) {
+
+  async updateBlog(id: string,blog: FormEditBlogProps, accessToken: string) {
     try {
       return await PostAPI<{ message: string }>({
-        url: `/admin/blogs/${blog.id}`,
+        url: `/admin/blogs/${id}`,
         method: "PUT",
         accessToken,
         body: blog,
@@ -54,6 +64,7 @@ export const AdminBlogService = {
       throw error
     }
   },
+
   async listBlogs() {
     try {
       const { items } = await GetAPI<{ total: number; items: TBlog[] }>(
