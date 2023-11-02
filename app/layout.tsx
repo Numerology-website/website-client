@@ -1,11 +1,11 @@
 import NextAuthSessionProvider from "@/app/providers/NextAuthSessionProvider"
 import ToastifyProvider from "@/app/providers/ToastifyProvider"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+// import { Inter } from "next/font/google"
 import "react-toastify/dist/ReactToastify.css"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+// const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title:
@@ -22,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <NextAuthSessionProvider>
-        <body className={inter.className}>
+        <body>
+          {/* <body className={inter.className}> */}
           <ToastifyProvider>{children}</ToastifyProvider>
         </body>
       </NextAuthSessionProvider>
