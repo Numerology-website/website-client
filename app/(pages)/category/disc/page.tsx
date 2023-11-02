@@ -4,8 +4,8 @@ import { EBlogType } from "@/interfaces/blogs.interface"
 import { PaginatedBlogs } from "@/components/blogs/PaginatedBlogs"
 import { BlogService } from "@/app/services/blogs/blogs.service"
 
-export default async function KienThucNenTang() {
-  const blogs = await BlogService.getBlogsByType(EBlogType.KNOWLEDGE)
+export default async function Disc() {
+  const blogs = await BlogService.getBlogsByType(EBlogType.DISC)
 
   return (
     <>
@@ -14,7 +14,7 @@ export default async function KienThucNenTang() {
           <Link href="/" className="pr-1 text-[#af3689] hover:text-black">
             Trang chủ
           </Link>
-          » Kiến thức nền tảng
+          » DISC
         </div>
       </div>
       <div></div>
@@ -24,7 +24,7 @@ export default async function KienThucNenTang() {
             <div className="mx-auto flex w-full max-w-[1230px] flex-row flex-wrap">
               <div className=" m-0 block w-full basis-full p-[0_15px_30px]">
                 <h1 className="  mb-4 mt-0 text-left text-[30px] font-bold uppercase leading-[1.2]">
-                  Kiến thức nền tảng
+                  DISC
                 </h1>
                 <ul className="mt-0 flex list-none flex-wrap p-0 ">
                   <li className="mr-[10px]">
@@ -50,7 +50,7 @@ export default async function KienThucNenTang() {
           <div className="mx-auto flex w-full max-w-[1230px] flex-row flex-wrap justify-center">
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <div className="mx-[-15px] flex w-auto flex-row flex-wrap px-0">
-                <FeaturedBlogs type={EBlogType.KNOWLEDGE} />
+                <FeaturedBlogs type={EBlogType.DISC} />
               </div>
             </div>
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">

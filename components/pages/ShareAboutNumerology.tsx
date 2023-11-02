@@ -50,7 +50,7 @@ export default function ShareAboutNumerology() {
                             viết:
                             <strong>
                               <a
-                                href="than-so-hoc-la-gi/index.htm"
+                                href="/than-so-hoc-la-gi/index.htm"
                                 data-wpel-link="internal"
                               >
                                 Thần Số Học Là Gì ? Khám Phá Bản Thân Qua Những
@@ -197,7 +197,7 @@ export default function ShareAboutNumerology() {
                                 Number (Số mong muốn trái tim), hiểu được
                                 <strong>
                                   <a
-                                    href="chi-so-linh-hon/index.htm"
+                                    href="/chi-so-linh-hon/index.htm"
                                     data-wpel-link="internal"
                                   >
                                     chỉ số linh hồn
@@ -256,7 +256,7 @@ export default function ShareAboutNumerology() {
                   <Accordion.Content className="mb-[50px] border-[1px_solid_#092c49] bg-[white] p-[1em_2.3em] text-justify text-[18px] leading-[1.6] text-[black]">
                     <p className="mb-[1.3em]">
                       <strong>
-                        <Link href="con-so-chu-dao/index.htm">Số chủ đạo</Link>
+                        <Link href="/con-so-chu-dao/index.htm">Số chủ đạo</Link>
                       </strong>{" "}
                       chỉ đơn giản là rút gọn của toàn bộ ngày sinh của bạn. Số
                       đường đời này cho thấy bạn là ai và những đặc điểm mà bạn
@@ -286,7 +286,7 @@ export default function ShareAboutNumerology() {
                     <p className="mb-[1.3em]">
                       <strong>
                         <Link
-                          href="bieu-do-ngay-sinh/index.htm"
+                          href="/bieu-do-ngay-sinh/index.htm"
                           data-wpel-link="internal"
                         >
                           Biểu đồ ngày sinh
@@ -317,7 +317,7 @@ export default function ShareAboutNumerology() {
                       mình cần làm gì để mở ra những bí ẩn trong cuộc đời. Nói
                       cách khác,
                       <strong>
-                        <Link href="nam-ca-nhan-than-so-hoc/index.htm">
+                        <Link href="/nam-ca-nhan-than-so-hoc/index.htm">
                           {" "}
                           năm cá nhân trong Thần Số Học{" "}
                         </Link>
@@ -331,7 +331,7 @@ export default function ShareAboutNumerology() {
                     </p>
                     <p className="mb-[1.3em]">
                       ⏩⏩⏩ Xem ngay bài viết:
-                      <Link href="nam-the-gioi-than-so-hoc-2023/index.htm">
+                      <Link href="/nam-the-gioi-than-so-hoc-2023/index.htm">
                         <strong>
                           {" "}
                           Năm Thế Giới Thần Số Học 2023: Thức Tỉnh Linh Hồn Và
@@ -425,7 +425,7 @@ export default function ShareAboutNumerology() {
                             (Số mong muốn trái tim), hiểu được
                             <strong>
                               <a
-                                href="chi-so-linh-hon/index.htm"
+                                href="/chi-so-linh-hon/index.htm"
                                 data-wpel-link="internal"
                               >
                                 chỉ số linh hồn
@@ -468,7 +468,7 @@ export default function ShareAboutNumerology() {
                       Công cụ{" "}
                       <strong>
                         <Link
-                          href="boi-tinh-yeu/index.htm"
+                          href="/boi-tinh-yeu/index.htm"
                           data-wpel-link="internal"
                         >
                           bói tình yêu
