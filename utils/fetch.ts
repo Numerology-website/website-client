@@ -33,6 +33,9 @@ export const GetAPI = async <T>(path: string): Promise<T> => {
     }
     return response
   } catch (error) {
+    console.log("error when fetching data")
+    console.log("url: ", url)
+    console.log(error)
     throw error
   }
 }
