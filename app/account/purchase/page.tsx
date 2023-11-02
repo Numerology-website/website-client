@@ -166,36 +166,37 @@ export default async function Purchase() {
                 <em>
                   Mỗi lượt Vip được tra cho 1 người và tra lại nhiều lần cũng
                   được. Hệ thống sẽ xuất file pdf và lưu trên web, mỗi khi muốn
-                  xem lại bạn có thể tra cứu lại hoặc vào mục "
+                  xem lại bạn có thể tra cứu lại hoặc vào mục &quot;
                   <Link
                     className="text-blue-500"
                     href="https://tracuuthansohoc.com/xem-online/account?a=history"
                   >
                     Lịch sử tra cứu
                   </Link>
-                  " để tải lại file báo cáo là được.
+                  &quot; để tải lại file báo cáo là được.
                 </em>
               </div>
             </div>
             <div className="mt-[10px] rounded-xl bg-[#f6f6f6] p-[10px]">
               <div className="font-bold">
-                4. Tôi muốn xem luận giải nhiều năm ở mục "Chỉ số các năm" và
-                nhiều tháng hơn ở mục "Chỉ số các tháng" thì làm sao?
+                4. Tôi muốn xem luận giải nhiều năm ở mục &quot;Chỉ số các
+                năm&quot; và nhiều tháng hơn ở mục &quot;Chỉ số các tháng&quot;
+                thì làm sao?
               </div>
               <div className="ml-[10px] mt-[10px]">
                 Trả lời:{" "}
                 <em>
                   Bản luận giải của bạn luôn được cập nhật theo thời điểm tra
                   cứu hoặc tải về. Vì vậy, cứ mỗi 3 tháng bạn tra cứu lại hoặc
-                  vào "
+                  vào &quot;
                   <Link
                     className="text-blue-500"
                     href="https://tracuuthansohoc.com/xem-online/account?a=history"
                   >
                     Lịch sử tra cứu
                   </Link>
-                  " tải lại file pdf; bạn sẽ nhận được luận giải về 3 tháng tiếp
-                  theo của bạn. Tương tự với các chỉ số năm cũng vậy!
+                  &quot; tải lại file pdf; bạn sẽ nhận được luận giải về 3 tháng
+                  tiếp theo của bạn. Tương tự với các chỉ số năm cũng vậy!
                 </em>
               </div>
             </div>
@@ -208,15 +209,15 @@ export default async function Purchase() {
                 Trả lời:{" "}
                 <em>
                   Không. Khi có những luận giải mới được cập nhật, bạn chỉ cần
-                  tra cứu lại hoặc vào mục "
+                  tra cứu lại hoặc vào mục &quot;
                   <Link
                     className="text-blue-500"
                     href="https://tracuuthansohoc.com/xem-online/account?a=history"
                   >
                     Lịch sử tra cứu
                   </Link>
-                  " để tải lại file báo cáo là nhận được toàn bộ nội dung mới mà
-                  không mất bất kỳ một khoản phí nào.
+                  &quot; để tải lại file báo cáo là nhận được toàn bộ nội dung
+                  mới mà không mất bất kỳ một khoản phí nào.
                 </em>
               </div>
             </div>
