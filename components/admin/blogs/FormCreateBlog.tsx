@@ -5,22 +5,10 @@ import Editor from "@/components/common/Editor"
 import { EBlogStatus, EBlogType } from "@/interfaces/blogs.interface"
 import { toastify } from "@/libs/toastify"
 import { yupResolver } from "@hookform/resolvers/yup"
-import {
-  Button,
-  Label,
-  Select,
-  TextInput,
-  Textarea,
-  Radio,
-} from "flowbite-react"
+import { Button, Label, Select, TextInput, Textarea } from "flowbite-react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import {
-  Controller,
-  SubmitHandler,
-  useForm,
-  useFieldArray,
-} from "react-hook-form"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import * as yup from "yup"
 import { useState } from "react"
 export type FormCreateBlogProps = {
@@ -111,6 +99,25 @@ export const FormCreateBlog = () => {
         }),
       )
   }
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null)
+  const handleImageUpload = (image: File | null) => {
+    if (image) {
+      try {
+        AdminBlogService.uploadThumbnail(image, accessToken)
+          .then((data) => {
+            const imageUrl = data.url
+            setUploadedImageUrl(imageUrl)
+            setValue("thumbnail_img_link", imageUrl)
+          })
+          .catch((error) => {
+            console.error("Image upload failed:", error)
+          })
+      } catch (error) {
+        console.error("Image upload failed:", error)
+      }
+    }
+  }
+
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -127,12 +134,17 @@ export const FormCreateBlog = () => {
           <p className="text-sm text-red-500">{errors.slug.message}</p>
         )}
       </div>
-      <div>
-        <Label htmlFor="thumbnail_img_link" value="thumbnail_img_link" />
-        <TextInput
-          id="thumbnail_img_link"
-          placeholder="Thumbnail_img_link"
-          {...register("thumbnail_img_link")}
+      <div className="flex flex-col">
+        <Label
+          className="mb-2"
+          htmlFor="thumbnail_img_link"
+          value="Thumbnail_img_link"
+        />
+        <input
+          name="upload"
+          type="file"
+          accept="image/*"
+          onChange={(e) => handleImageUpload(e.target.files?.item(0) || null)}
         />
         {errors.thumbnail_img_link && (
           <p className="text-sm text-red-500">

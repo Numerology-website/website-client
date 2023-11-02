@@ -146,7 +146,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="account/purchase"
+                        href="/account/purchase"
                       >
                         {" "}
                         Mua vip thần số học
@@ -155,7 +155,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="account/purchase_kid"
+                        href="/account/purchase_kid"
                       >
                         {" "}
                         Mua vip thần số học cho con
@@ -254,7 +254,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/category/kien-thuc-nen-tang"
                       >
                         {" "}
                         Kiến thức thần số học
@@ -263,7 +263,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/category/disc"
                       >
                         {" "}
                         DISC
@@ -272,7 +272,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/category/cung-hoang-dao"
                       >
                         {" "}
                         Cung hoàng đạo
@@ -281,7 +281,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/category/dat-ten"
                       >
                         {" "}
                         Đặt tên
@@ -290,7 +290,7 @@ const AppHeader = () => {
                     <li className="w-[260px]">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href=""
                       >
                         {" "}
                         Bói tình yêu
@@ -299,7 +299,7 @@ const AppHeader = () => {
                     <li className="w-[260px] ">
                       <Link
                         className=" mx-[10px] block border-b px-[5px] py-[15px] hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/y-nghia-cac-con-so"
                       >
                         {" "}
                         Ý nghĩa các con số
@@ -308,7 +308,7 @@ const AppHeader = () => {
                     <li className="w-[260px]  ">
                       <Link
                         className=" mx-[10px] block px-[5px] py-[15px]  hover:text-fuchsia-800 "
-                        href="lien-he/index-1.htm"
+                        href="/category/mbti"
                       >
                         {" "}
                         MBTI
@@ -321,7 +321,7 @@ const AppHeader = () => {
                 <Link href="/affiliate">Affiliate</Link>
               </li>
               <li className="mr-[35px] inline-block">
-                <Link href="/xem">Đăng nhập</Link>
+                <Link href="/login">Đăng nhập</Link>
               </li>
               <li className="inline-block">
                 <div className="group relative inline-block">

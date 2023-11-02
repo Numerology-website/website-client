@@ -50,4 +50,8 @@ export type TBlog = {
   created_at: string
   updated_at: string
   deleted_at: string
+  user:{
+    first_name: string,
+    last_name: string,
+  }
 }

@@ -8,15 +8,15 @@ export const AdminBlogService = {
     accessToken: string,
   ): Promise<{ url: string }> {
     const formData = new FormData()
-    formData.append("name", "upload")
-    formData.append("file", file)
+    // formData.append("name", "upload")
+    formData.append("upload", file)
     try {
       const res = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/upload/images/blog",
         {
           method: "POST",
           headers: {
-            "Content-Type": "multipart/form-data",
+            // "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${accessToken}`,
           },
           body: formData,
@@ -34,11 +34,6 @@ export const AdminBlogService = {
   async getBlog(id: string) {
     return await GetAPI<TBlog>(`/admin/blogs/${id}`)
   },
-
-  async getBlogBySlug(slug: string) {
-    return await GetAPI<TBlog>(`/blogs/${slug}`)
-  },
-
   async createBlog(blog: TCreateBlog, accessToken: string) {
     try {
       return await PostAPI<{ message: string }>({

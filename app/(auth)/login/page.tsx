@@ -1,14 +1,14 @@
-import { LoginForm } from "@/components/auth/LoginForm";
-import { LogoAuth } from "@/components/auth/LogoAuth";
-import { authOptions } from "@/utils/authOptions";
-import { getServerSession } from "next-auth";
-import Link from "next/link";
-import { redirect } from "next/navigation";
+import { LoginForm } from "@/components/auth/LoginForm"
+import { LogoAuth } from "@/components/auth/LogoAuth"
+import { authOptions } from "@/utils/authOptions"
+import { getServerSession } from "next-auth"
+import Link from "next/link"
+import { redirect } from "next/navigation"
 
 export default async function LoginPage() {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions)
   if (session) {
-    redirect("/");
+    redirect("/xem")
   }
   return (
     <div className="flex max-w-[450px] flex-col items-center gap-2">
@@ -22,5 +22,5 @@ export default async function LoginPage() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

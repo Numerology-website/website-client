@@ -120,6 +120,24 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
         })
       })
   }
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null)
+  const handleImageUpload = (image: File | null) => {
+    if (image) {
+      try {
+        AdminBlogService.uploadThumbnail(image, accessToken)
+          .then((data) => {
+            const imageUrl = data.url
+            setUploadedImageUrl(imageUrl)
+            setValue("thumbnail_img_link", imageUrl)
+          })
+          .catch((error) => {
+            console.error("Image upload failed:", error)
+          })
+      } catch (error) {
+        console.error("Image upload failed:", error)
+      }
+    }
+  }
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -140,14 +158,23 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
           helperText={errors.slug?.message}
         />
       </div>
-      <div>
-        <Label htmlFor="thumbnail_img_link" value="thumbnail_img_link" />
-        <TextInput
-          id="thumbnail_img_link"
-          placeholder="Thumbnail_img_link"
-          {...register("thumbnail_img_link")}
-          helperText={errors.thumbnail_img_link?.message}
+      <div className="flex flex-col">
+        <Label
+          className="mb-2"
+          htmlFor="thumbnail_img_link"
+          value="Thumbnail_img_link"
         />
+        <input
+          name="upload"
+          type="file"
+          accept="image/*"
+          onChange={(e) => handleImageUpload(e.target.files?.item(0) || null)}
+        />
+        {errors.thumbnail_img_link && (
+          <p className="text-sm text-red-500">
+            {errors.thumbnail_img_link.message}
+          </p>
+        )}
       </div>
       <div>
         <Label htmlFor="description" value="Mô tả" />
@@ -238,8 +265,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
                 <label>
                   <input
                     type="radio"
-                    onBlur={onBlur} // notify when input is touched
-                    onChange={() => onChange(true)} // send value to hook form
+                    onBlur={onBlur}
+                    onChange={() => onChange(true)}
                     checked={value === true}
                     ref={ref}
                   />{" "}
@@ -248,8 +275,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
                 <label>
                   <input
                     type="radio"
-                    onBlur={onBlur} // notify when input is touched
-                    onChange={() => onChange(false)} // send value to hook form
+                    onBlur={onBlur}
+                    onChange={() => onChange(false)}
                     checked={value === false}
                     ref={ref}
                   />{" "}
@@ -270,8 +297,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
                 <label>
                   <input
                     type="radio"
-                    onBlur={onBlur} // notify when input is touched
-                    onChange={() => onChange(true)} // send value to hook form
+                    onBlur={onBlur}
+                    onChange={() => onChange(true)}
                     checked={value === true}
                     ref={ref}
                   />{" "}
@@ -280,8 +307,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
                 <label>
                   <input
                     type="radio"
-                    onBlur={onBlur} // notify when input is touched
-                    onChange={() => onChange(false)} // send value to hook form
+                    onBlur={onBlur}
+                    onChange={() => onChange(false)}
                     checked={value === false}
                     ref={ref}
                   />{" "}
@@ -301,8 +328,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
                 <label>
                   <input
                     type="radio"
-                    onBlur={onBlur} // notify when input is touched
-                    onChange={() => onChange(true)} // send value to hook form
+                    onBlur={onBlur}
+                    onChange={() => onChange(true)}
                     checked={value === true}
                     ref={ref}
                   />{" "}
@@ -311,8 +338,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
                 <label>
                   <input
                     type="radio"
-                    onBlur={onBlur} // notify when input is touched
-                    onChange={() => onChange(false)} // send value to hook form
+                    onBlur={onBlur}
+                    onChange={() => onChange(false)}
                     checked={value === false}
                     ref={ref}
                   />{" "}
