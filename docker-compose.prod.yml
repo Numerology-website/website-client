@@ -16,6 +16,9 @@ services:
     restart: always
     ports:
       - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=numerology
+      - MONGO_INITDB_ROOT_PASSWORD=admin-numerology
     volumes:
       - ./mongo-data-prod:/data/db
     # networks:
