@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { useState } from "react"
 
-export default function NumbersMeaningInNumerology() {
+export const NumbersMeaningInNumerology = () => {
   const [listShowNumberMeaning, setListShowNumberMeaning] = useState<{
     1: boolean
     2: boolean

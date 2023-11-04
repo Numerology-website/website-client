@@ -16,7 +16,7 @@ import { useEffect, useState } from "react"
 type ForgotPasswordStep = "INPUT_PHONE_NUMBER" | "VERIFY_OTP"
 
 export const ForgotPasswordForm = () => {
-  const [step, setStep] = useState<ForgotPasswordStep>("VERIFY_OTP")
+  const [step, setStep] = useState<ForgotPasswordStep>("INPUT_PHONE_NUMBER")
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [country_code, setCountryCode] = useState<string>("+84")
   const [otp, setOtp] = useState<string>("")
@@ -95,7 +95,7 @@ export const ForgotPasswordForm = () => {
       const response = await PostAPI<string>({
         url: "/auth/reset-password",
         body: {
-          phone_number: phoneNumber,
+          phone_number: `${country_code}${phoneNumber}`,
           password: newPassword,
         },
         headers: {
@@ -140,7 +140,7 @@ export const ForgotPasswordForm = () => {
             <div className="w-fit">
               <select
                 id="countries"
-                className="bg-auth-input-gray block w-full rounded-md border  text-sm text-white"
+                className="block w-full rounded-md border bg-auth-input-gray  text-sm text-white"
                 style={{ backgroundColor: "rgba(243, 246, 249, 0.36)" }}
                 onChange={(e) => setCountryCode(e.target.value)}
               >
@@ -156,7 +156,7 @@ export const ForgotPasswordForm = () => {
 
             <div className="w-full">
               <input
-                className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+                className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
                 type={"text"}
                 placeholder={"Số điện thoại của bạn"}
                 value={phoneNumber}
@@ -188,7 +188,7 @@ export const ForgotPasswordForm = () => {
             <div className="w-fit">
               <select
                 id="countries"
-                className="bg-auth-input-gray block w-full rounded-md border  text-sm text-white"
+                className="block w-full rounded-md border bg-auth-input-gray  text-sm text-white"
                 style={{ backgroundColor: "rgba(243, 246, 249, 0.36)" }}
                 disabled
               >
@@ -204,7 +204,7 @@ export const ForgotPasswordForm = () => {
 
             <div className="w-full">
               <input
-                className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+                className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
                 type={"text"}
                 placeholder={"Số điện thoại của bạn"}
                 value={phoneNumber}
@@ -214,7 +214,7 @@ export const ForgotPasswordForm = () => {
           </div>
           <div className="w-full">
             <input
-              className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+              className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
               type="text"
               inputMode="numeric"
               autoComplete="one-time-code"
@@ -224,14 +224,14 @@ export const ForgotPasswordForm = () => {
             />
           </div>
           <input
-            className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+            className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
             type="password"
             placeholder="Nhập mật khẩu mới"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
           <input
-            className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+            className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
             type="password"
             placeholder="Nhập lại mật khẩu mới"
             value={confirmNewPassword}

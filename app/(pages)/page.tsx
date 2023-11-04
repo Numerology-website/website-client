@@ -4,6 +4,7 @@ import Link from "next/link"
 import ShareAboutNumerology from "@/components/pages/ShareAboutNumerology"
 import { FormReadNumerology } from "@/components/xem/FormReadNumerology"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
+import { NumbersMeaningInNumerology } from "@/components/pages/NumbersMeaningInNumerology"
 
 export default function Home() {
   return (
@@ -322,7 +323,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <NumbersMeaningInNumerology /> */}
+        <NumbersMeaningInNumerology />
 
         <ShareAboutNumerology />
 
