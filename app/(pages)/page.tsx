@@ -1,21 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 
-import { FormReadNumerology } from "@/components/xem/FormReadNumerology"
 import ShareAboutNumerology from "@/components/pages/ShareAboutNumerology"
-import NumbersMeaningInNumerology from "@/components/pages/NumbersMeaningInNumerology"
+import { FormReadNumerology } from "@/components/xem/FormReadNumerology"
+import { ChevronRightIcon } from "@heroicons/react/24/outline"
 
 export default function Home() {
   return (
     <main className="box-border flex min-h-screen  flex-col justify-between ">
       <div className="">
-        <section className="overflow-hidden py-[40px]">
-          <div className=" absolute bottom-0 left-0 right-0 top-0 m-0 h-[100%] bg-[url('/assets/images/861-20221007022759-jydbt-1-1536x689.png.webp')] bg-cover bg-[50%_50%]  p-0 opacity-100"></div>
+        <section className="overflow-hidden bg-[url('/assets/images/861-20221007022759-jydbt-1-1536x689.png.webp')] bg-cover bg-[50%_50%] py-[40px]">
           <div className="relative w-[100%]">
             <div className="mb-[30px] w-[100%] md:mb-0">
               <div className="relative mx-auto flex w-[100%] max-w-[1230px] flex-row flex-wrap ">
                 <div className="mb-0 hidden w-[100%] max-w-[33.33%] basis-[33.33%] px-[10px] md:block">
                   <div className="absolute bottom-[-40px] left-[50%] top-[-40px] ml-[-32%] w-[100%] max-w-[1200px]"></div>
-                  <div className="    w-[100%]">
+                  <div className="w-[100%]">
                     <div className="  ">
                       <img
                         className="box-border h-[501px] w-[350px] opacity-100"
@@ -89,73 +89,40 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mx-[auto] flex max-w-[1260px] flex-wrap">
-              <div className="relative flex max-w-[33.33%] basis-[33.33%] px-[15px] pb-[30px] md:px-[30px]">
-                <div className="relative mx-auto flex min-h-[130px] w-[100%] items-center justify-center bg-[#092C49] bg-cover bg-no-repeat p-[10px] shadow-[0_0_10px_0px_#572557]">
-                  <div className=" text-center">
-                    <br />
-                    <p className="text-2xl font-bold text-[#e35cb0] md:text-4xl">
-                      <span>26.564.889</span>+
-                    </p>
-                    <p className="text-lg leading-[1.6] text-white md:text-[21px]">
-                      LƯỢT TRA CỨU
-                    </p>
+            <div className="mx-auto flex max-w-[1260px] flex-wrap">
+              {[
+                { number: "26.564.889", title: "Lượt tra cứu" },
+                { number: "896.401", title: "Báo cáo xuất bản" },
+                { number: "79.526", title: "Học viên qua các khóa học" },
+              ].map((item, index) => (
+                <div className="flex w-1/3 flex-col px-2" key={index}>
+                  <div className="relative mx-auto flex min-h-[130px] w-[100%] items-center justify-center bg-[#092C49] bg-cover bg-no-repeat p-[10px] shadow-[0_0_10px_0px_#572557]">
+                    <div className=" text-center">
+                      <span className="font-semibold text-[#e35cb0]">
+                        {item.number}+
+                      </span>
+
+                      <p className="text-lg leading-[1.6] text-white md:text-[21px]">
+                        {item.title}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="relative flex max-w-[33.33%] basis-[33.33%] px-[15px] pb-[30px] md:px-[30px]">
-                <div className="relative mx-auto flex min-h-[130px] w-[100%] items-center justify-center bg-[#092C49] bg-cover bg-no-repeat p-[10px] shadow-[0_0_10px_0px_#572557]">
-                  <div className=" text-center">
-                    <br />
-                    <p className="text-2xl font-bold text-[#e35cb0] md:text-4xl">
-                      <span>896.401</span>+
-                    </p>
-                    <p className="text-lg leading-[1.6] text-white md:text-[21px]">
-                      BÁO CÁO XUẤT BẢN
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="relative flex max-w-[33.33%] basis-[33.33%] px-[15px] pb-[30px] md:px-[30px]">
-                <div className="relative mx-auto flex min-h-[130px] w-[100%] items-center justify-center bg-[#092C49] bg-cover bg-no-repeat p-[10px] shadow-[0_0_10px_0px_#572557]">
-                  <div className=" text-center">
-                    <p className="text-2xl font-bold text-[#e35cb0] md:text-4xl">
-                      <span>79.526</span>+
-                    </p>
-                    <p className="text-lg leading-[1.6] text-white md:text-[21px]">
-                      HỌC VIÊN QUA CÁC <br />
-                      KHÓA HỌC
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className=" mx-[auto] max-w-[1230px]">
               <div className="relative flex w-[100%] max-w-[100%] basis-[100%] justify-center px-[15px] pb-[30px]">
                 <div className="pt-[15px] text-center">
                   <Link
-                    href="#devvn_box_quick_search"
+                    href="/xem"
                     target="_self"
                     type="button"
-                    className=" mb-[20px] flex h-[64px] flex-wrap rounded-[99px] border border-[#af3689] bg-[#af3689] pl-[40px] pr-[25px]  pt-[18px] text-[18px] text-[white] no-underline transition-[all_.6s_ease] hover:bg-[white] hover:text-[#af3689]"
+                    className="inline rounded-full border border-[#af3689] bg-[#af3689] px-3 py-1.5 text-white no-underline transition-[all_.6s_ease] hover:bg-[white] hover:text-[#af3689] md:px-10 md:py-5"
                   >
-                    <span className="block text-[18px] font-bold">
+                    <span className="flex items-center justify-center text-sm font-semibold ">
                       TRA CỨU CÁC CHỈ SỐ CỦA BẠN NGAY
+                      <ChevronRightIcon className="h-4 w-4" />
                     </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="h-6 w-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
                   </Link>
                 </div>
               </div>
@@ -174,7 +141,7 @@ export default function Home() {
               </div>
               <div className="relative flex w-[100%] max-w-[100%] basis-[100%] px-[15px] pb-0 md:pb-[30px]">
                 <div className="relative mx-auto w-[100%]">
-                  <p className="relative mb-5 text-[16px] text-[white]">
+                  <p className="relative mb-5 text-center text-sm text-white">
                     Những nghiên cứu về Thần số học của Thầy Louis Nguyễn đang
                     mang đến một làn sóng tích cực trong đại chúng Việt Nam.
                     Không chỉ là các phân tích để giúp mỗi người tìm ra những
@@ -198,8 +165,8 @@ export default function Home() {
           <div className=" absolute bottom-0 left-0 right-0 top-0 m-0 h-[100%] w-[100%] bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/650-20221007033516-af-dr-1.png')] bg-cover bg-[50%_50%] bg-no-repeat p-0 opacity-100"></div>
           <div className="relative mb-36 w-[100%]">
             <div className="mb-[15px] md:mb-[30px]">
-              <div className="mx-auto mb-0 w-[100%] max-w-[1230px] px-[15px] md:mb-[40px]">
-                <h2 className="relative m-[0_15px] flex w-[100%] flex-row flex-wrap items-center justify-center text-center text-3xl font-bold uppercase md:text-4xl">
+              <div className="mb-0 w-[100%] md:mb-[40px]">
+                <h2 className="relative flex w-full flex-row flex-wrap items-center justify-center text-center text-2xl font-bold uppercase md:text-4xl">
                   Công cụ xem Thần số học Online Louis Nguyễn
                 </h2>
               </div>
@@ -313,95 +280,6 @@ export default function Home() {
                               </div>
                             </div>
                           </section>
-                          {/* <section className="relative flex flex-row flex-nowrap justify-center px-[30px] py-0">
-                            <div className="relative justify-items-center">
-                              <div className="mx-[auto]  text-center">
-                                <div className="mx-[auto] flex flex-col justify-between  ">
-                                  <div className=" max-w-[935px] text-center text-[17px] font-bold leading-[2] text-[#061729]">
-                                    <p>
-                                      Dù mới biết đến Thần số học Pitago trong
-                                      thời gian gần đây nhưng đọc một số bài
-                                      mình thấy nội dung bài viết chính xác đến
-                                      khó tin. Mình tự nhận thấy bản thân là một
-                                      người lạc quan, thích được kết nối với mọi
-                                      người xung quanh. Đi cùng với đó là những
-                                      điểm yếu như khó khăn trong quản lý tiền
-                                      bạc, đôi khi sống hời hợt và chịu sự chi
-                                      phối của cảm xúc. Mình luôn thắc mắc tại
-                                      sao lại có nét tính cách như vậy, có cách
-                                      nào để khắc phục những vấn đề trên không?
-                                      Sau khi tra cứu thần số học trên trang web
-                                      Tracuuthansohoc.com, mình được biết vì bản
-                                      thân sở hữu con số chủ đạo là con số 3 nên
-                                      có các đặc điểm như vậy. Bên cạnh đó mình
-                                      còn biết thêm về các chỉ số quan trọng
-                                      trong cuộc đời. Nếu tận dụng tốt hiểu biết
-                                      về bản thân thông qua Nhân số học, mình
-                                      tin tất cả mọi người sẽ sớm tìm ra một lối
-                                      đi phù hợp để phát triển hơn trong tương
-                                      lai.
-                                    </p>
-                                  </div>
-                                  <div className="mx-[auto] pb-[20px] pt-[50px] text-center">
-                                    <div className="relative m-[0_auto_1em] h-[118px] w-[118px]">
-                                      <img
-                                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/nu-4-20220912025000-1-80x80.png"
-                                        alt=""
-                                        className="w-[100%] rounded-[999px] object-cover transition-[opacity_1s]"
-                                      />
-                                    </div>
-                                    <strong className="block text-center text-[25px] leading-[1.6] text-[#092035]">
-                                      Bông Mai
-                                    </strong>
-                                    <span className="text-center text-[16px] leading-[1.6] text-[#092035]">
-                                      Kinh Doanh
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                          <section className="relative flex flex-row flex-nowrap justify-center px-[30px] py-0">
-                            <div className="relative justify-items-center">
-                              <div className="mx-[auto]  text-center">
-                                <div className="mx-[auto] flex flex-col justify-between  ">
-                                  <div className=" max-w-[935px] text-center text-[17px] font-bold leading-[2] text-[#061729]">
-                                    <p>
-                                      Trước đây tôi thường xuyên có những mối
-                                      quan hệ không tốt và đem đến những ảnh
-                                      hưởng tiêu cực. Khi có quá nhiều mối hệ
-                                      như vậy khiến tôi băn khoăn suy nghĩ có
-                                      phải vấn đề đến từ chính bản thân mình hay
-                                      không?”. Suy nghĩ này khiến cho tôi từ một
-                                      người đầy tự tin trở nên rụt rè, chỉ biết
-                                      thu mình lại ở những nơi đông người. Nhưng
-                                      từ khi biết đến Nhân số học, tôi nhận ra
-                                      vấn đề không phải do cá nhân chưa đủ tốt,
-                                      lí do là bởi tôi không biết cách chọn lọc.
-                                      Bằng cách tra cứu Thần số học Pythagoras,
-                                      tôi hiểu thêm về chính mình và bản thân
-                                      phù hợp với những người như thế nào.
-                                    </p>
-                                  </div>
-                                  <div className="mx-[auto] pb-[20px] pt-[50px] text-center">
-                                    <div className="relative m-[0_auto_1em] h-[118px] w-[118px]">
-                                      <img
-                                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/nam-20211204084038-1-80x80.png"
-                                        alt=""
-                                        className="w-[100%] rounded-[999px] object-cover transition-[opacity_1s]"
-                                      />
-                                    </div>
-                                    <strong className="block text-center text-[25px] leading-[1.6] text-[#092035]">
-                                      Junes
-                                    </strong>
-                                    <span className="text-center text-[16px] leading-[1.6] text-[#092035]">
-                                      Designer & MC
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </section> */}
                         </div>
                         <button className="absolute bottom-[40%] left-0  top-[40%] m-0 w-[50px] p-0 ">
                           <svg
@@ -444,7 +322,7 @@ export default function Home() {
           </div>
         </section>
 
-        <NumbersMeaningInNumerology />
+        {/* <NumbersMeaningInNumerology /> */}
 
         <ShareAboutNumerology />
 
@@ -921,7 +799,6 @@ export default function Home() {
                   <div className="relative mx-[-15px] mb-0 flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                     <div className="relative block w-[100%]">
                       <div className="relative h-[587px] touch-pan-y overflow-hidden">
-                        {/* transfrom translate */}
                         <div className="absolute left-0 h-[100%] w-[100%]">
                           <section className="absolute left-[0%] m-0 flex min-h-[auto] w-[100%] max-w-[50%] flex-row items-center px-[15px] pb-0 pt-[30px]">
                             <div className="relative z-[1] h-[100%] w-[100%] pb-[15px]">
@@ -1092,7 +969,6 @@ export default function Home() {
                             </li>
                           </ul>
                         </div>
-                        {/* btn */}
                         <Link
                           href="/than-so-hoc-tron-doi"
                           className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
@@ -1134,7 +1010,6 @@ export default function Home() {
                             </li>
                           </ul>
                         </div>
-                        {/* btn */}
                         <Link
                           href="/than-so-hoc-tron-doi"
                           className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
@@ -1176,7 +1051,6 @@ export default function Home() {
                             </li>
                           </ul>
                         </div>
-                        {/* btn */}
                         <Link
                           href="/than-so-hoc-tron-doi"
                           className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
@@ -1218,7 +1092,6 @@ export default function Home() {
                             </li>
                           </ul>
                         </div>
-                        {/* btn */}
                         <Link
                           href="/than-so-hoc-tron-doi"
                           className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
@@ -1234,10 +1107,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-
-      {/* <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <SignOutButton />
-      </div> */}
     </main>
   )
 }

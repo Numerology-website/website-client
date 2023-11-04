@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 import { BiLogoTiktok } from "react-icons/bi"
 import { AiOutlineTwitter, AiFillLinkedin, AiFillYoutube } from "react-icons/ai"
@@ -7,8 +8,8 @@ function AppFooter() {
   return (
     <>
       <div className="bg-[#15143e] bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/footer-bg.png')] bg-center bg-no-repeat pb-[20px]  pt-[55px]">
-        <div className="mx-auto mb-0 flex w-[100%] max-w-[1230px] flex-col flex-wrap text-white md:flex-row">
-          <div className="relative mb-6 w-[100%] max-w-[33.33%] basis-[33.33%] p-[0_15px_30px] pb-0">
+        <div className="mx-auto mb-0 flex w-[100%] flex-col flex-wrap text-white md:flex-row">
+          <div className="relative mb-6 w-full  p-[0_15px_30px] pb-0">
             <Link href="/" className="mb-[30px] max-w-[300px]">
               <img
                 className="mb-8 w-[300px]"
@@ -79,7 +80,7 @@ function AppFooter() {
               </div>
             </div>
           </div>
-          <div className="relative mb-6 w-[100%] max-w-[33.33%] basis-[33.33%] p-[0_15px_30px] pb-0">
+          <div className="relative mb-6  w-full  p-[0_15px_30px] pb-0">
             <div className="mb-5">
               <span className="text-lg font-semibold">Thông tin chung</span>
             </div>
@@ -117,7 +118,7 @@ function AppFooter() {
               <p className="mb-[18px]">Đội ngũ admin</p>
             </div>
           </div>
-          <div className="relative mb-6 w-[100%] max-w-[33.33%] basis-[33.33%] p-[0_15px_30px] pb-0">
+          <div className="relative mb-6 w-full   p-[0_15px_30px] pb-0">
             <div className="mb-5">
               <span className="text-lg font-semibold">
                 Liên hệ với chúng tôi
@@ -127,13 +128,14 @@ function AppFooter() {
             <div className="text-sm">
               <ul>
                 <li className="mb-2">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d59587.94068932117!2d105.80753!3d21.022829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab186f28ab19%3A0x22986499af86a3b1!2zVsSDbiBQaMOybmcgVHJhIEPhu6l1IFRo4bqnbiBT4buRIEjhu41jIChUcmFjdXV0aGFuc29ob2MuY29tKSBMb3VpcyBOZ3V5ZW4!5e0!3m2!1svi!2sus!4v1695830951361!5m2!1svi!2sus"
-                    width="380"
-                    height="200"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                  ></iframe>
+                  <div className="w-full">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d59587.94068932117!2d105.80753!3d21.022829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab186f28ab19%3A0x22986499af86a3b1!2zVsSDbiBQaMOybmcgVHJhIEPhu6l1IFRo4bqnbiBT4buRIEjhu41jIChUcmFjdXV0aGFuc29ob2MuY29tKSBMb3VpcyBOZ3V5ZW4!5e0!3m2!1svi!2sus!4v1695830951361!5m2!1svi!2sus"
+                      height="200"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                    ></iframe>
+                  </div>
                 </li>
                 <li className="mb-2 flex">
                   <svg
@@ -200,7 +202,7 @@ function AppFooter() {
         </div>
       </div>
       <div className="bg-neutral-700 py-[15px] text-white">
-        <div className="container mx-auto flex w-[1230px] ">
+        <div className="container mx-auto flex w-full ">
           <div className="text-xs">
             © 2023 Tracuuthansohoc.com | All rights reserved.| DMCA protected.{" "}
           </div>
