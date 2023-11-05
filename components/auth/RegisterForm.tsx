@@ -74,6 +74,11 @@ export const RegisterForm = () => {
         last_name,
         first_name,
       })
+      toastify({
+        message: "Đăng ký thành công",
+        type: "success",
+      })
+      return router.push("/login")
     } catch (error) {
       console.log(error)
       toastify({
@@ -92,7 +97,7 @@ export const RegisterForm = () => {
           <div className="w-fit">
             <select
               id="countries"
-              className="bg-auth-input-gray block w-full rounded-md border  text-sm text-white"
+              className="block w-full rounded-md border bg-auth-input-gray  text-sm text-white"
               style={{ backgroundColor: "rgba(243, 246, 249, 0.36)" }}
               {...register("country_code")}
             >
@@ -109,7 +114,7 @@ export const RegisterForm = () => {
 
           <div className="w-full">
             <input
-              className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+              className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
               type={"text"}
               placeholder={"Số điện thoại nhận mã kích hoạt"}
               {...register("phone_number")}
@@ -120,7 +125,7 @@ export const RegisterForm = () => {
         <div className="flex gap-2">
           <div className="w-1/2">
             <input
-              className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+              className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
               type={"text"}
               placeholder={"Họ"}
               {...register("last_name")}
@@ -129,7 +134,7 @@ export const RegisterForm = () => {
           </div>
           <div className="w-1/2">
             <input
-              className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+              className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
               type={"text"}
               placeholder={"Tên"}
               {...register("first_name")}
@@ -139,7 +144,7 @@ export const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+            className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
             type={"password"}
             placeholder={"Mật khẩu mới"}
             {...register("password")}
@@ -148,7 +153,7 @@ export const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="bg-auth-input-gray text h-10 w-full rounded-md border-0 border-gray-400 p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
+            className="text h-10 w-full rounded-md border-0 border-gray-400 bg-auth-input-gray p-2 px-8 py-4 text-xs !text-white placeholder-white opacity-90"
             type={"password"}
             placeholder={"Nhập lại mật khẩu"}
             {...register("confirm_password")}

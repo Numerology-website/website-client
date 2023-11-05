@@ -56,7 +56,11 @@ export const LoginForm = () => {
       const { ok } = res
 
       if (ok) {
-        router.push("/")
+        toastify({
+          type: "success",
+          message: "Đăng nhập thành công",
+        })
+        return router.push("/xem")
       } else {
         toastify({
           type: "error",
