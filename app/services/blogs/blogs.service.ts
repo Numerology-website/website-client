@@ -9,6 +9,15 @@ export const BlogService = {
       throw error
     }
   },
+  async getHighlightBlogsByType(type: EBlogType) {
+    try {
+      return await GetAPI<{ total: number; items: TBlog[] }>(
+        `/blogs/highlight?type=${type}`,
+      )
+    } catch (error) {
+      throw error
+    }
+  },
   async getBlogsByType(type: EBlogType) {
     try {
       return await GetAPI<{ total: number; items: TBlog[] }>(
@@ -21,7 +30,7 @@ export const BlogService = {
   async getLatestBlogs(limit: number = 5) {
     try {
       return await GetAPI<{ total: number; items: TBlog[] }>(
-        `blogs?limit=${limit}`,
+        `/blogs?limit=${limit}`,
       )
     } catch (error) {
       throw error

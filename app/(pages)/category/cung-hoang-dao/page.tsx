@@ -6,13 +6,13 @@ import { BlogService } from "@/app/services/blogs/blogs.service"
 import moment from "moment"
 import { shortenWithCommas } from "@/utils/helpers"
 
-export default async function KienThucNenTang() {
-  const blogs = await BlogService.getBlogsByType(EBlogType.NUMEROLOGY)
-  const numerologyBlogs = blogs.items
-    // .filter((blog) => blog.category.includes(EBlogType.QUESTION))
+export default async function CungHoangDao() {
+  const blogs = await BlogService.getBlogsByType(EBlogType.HOROSCOPE)
+  const frequencyQuestionBlogs = blogs.items
+    .filter((blog) => blog.category.includes(EBlogType.QUESTION))
     .slice(0, 4)
-  const meaningOfNumbersBlogs = blogs.items
-    // .filter((blog) => blog.category.includes(EBlogType.COMPATIBLE))
+  const compatibleBlogs = blogs.items
+    .filter((blog) => blog.category.includes(EBlogType.COMPATIBLE))
     .slice(0, 4)
   return (
     <>
@@ -21,7 +21,7 @@ export default async function KienThucNenTang() {
           <Link href="/" className="pr-1 text-[#af3689] hover:text-black">
             Trang chủ
           </Link>
-          » Kiến thức nền tảng
+          » Cung hoàng đạo
         </div>
       </div>
       <div></div>
@@ -31,23 +31,23 @@ export default async function KienThucNenTang() {
             <div className="mx-auto flex w-full max-w-[1230px] flex-row flex-wrap">
               <div className=" m-0 block w-full basis-full p-[0_15px_30px]">
                 <h1 className="  mb-4 mt-0 text-left text-[30px] font-bold uppercase leading-[1.2]">
-                  Kiến thức nền tảng
+                  Cung hoàng đạo
                 </h1>
                 <ul className="mt-0 flex list-none flex-wrap p-0 ">
-                  <li className=" mb-3 mr-[10px]">
+                  <li className="mb-3 mr-[10px]">
                     <Link
-                      href=""
+                      href="#faqs"
                       className="rounded-[3px] border  border-[black] p-[5px_10px] text-[15px] leading-normal"
                     >
-                      Các Chỉ Số Thần Số Học
+                      Câu hỏi thường gặp
                     </Link>
                   </li>
                   <li className=" mb-3 mr-[10px]">
                     <Link
-                      href=""
+                      href="#tuong-hop"
                       className="rounded-[3px] border  border-[black] p-[5px_10px] text-[15px] leading-normal"
                     >
-                      Ý Nghĩa Các Con Số Thần số học
+                      Tương hợp
                     </Link>
                   </li>
                 </ul>
@@ -57,25 +57,28 @@ export default async function KienThucNenTang() {
           <div className="mx-auto flex w-full max-w-[1230px] flex-row flex-wrap justify-center">
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <div className="mx-[-15px] flex w-auto flex-row flex-wrap px-0">
-                <FeaturedBlogs type={EBlogType.NUMEROLOGY} />
+                <FeaturedBlogs type={EBlogType.HOROSCOPE} />
               </div>
             </div>
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <h2 className=" mb-2 text-2xl font-bold">Bài viết mới nhất</h2>
             </div>
             <PaginatedBlogs documents={blogs.items} />
-            <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
+            <div
+              id="faqs"
+              className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]"
+            >
               <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                 <div className="relative m-0 w-full p-[0_15px_0]">
                   <div className="ml-0 mr-auto  w-full">
                     <div className="mx-auto mb-6 flex w-full justify-between px-0">
                       <h2 className="mr-[10px] inline w-auto border-b-2 border-[#af3689] pb-3 text-2xl font-bold md:whitespace-nowrap md:border-none md:pb-0">
-                        Các Chỉ Số Thần Số Học
+                        Câu Hỏi Thường Gặp
                       </h2>
                       <div className="mb-2 hidden w-[59%] border-b-2 border-[#af3689] md:block"></div>
                       <Link
                         className="ml-auto hidden whitespace-nowrap pl-[15px] text-sm font-bold text-[#af3689] hover:text-black md:block"
-                        href="/category/kien-thuc-nen-tang/chi-so/"
+                        href="/category/cung-hoang-dao/faqs/"
                       >
                         Xem thêm
                       </Link>
@@ -85,7 +88,8 @@ export default async function KienThucNenTang() {
                 <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
                   <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                     {/* blog */}
-                    {numerologyBlogs.map((item, index) => (
+
+                    {frequencyQuestionBlogs.map((item, index) => (
                       <div
                         key={index + 1}
                         className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
@@ -116,7 +120,7 @@ export default async function KienThucNenTang() {
                 </div>
                 <div className=" flex w-full max-w-full basis-full justify-center p-[0_15px_30px] md:hidden">
                   <Link
-                    href="/category/kien-thuc-nen-tang/chi-so/"
+                    href="/category/cung-hoang-dao/faqs/"
                     type="button"
                     className=" bg-[#af3689] p-[8px_20px_10px] text-sm font-bold text-white"
                   >
@@ -125,18 +129,21 @@ export default async function KienThucNenTang() {
                 </div>
               </div>
             </div>
-            <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
-              <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap">
+            <div
+              id="tuong-hop"
+              className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]"
+            >
+              <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                 <div className="relative m-0 w-full p-[0_15px_0]">
                   <div className="ml-0 mr-auto  w-full">
                     <div className="mx-auto mb-6 flex w-full justify-between px-0">
                       <h2 className="mr-[10px] inline w-auto border-b-2 border-[#af3689] pb-3 text-2xl font-bold md:whitespace-nowrap md:border-none md:pb-0">
-                        Ý Nghĩa Các Con Số Thần Số Học
+                        Tương Hợp
                       </h2>
                       <div className="mb-2 hidden w-[59%] border-b-2 border-[#af3689] md:block"></div>
                       <Link
                         className="ml-auto hidden whitespace-nowrap pl-[15px] text-sm font-bold text-[#af3689] hover:text-black md:block"
-                        href="/category/kien-thuc-nen-tang/cac-con-so/"
+                        href="/category/cung-hoang-dao/tuong-hop/"
                       >
                         Xem thêm
                       </Link>
@@ -144,9 +151,9 @@ export default async function KienThucNenTang() {
                   </div>
                 </div>
                 <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
-                  <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap">
+                  <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                     {/* blog */}
-                    {meaningOfNumbersBlogs.map((item, index) => (
+                    {compatibleBlogs.map((item, index) => (
                       <div
                         key={index + 1}
                         className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
@@ -177,7 +184,7 @@ export default async function KienThucNenTang() {
                 </div>
                 <div className=" flex w-full max-w-full basis-full justify-center p-[0_15px_30px] md:hidden">
                   <Link
-                    href="/category/kien-thuc-nen-tang/cac-con-so/"
+                    href="/category/cung-hoang-dao/tuong-hop/"
                     type="button"
                     className=" bg-[#af3689] p-[8px_20px_10px] text-sm font-bold text-white"
                   >

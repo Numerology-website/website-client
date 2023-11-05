@@ -17,6 +17,8 @@ export enum EBlogType {
   HOROSCOPE = "horoscope",
   LOVE = "love",
   OTHER = "other",
+  QUESTION = "frequency-question",
+  COMPATIBLE = "compatible",
 }
 
 export type TCreateBlog = {
@@ -27,7 +29,7 @@ export type TCreateBlog = {
   description: string
   status?: EBlogStatus
   type: EBlogType
-  is_show_on_navbar: boolean
+  is_show_on_navbar?: boolean
   category?: EBlogType[]
   is_top?: boolean
   is_highlight?: boolean
@@ -50,4 +52,8 @@ export type TBlog = {
   created_at: string
   updated_at: string
   deleted_at: string
+  user:{
+    first_name: string,
+    last_name: string,
+  }
 }
