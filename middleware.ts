@@ -9,14 +9,17 @@ export default withAuth(
     if (pathname.startsWith("/admin") && role !== ERole.Admin) {
       return NextResponse.rewrite(new URL("/", request.url))
     }
+    if (pathname.startsWith("/account") && !role) {
+      return NextResponse.rewrite(new URL("/login", request.url))
+    }
   },
   {
     callbacks: {
       authorized: ({ token }) => !!token,
     },
-  }
+  },
 )
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/account/:path*"],
 }

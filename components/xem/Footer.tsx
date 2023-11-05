@@ -68,7 +68,7 @@ export const ReadNumerologyFooter = ({
               </div>
               <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
               <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>
-              <Link href="/purchase">Mua lượt Vip</Link>
+              <Link href="/account/purchase">Mua lượt Vip</Link>
             </div>
           </div>
         </div>

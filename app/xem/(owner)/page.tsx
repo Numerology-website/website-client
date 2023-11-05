@@ -59,7 +59,7 @@ export default async function ReaderPage() {
               </span>
               {!myProfile.vip_turn_remain && !myProfile.online_turn_remain && (
                 <Link
-                  href={"/purchase"}
+                  href={"/account/purchase"}
                   className="text-[#007bFF] hover:underline"
                 >
                   {" "}
