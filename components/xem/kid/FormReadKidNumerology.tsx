@@ -163,7 +163,7 @@ const schema = yup.object({
 export const FormReadKidNumerology = () => {
   const router = useRouter()
   const { data, status } = useSession()
-  let accessToken: string = ""
+  let accessToken: string | undefined = undefined
   if (status === "authenticated") {
     accessToken = data.accessToken
   }
@@ -202,6 +202,17 @@ export const FormReadKidNumerology = () => {
         full_name: data.mother_full_name,
         birthday: `${data.mother_yearOfBirth}-${data.mother_monthOfBirth}-${data.mother_dayOfBirth}`,
       },
+    }
+
+    if (!accessToken) {
+      return KidNumerologyRecordService.guestPostKidNumerologyRecord(_record)
+        .then(({ expose_id }) => router.push(`/xem/kids/${expose_id}`))
+        .catch((err) =>
+          toastify({
+            message: err,
+            type: "error",
+          }),
+        )
     }
     KidNumerologyRecordService.postKidNumerologyRecord(_record, accessToken)
       .then(({ expose_id }) => router.push(`/xem/kids/${expose_id}`))

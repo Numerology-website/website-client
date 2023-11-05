@@ -15,6 +15,12 @@ export const NumerologyRecordService = {
       accessToken,
     })
   },
+  async guestPostNumerologyRecord(numerologyRecord: TCreateNumerologyRecord) {
+    return await PostAPI<TNumerologyRecord>({
+      body: numerologyRecord,
+      url: "/numerology-records/anonymous",
+    })
+  },
   async getReadNumerologyHistory() {
     const response = await GetAPI<{
       total: number

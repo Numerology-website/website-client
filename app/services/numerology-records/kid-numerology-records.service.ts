@@ -21,6 +21,14 @@ export const KidNumerologyRecordService = {
       accessToken,
     })
   },
+  async guestPostKidNumerologyRecord(
+    numerologyRecord: TCreateKidNumerologyRecord,
+  ) {
+    return await PostAPI<{ expose_id: string }>({
+      body: numerologyRecord,
+      url: "/kid-numerology-records/anonymous",
+    })
+  },
   async getReadKidNumerologyById(expose_id: string) {
     const response = await GetAPI<TKidNumerologyRecord>(
       `/kid-numerology-records/${expose_id}`,

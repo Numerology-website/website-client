@@ -1,7 +1,6 @@
 "use client"
 
 import { NumerologyRecordService } from "@/app/services/numerology-records/numerology-records.service"
-import { NumerologyChart } from "@/components/xem/result/NumerologyChart"
 import { TNumerologyRecord } from "@/interfaces/numerology-records.interface"
 import { toastify } from "@/libs/toastify"
 import moment from "moment"
@@ -75,8 +74,8 @@ export const ReadyRenderResult = ({
                 Số chủ đạo
               </span>
               <div className="relative block max-h-[350px] max-w-[350px]">
-                <div className="bg-mandala-bg relative h-[300px] w-[300px] animate-spin-slow bg-cover bg-center bg-no-repeat">
-                  <div className="bg-mandala-object animate-mandala-object absolute left-[4.5%] top-[4%] h-[91%] w-[91%] bg-contain bg-center bg-no-repeat"></div>
+                <div className="relative h-[300px] w-[300px] animate-spin-slow bg-mandala-bg bg-cover bg-center bg-no-repeat">
+                  <div className="absolute left-[4.5%] top-[4%] h-[91%] w-[91%] animate-mandala-object bg-mandala-object bg-contain bg-center bg-no-repeat"></div>
                 </div>
                 <div
                   style={{
@@ -84,7 +83,7 @@ export const ReadyRenderResult = ({
                     textShadow:
                       "0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177, 0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177",
                   }}
-                  className="animate-mandala-pulse absolute left-1/2 top-1/2 -ml-[160px] -mt-[160px] block h-[320px] w-[320px] rounded-full pt-[70px] text-center text-[160px] font-semibold leading-[160px]"
+                  className="absolute left-1/2 top-1/2 -ml-[160px] -mt-[160px] block h-[320px] w-[320px] animate-mandala-pulse rounded-full pt-[70px] text-center text-[160px] font-semibold leading-[160px]"
                 >
                   {number}
                 </div>
@@ -92,7 +91,7 @@ export const ReadyRenderResult = ({
             </div>
             <div className="px-4">
               <div className="flex flex-col items-center gap-5 rounded-3xl bg-black bg-opacity-40 p-2">
-                <NumerologyChart />
+                {/* <NumerologyChart /> */}
                 {description && (
                   <div
                     className="text-sm italic leading-relaxed"

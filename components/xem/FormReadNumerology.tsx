@@ -114,7 +114,7 @@ const schema = yup.object({
 export const FormReadNumerology = () => {
   const { data, status } = useSession()
   const router = useRouter()
-  const [accessToken, setAccessToken] = useState<string>("")
+  const [accessToken, setAccessToken] = useState<string | undefined>(undefined)
   useEffect(() => {
     if (status === "authenticated") {
       setAccessToken(data.accessToken)
@@ -173,6 +173,11 @@ export const FormReadNumerology = () => {
               .filter((item) => item)
               .map((item) => item.trim())
           : undefined,
+    }
+    if (!accessToken) {
+      return NumerologyRecordService.guestPostNumerologyRecord(_data)
+        .then((res) => router.push(`/xem/${res.expose_id}`))
+        .catch((err) => toastify({ type: "error", message: err }))
     }
     NumerologyRecordService.postNumerologyRecord(_data, accessToken)
       .then((res) => router.push(`/xem/${res.expose_id}`))
