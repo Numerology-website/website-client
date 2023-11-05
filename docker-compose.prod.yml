@@ -10,6 +10,18 @@ services:
     networks:
       - app-network
 
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb-prod
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-data-prod:/data/db
+    command: mongod --auth
+    # networks:
+    #   - app-network
+
 networks:
   app-network:
     driver: bridge
