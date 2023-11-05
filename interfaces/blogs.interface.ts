@@ -17,6 +17,8 @@ export enum EBlogType {
   HOROSCOPE = "horoscope",
   LOVE = "love",
   OTHER = "other",
+  QUESTION = "frequency-question",
+  COMPATIBLE = "compatible",
 }
 
 export type TCreateBlog = {

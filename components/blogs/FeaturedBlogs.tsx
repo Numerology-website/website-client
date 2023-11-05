@@ -38,7 +38,7 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
           </div>
           <div className="mx-[-2px] mb-0 h-[508px] w-auto overflow-y-auto px-0">
             {/* blog nho phai */}
-            {featuredBlogs.items.map((item, index) => (
+            {featuredBlogs.items.splice(-1, 1).map((item, index) => (
               <div className="p-[0_2px_3px relative m-0 mb-0 w-[100%] max-w-[100%] basis-[100%]">
                 <div className="relative mb-[15px] ml-0 mr-auto w-[100%] border-b-2 border-[#dbe4ed] bg-cover bg-[50%_50%] bg-no-repeat pb-[15px] ">
                   <Link href="">

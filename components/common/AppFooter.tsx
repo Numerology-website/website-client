@@ -8,8 +8,8 @@ function AppFooter() {
   return (
     <>
       <div className="bg-[#15143e] bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/footer-bg.png')] bg-center bg-no-repeat pb-[20px]  pt-[55px]">
-        <div className="mx-auto mb-0 flex w-[100%] flex-col flex-wrap text-white md:flex-row">
-          <div className="relative mb-6 w-full  p-[0_15px_30px] pb-0">
+        <div className="mx-auto mb-0 flex w-[100%] flex-col flex-wrap text-white md:max-w-[1230px] md:flex-row">
+          <div className="relative mb-6 w-full p-[0_15px_30px] pb-0 md:max-w-[33%] md:basis-1/3">
             <Link href="/" className="mb-[30px] max-w-[300px]">
               <img
                 className="mb-8 w-[300px]"
@@ -80,7 +80,7 @@ function AppFooter() {
               </div>
             </div>
           </div>
-          <div className="relative mb-6  w-full  p-[0_15px_30px] pb-0">
+          <div className="relative mb-6  w-full p-[0_15px_30px] pb-0 md:max-w-[33%] md:basis-1/3">
             <div className="mb-5">
               <span className="text-lg font-semibold">Thông tin chung</span>
             </div>
@@ -118,7 +118,7 @@ function AppFooter() {
               <p className="mb-[18px]">Đội ngũ admin</p>
             </div>
           </div>
-          <div className="relative mb-6 w-full   p-[0_15px_30px] pb-0">
+          <div className="relative mb-6 w-full p-[0_15px_30px]  pb-0 md:max-w-[33%] md:basis-1/3">
             <div className="mb-5">
               <span className="text-lg font-semibold">
                 Liên hệ với chúng tôi

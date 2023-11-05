@@ -32,3 +32,15 @@ export const getFormatNumber = (
 export const addLeadingZero = (number: number) => {
   return number < 10 ? `0${number}` : number
 }
+
+export const shortenWithCommas =(text: string, maxLength: number) => {
+  if (text.length <= maxLength) {
+    return text
+  }
+
+  const shortenedText = text.substring(0, maxLength)
+  const lastCommaIndex = shortenedText.lastIndexOf(",")
+  return lastCommaIndex > 0
+    ? shortenedText.substring(0, lastCommaIndex) + "..."
+    : shortenedText
+}

@@ -3,10 +3,17 @@ import FeaturedBlogs from "@/components/blogs/FeaturedBlogs"
 import { EBlogType } from "@/interfaces/blogs.interface"
 import { PaginatedBlogs } from "@/components/blogs/PaginatedBlogs"
 import { BlogService } from "@/app/services/blogs/blogs.service"
+import moment from "moment"
+import { shortenWithCommas } from "@/utils/helpers"
 
 export default async function KienThucNenTang() {
-  const blogs = await BlogService.getBlogsByType(EBlogType.KNOWLEDGE)
-
+  const blogs = await BlogService.getBlogsByType(EBlogType.NUMEROLOGY)
+  const numerologyBlogs = blogs.items
+    // .filter((blog) => blog.category.includes(EBlogType.QUESTION))
+    .slice(0, 4)
+  const meaningOfNumbersBlogs = blogs.items
+    // .filter((blog) => blog.category.includes(EBlogType.COMPATIBLE))
+    .slice(0, 4)
   return (
     <>
       <div className="bg-[#af368929] py-[10px]">
@@ -27,7 +34,7 @@ export default async function KienThucNenTang() {
                   Kiến thức nền tảng
                 </h1>
                 <ul className="mt-0 flex list-none flex-wrap p-0 ">
-                  <li className="mr-[10px]">
+                  <li className=" mb-3 mr-[10px]">
                     <Link
                       href=""
                       className="rounded-[3px] border  border-[black] p-[5px_10px] text-[15px] leading-normal"
@@ -35,7 +42,7 @@ export default async function KienThucNenTang() {
                       Các Chỉ Số Thần Số Học
                     </Link>
                   </li>
-                  <li className="mr-[10px]">
+                  <li className=" mb-3 mr-[10px]">
                     <Link
                       href=""
                       className="rounded-[3px] border  border-[black] p-[5px_10px] text-[15px] leading-normal"
@@ -50,22 +57,22 @@ export default async function KienThucNenTang() {
           <div className="mx-auto flex w-full max-w-[1230px] flex-row flex-wrap justify-center">
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <div className="mx-[-15px] flex w-auto flex-row flex-wrap px-0">
-                <FeaturedBlogs type={EBlogType.KNOWLEDGE} />
+                <FeaturedBlogs type={EBlogType.NUMEROLOGY} />
               </div>
             </div>
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <h2 className=" mb-2 text-2xl font-bold">Bài viết mới nhất</h2>
             </div>
-            <PaginatedBlogs documents={blogs.items} />,
+            <PaginatedBlogs documents={blogs.items} />
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                 <div className="relative m-0 w-full p-[0_15px_0]">
                   <div className="ml-0 mr-auto  w-full">
                     <div className="mx-auto mb-6 flex w-full justify-between px-0">
-                      <h2 className="mr-[10px] w-auto whitespace-nowrap text-2xl font-bold">
+                      <h2 className="mr-[10px] inline w-auto border-b-2 border-[#af3689] pb-3 text-2xl font-bold md:whitespace-nowrap md:border-none md:pb-0">
                         Các Chỉ Số Thần Số Học
                       </h2>
-                      <div className="mb-2 w-[65%] border-b-2 border-[#af3689]"></div>
+                      <div className="mb-2 hidden w-[59%] border-b-2 border-[#af3689] md:block"></div>
                       <Link
                         className="ml-auto hidden whitespace-nowrap pl-[15px] text-sm font-bold text-[#af3689] hover:text-black md:block"
                         href="/category/kien-thuc-nen-tang/chi-so/"
@@ -78,61 +85,38 @@ export default async function KienThucNenTang() {
                 <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
                   <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                     {/* blog */}
-                    <div className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]">
-                      <Link href="/cac-chi-so-than-so-hoc/">
-                        <div className="relative m-[0_auto] flex w-full">
-                          <div className="relative h-auto w-[30%] bg-cover bg-[50%_50%]">
-                            <img
-                              src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/cac-chi-so-than-so-hoc-6.jpg"
-                              alt=""
-                            />
-                          </div>
-                          <div className="relative  pb-[15px] pl-[11px] text-left">
-                            <div className="border-b-2">
-                              <h3 className="mb-2 w-full text-sm font-bold">
-                                Các chỉ số thần số học: Ảnh hưởng của từng con
-                                số đến cuộc đời mỗi người
-                              </h3>
-                              <div className="text-sm">28/09/2023</div>
-                              <p className="mb-[10px] text-sm">
-                                Các chỉ số thần số học sẽ cho bạn biết được bản
-                                thân mình là...{" "}
-                              </p>
+                    {numerologyBlogs.map((item, index) => (
+                      <div
+                        key={index + 1}
+                        className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
+                      >
+                        <Link href={item.slug}>
+                          <div className="relative m-[0_auto] flex w-full">
+                            <div className="relative h-auto max-w-[30%] bg-cover bg-[50%_50%] md:w-[30%]">
+                              <img src={item.thumbnail_img_link} alt="" />
+                            </div>
+                            <div className="relative  pb-[15px] pl-[11px] text-left">
+                              <div className="border-b-2 pb-4">
+                                <h3 className="mb-2 w-full text-sm font-bold">
+                                  {item.title}
+                                </h3>
+                                <div className="text-sm">
+                                  {moment(item.created_at).format("DD/MM/YYYY")}
+                                </div>
+                                <p className="mb-[10px] text-sm">
+                                  {shortenWithCommas(item.description, 100)}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className=" relative w-full max-w-full  basis-full p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                      <Link href="/cac-chi-so-than-so-hoc/">
-                        <div className="relative m-[0_auto] flex w-full">
-                          <div className="relative h-auto w-[30%] bg-cover bg-[50%_50%]">
-                            <img
-                              src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/cac-chi-so-than-so-hoc-6.jpg"
-                              alt=""
-                            />
-                          </div>
-                          <div className="relative  pb-[15px] pl-[11px] text-left">
-                            <div className="border-b-2">
-                              <h3 className="mb-2 w-full text-sm font-bold">
-                                Các chỉ số thần số học: Ảnh hưởng của từng con
-                                số đến cuộc đời mỗi người
-                              </h3>
-                              <div className="text-sm">28/09/2023</div>
-                              <p className="mb-[10px] text-sm">
-                                Các chỉ số thần số học sẽ cho bạn biết được bản
-                                thân mình là...{" "}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className=" flex w-full max-w-full basis-full justify-center p-[0_15px_30px] md:hidden">
                   <Link
-                    href=""
+                    href="/category/kien-thuc-nen-tang/chi-so/"
                     type="button"
                     className=" bg-[#af3689] p-[8px_20px_10px] text-sm font-bold text-white"
                   >
@@ -142,14 +126,14 @@ export default async function KienThucNenTang() {
               </div>
             </div>
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
-              <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
+              <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap">
                 <div className="relative m-0 w-full p-[0_15px_0]">
                   <div className="ml-0 mr-auto  w-full">
                     <div className="mx-auto mb-6 flex w-full justify-between px-0">
-                      <h2 className="mr-[10px] w-auto whitespace-nowrap text-2xl font-bold">
+                      <h2 className="mr-[10px] inline w-auto border-b-2 border-[#af3689] pb-3 text-2xl font-bold md:whitespace-nowrap md:border-none md:pb-0">
                         Ý Nghĩa Các Con Số Thần Số Học
                       </h2>
-                      <div className="mb-2 w-[59%] border-b-2 border-[#af3689]"></div>
+                      <div className="mb-2 hidden w-[59%] border-b-2 border-[#af3689] md:block"></div>
                       <Link
                         className="ml-auto hidden whitespace-nowrap pl-[15px] text-sm font-bold text-[#af3689] hover:text-black md:block"
                         href="/category/kien-thuc-nen-tang/cac-con-so/"
@@ -160,63 +144,40 @@ export default async function KienThucNenTang() {
                   </div>
                 </div>
                 <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
-                  <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
+                  <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap">
                     {/* blog */}
-                    <div className=" relative w-full max-w-full  basis-full  p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                      <Link href="/cac-chi-so-than-so-hoc/">
-                        <div className="relative m-[0_auto] flex w-full">
-                          <div className="relative h-auto w-[30%] bg-cover bg-[50%_50%]">
-                            <img
-                              src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/cac-chi-so-than-so-hoc-6.jpg"
-                              alt=""
-                            />
-                          </div>
-                          <div className="relative  pb-[15px] pl-[11px] text-left">
-                            <div className="border-b-2">
-                              <h3 className="mb-2 w-full text-sm font-bold">
-                                Các chỉ số thần số học: Ảnh hưởng của từng con
-                                số đến cuộc đời mỗi người
-                              </h3>
-                              <div className="text-sm">28/09/2023</div>
-                              <p className="mb-[10px] text-sm">
-                                Các chỉ số thần số học sẽ cho bạn biết được bản
-                                thân mình là...{" "}
-                              </p>
+                    {meaningOfNumbersBlogs.map((item, index) => (
+                      <div
+                        key={index + 1}
+                        className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
+                      >
+                        <Link href={item.slug}>
+                          <div className="relative m-[0_auto] flex w-full">
+                            <div className="relative h-auto max-w-[30%] bg-cover bg-[50%_50%] md:w-[30%]">
+                              <img src={item.thumbnail_img_link} alt="" />
+                            </div>
+                            <div className="relative  pb-[15px] pl-[11px] text-left">
+                              <div className="border-b-2 pb-4">
+                                <h3 className="mb-2 w-full text-sm font-bold">
+                                  {item.title}
+                                </h3>
+                                <div className="text-sm">
+                                  {moment(item.created_at).format("DD/MM/YYYY")}
+                                </div>
+                                <p className="mb-[10px] text-sm">
+                                  {shortenWithCommas(item.description, 100)}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className=" relative w-full max-w-full  basis-full  p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                      <Link href="/cac-chi-so-than-so-hoc/">
-                        <div className="relative m-[0_auto] flex w-full">
-                          <div className="relative h-auto w-[30%] bg-cover bg-[50%_50%]">
-                            <img
-                              src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/cac-chi-so-than-so-hoc-6.jpg"
-                              alt=""
-                            />
-                          </div>
-                          <div className="relative  pb-[15px] pl-[11px] text-left">
-                            <div className="border-b-2">
-                              <h3 className="mb-2 w-full text-sm font-bold">
-                                Các chỉ số thần số học: Ảnh hưởng của từng con
-                                số đến cuộc đời mỗi người
-                              </h3>
-                              <div className="text-sm">28/09/2023</div>
-                              <p className="mb-[10px] text-sm">
-                                Các chỉ số thần số học sẽ cho bạn biết được bản
-                                thân mình là...{" "}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className=" flex w-full max-w-full basis-full justify-center p-[0_15px_30px] md:hidden">
                   <Link
-                    href=""
+                    href="/category/kien-thuc-nen-tang/cac-con-so/"
                     type="button"
                     className=" bg-[#af3689] p-[8px_20px_10px] text-sm font-bold text-white"
                   >

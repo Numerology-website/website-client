@@ -35,8 +35,10 @@ export default function UserInformation({ document }: { document: IUsers }) {
       { first_name: firstName, last_name: lastName },
       accessToken,
     )
-      .then(() => {
+      .then((res) => {
         toastify({ message: "Cập nhật thành công", type: "success" })
+        setFirstName(res.first_name)
+        setLastName(res.last_name)
         propsChangeName.setOpenModalChangeName(undefined)
       })
       .catch((err) => {
@@ -65,6 +67,8 @@ export default function UserInformation({ document }: { document: IUsers }) {
 
     UserService.changePassword(oldPass, newPass, accessToken)
       .then(() => {
+        console.log(111111111111111)
+
         toastify({ message: "Cập nhật thành công", type: "success" })
         propsChangePass.setOpenModalChangePass(undefined)
       })

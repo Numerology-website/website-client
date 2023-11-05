@@ -4,28 +4,16 @@ import { Pagination } from "flowbite-react"
 import { useState } from "react"
 import Link from "next/link"
 import { TBlog } from "@/interfaces/blogs.interface"
+import { shortenWithCommas } from "@/utils/helpers"
 
 interface ITableBlog {
   documents: TBlog[]
 }
 export const PaginatedBlogs = ({ documents }: ITableBlog) => {
-  console.log(documents)
-
   const itemsPerPage: number = 12
   const currentItems: [] = []
 
   function PaginatedItems() {
-    function shortenWithCommas(text: string, maxLength: number) {
-      if (text.length <= maxLength) {
-        return text
-      }
-
-      const shortenedText = text.substring(0, maxLength)
-      const lastCommaIndex = shortenedText.lastIndexOf(",")
-      return lastCommaIndex > 0
-        ? shortenedText.substring(0, lastCommaIndex) + "..."
-        : shortenedText
-    }
     const [currentPage, setCurrentPage] = useState(1)
     const onPageChange = (page: number) => setCurrentPage(page)
     const [itemOffset, setItemOffset] = useState(0)

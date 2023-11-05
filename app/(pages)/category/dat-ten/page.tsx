@@ -5,7 +5,7 @@ import { PaginatedBlogs } from "@/components/blogs/PaginatedBlogs"
 import { BlogService } from "@/app/services/blogs/blogs.service"
 
 export default async function DatTen() {
-  const blogs = await BlogService.getBlogsByType(EBlogType.DISC)
+  const blogs = await BlogService.getBlogsByType(EBlogType.CHILD)
 
   return (
     <>
@@ -27,7 +27,7 @@ export default async function DatTen() {
                   Đặt tên
                 </h1>
                 <ul className="mt-0 flex list-none flex-wrap p-0 ">
-                  <li className="mr-[10px]">
+                  <li className=" mb-3 mr-[10px]">
                     <Link
                       href=""
                       className="rounded-[3px] border  border-[black] p-[5px_10px] text-[15px] leading-normal"
@@ -35,7 +35,7 @@ export default async function DatTen() {
                       Các Chỉ Số Thần Số Học
                     </Link>
                   </li>
-                  <li className="mr-[10px]">
+                  <li className=" mb-3 mr-[10px]">
                     <Link
                       href=""
                       className="rounded-[3px] border  border-[black] p-[5px_10px] text-[15px] leading-normal"
@@ -50,13 +50,13 @@ export default async function DatTen() {
           <div className="mx-auto flex w-full max-w-[1230px] flex-row flex-wrap justify-center">
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <div className="mx-[-15px] flex w-auto flex-row flex-wrap px-0">
-                <FeaturedBlogs type={EBlogType.DISC} />
+                <FeaturedBlogs type={EBlogType.CHILD} />
               </div>
             </div>
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <h2 className=" mb-2 text-2xl font-bold">Bài viết mới nhất</h2>
             </div>
-            <PaginatedBlogs documents={blogs.items} />,
+            <PaginatedBlogs documents={blogs.items} />
             <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px]">
               <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
                 <div className="relative m-0 w-full p-[0_15px_0]">

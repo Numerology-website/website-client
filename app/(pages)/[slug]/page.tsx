@@ -12,12 +12,14 @@ export default async function Blog({ params }: BlogPage) {
   const blog = await BlogService.getBlogBySlug(params.slug)
   return (
     <section>
-      <div className="bg-[#af368929] py-[10px]">
-        <div className="container mx-auto flex w-[1230px] px-[15px]">
-          <a href="" className="pr-1 text-[#af3689] hover:text-black">
+      <div className=" bg-[#af368929] py-[10px]">
+        <div className="container mx-auto block  w-full max-w-[1230px]  px-[15px]">
+          <a href="" className="inline pr-1 text-[#af3689] hover:text-black">
             Trang chủ
           </a>
-          » {blog.title}
+          {/* » {blog.title} */}
+          <span> »</span>
+          <div className="ml-3 inline">{blog.title}</div>
         </div>
       </div>
       <div className="pb-[30px]">

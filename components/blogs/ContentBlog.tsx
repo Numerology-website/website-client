@@ -73,7 +73,7 @@ export default function ContentBlog({ document }: { document: TBlog }) {
               {document.type}
             </Link>
           </h6>
-          <h1 className="mb-2 w-full text-3xl font-semibold">
+          <h1 className="mb-2 w-full text-xl font-semibold md:text-3xl">
             {document.title}
           </h1>
           <span className="text-xs uppercase">
@@ -182,14 +182,14 @@ export default function ContentBlog({ document }: { document: TBlog }) {
         <div dangerouslySetInnerHTML={{ __html: content || "" }}></div>
         <div className="py-8">
           <div className="flex w-full flex-row flex-nowrap">
-            <div className="mr-8  max-h-full w-full max-w-[10%]">
+            <div className="mr-8 w-[75px]">
               <img
                 className="h-auto rounded-full  object-cover"
                 src="https://secure.gravatar.com/avatar/30de3481d2e4b86dff700679d2c16a94?s=90&d=retro&r=g"
                 alt=""
               />
             </div>
-            <div className="max-h-full w-full max-w-[90%] text-base">
+            <div className="max-h-full w-full text-base">
               <h2 className="mb-2 pt-4 font-semibold uppercase">
                 {document.user.last_name} {document.user.first_name}
               </h2>
