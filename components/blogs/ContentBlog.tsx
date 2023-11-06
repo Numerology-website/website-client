@@ -27,8 +27,6 @@ export default function ContentBlog({ document }: { document: TBlog }) {
     })
     .use(() => {
       return (tree) => {
-        console.log(tree)
-
         visit(tree, "element", function (node: any) {
           if (node.tagName === "h2") {
             const value = node.children[0].children[0].value

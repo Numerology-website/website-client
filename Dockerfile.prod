@@ -4,16 +4,13 @@ FROM node:18
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
-COPY package*.json ./
+COPY . .
 
-# Install project dependencies
+RUN cd libs/ckeditor5-classic && npm install && cd ../..
+
 RUN npm install
 
 RUN npm i sharp
-
-# Copy the rest of your application's source code to the container
-COPY . .
 
 # Build your Next.js application (you may need to adjust the build command)
 RUN npm run build

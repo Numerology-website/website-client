@@ -23,7 +23,7 @@ import {
   FontFamily,
   FontSize,
 } from "@ckeditor/ckeditor5-font"
-import { Heading, Title } from "@ckeditor/ckeditor5-heading"
+import { Heading } from "@ckeditor/ckeditor5-heading"
 import { Highlight } from "@ckeditor/ckeditor5-highlight"
 import { GeneralHtmlSupport } from "@ckeditor/ckeditor5-html-support"
 import {
@@ -44,6 +44,7 @@ import { PageBreak } from "@ckeditor/ckeditor5-page-break"
 import { Paragraph } from "@ckeditor/ckeditor5-paragraph"
 import { PasteFromOffice } from "@ckeditor/ckeditor5-paste-from-office"
 import { RemoveFormat } from "@ckeditor/ckeditor5-remove-format"
+import { SourceEditing } from "@ckeditor/ckeditor5-source-editing"
 import {
   SpecialCharacters,
   SpecialCharactersArrows,
@@ -123,11 +124,13 @@ class Editor extends ClassicEditor {
     // Title,
     Underline,
     WordCount,
+    SourceEditing,
   ]
 
   public static override defaultConfig = {
     toolbar: {
       items: [
+        "sourceEditing",
         "heading",
         "fontFamily",
         "fontSize",
