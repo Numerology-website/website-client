@@ -1,5 +1,6 @@
 import { NumerologyService } from "@/app/services/numerology/numerology.service"
 import { EditNumerology } from "@/components/admin/numerology/EditNumerology"
+import { EditNumerologyDescription } from "@/components/admin/numerology/EditNumerologyDescription"
 import Link from "next/link"
 
 interface INumerologyDocumentPage {
@@ -22,6 +23,7 @@ export default async function NumerologyDocument({
           {numerologyDocument.created_by?.last_name || "unknown"}
         </p>
       </div>
+      <EditNumerologyDescription document={numerologyDocument} />
       <EditNumerology
         // contents={numerologyDocument.contents}
         id={numerologyDocument.id}

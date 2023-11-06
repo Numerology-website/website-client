@@ -33,6 +33,23 @@ export const NumerologyService = {
     )
     return numerologyContent
   },
+  async updateDescription(
+    id: string,
+    description: string,
+    accessToken: string,
+  ) {
+    try {
+      await PostAPI({
+        url: `/admin/numerology/${id}/description`,
+        method: "PATCH",
+        accessToken,
+        body: { description },
+      })
+      return { message: "Cập nhật thành công" }
+    } catch (error) {
+      throw error
+    }
+  },
   async updateNumerologyContentById(
     id: string,
     data: INumerologyContent,
