@@ -5,7 +5,7 @@ import { BsCartPlusFill } from "react-icons/bs"
 import { AiFillGift } from "react-icons/ai"
 export default function FormOrder() {
   return (
-    <form className="flex w-[100%] max-w-[99%] flex-col gap-4">
+    <form className="flex w-full max-w-[99%] flex-col gap-4">
       <div className="mx-auto mb-[10px] block text-center  text-[#dc3545]">
         <div className="flex animate-pulse justify-center text-xl">
           <AiFillGift />

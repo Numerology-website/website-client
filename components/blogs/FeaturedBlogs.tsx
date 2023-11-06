@@ -10,7 +10,7 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
   const featuredBlogs = await BlogService.getHighlightBlogsByType(type)
   return (
     <>
-      <div className="relative m-0 w-[100%] max-w-full basis-full p-[0_15px_30px] md:max-w-[58%] md:basis-[58%]">
+      <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[58%] md:basis-[58%]">
         <div className="relative m-[0_auto] h-auto overflow-hidden">
           <Link href="">
             <div className="relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
@@ -18,7 +18,7 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
             </div>
           </Link>
         </div>
-        <div className="relative w-[100%] bg-[#af368938] p-5 text-left">
+        <div className="relative w-full bg-[#af368938] p-5 text-left">
           <Link href="">
             <h3 className="mb-[10px] text-2xl font-bold">
               {featuredBlogs.items[0]?.title}
@@ -29,8 +29,8 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
           </p>
         </div>
       </div>
-      <div className="relative m-0 w-[100%] max-w-full basis-full p-[0_15px_30px] md:max-w-[42%] md:basis-[42%]">
-        <div className="relative ml-0 mr-auto w-[100%] bg-cover bg-[50%_50%] bg-no-repeat">
+      <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[42%] md:basis-[42%]">
+        <div className="relative ml-0 mr-auto w-full bg-cover bg-[50%_50%] bg-no-repeat">
           <div className=" mb-5 border-b-2 border-[#af3689] pb-2  ">
             <h2 className="mt-0 text-[15px] font-bold leading-[1.3]">
               Bài viết nổi bật
@@ -45,11 +45,11 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
               >
                 <div className="relative mb-[15px] ml-0 mr-auto w-[100%] border-b-2 border-[#dbe4ed] bg-cover bg-[50%_50%] bg-no-repeat pb-[15px] ">
                   <Link href="">
-                    <div className="relative  flex w-[100%] flex-row">
+                    <div className="relative  flex w-full flex-row">
                       <div className=" relative h-auto w-[30%] overflow-hidden bg-cover bg-[50%_50%]">
                         <img src={item.thumbnail_img_link} alt="" />
                       </div>
-                      <div className="relative w-[100%] pl-[10px] text-left">
+                      <div className="relative w-full pl-[10px] text-left">
                         <h3 className="mb-2 text-sm font-bold">{item.title}</h3>
                       </div>
                     </div>

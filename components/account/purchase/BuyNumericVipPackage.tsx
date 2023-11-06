@@ -59,7 +59,7 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
   return (
     <>
       <form
-        className="flex w-[100%] max-w-[99%] flex-col gap-4"
+        className="flex w-full max-w-[99%] flex-col gap-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="my-[15px] ">
@@ -80,13 +80,13 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
               <div className="border p-[10px_10px_0_10px]">
                 <div>
                   <fieldset
-                    className="flex w-[100%] max-w-[100%] flex-row flex-wrap "
+                    className="flex w-full max-w-full flex-row flex-wrap "
                     id="radio"
                   >
                     {documents.map((plan, index) => (
                       <div
                         key={index + 1}
-                        className=" relative w-[100%] max-w-[50%] basis-[50%] gap-2 px-[5px]"
+                        className=" relative w-full max-w-[50%] basis-[50%] gap-2 px-[5px]"
                       >
                         <div className="mb-[10px] rounded border p-[10px] text-sm">
                           <Radio
@@ -143,13 +143,13 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
               <div className="border p-[10px_10px_0_10px]">
                 <div>
                   <fieldset
-                    className="flex w-[100%] max-w-[100%] flex-row flex-wrap "
+                    className="flex w-full max-w-full flex-row flex-wrap "
                     id="radio"
                   >
                     {documents.map((plan, index) => (
                       <div
                         key={index + 1}
-                        className=" relative w-[100%] max-w-[50%] basis-[50%] gap-2 px-[5px]"
+                        className=" relative w-full max-w-[50%] basis-[50%] gap-2 px-[5px]"
                       >
                         <div className="mb-[10px] rounded border p-[10px] text-sm">
                           <Radio
@@ -218,7 +218,7 @@ export default function BuyNumericVipPackage({ documents }: ITablePlan) {
               </div>
             </Tabs.Item>
           </Tabs.Group>
-          <div className="mx-auto mb-[15px] mt-[10px] flex w-[100%] justify-center">
+          <div className="mx-auto mb-[15px] mt-[10px] flex w-full justify-center">
             <Button disabled={isLoading} color="blue" type="submit">
               <div className="flex text-xl">
                 <BsCartPlusFill />

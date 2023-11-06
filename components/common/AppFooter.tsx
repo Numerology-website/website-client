@@ -8,7 +8,7 @@ function AppFooter() {
   return (
     <>
       <div className="bg-[#15143e] bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/footer-bg.png')] bg-center bg-no-repeat pb-[20px]  pt-[55px]">
-        <div className="mx-auto mb-0 flex w-[100%] flex-col flex-wrap text-white md:max-w-[1230px] md:flex-row">
+        <div className="mx-auto mb-0 flex w-full flex-col flex-wrap text-white md:max-w-[1230px] md:flex-row">
           <div className="relative mb-6 w-full p-[0_15px_30px] pb-0 md:max-w-[33%] md:basis-1/3">
             <Link href="/" className="mb-[30px] max-w-[300px]">
               <img
@@ -28,7 +28,7 @@ function AppFooter() {
               </div>
             </div>
             <div className="mt-[25px] text-white">
-              <div className="flex w-[100%] max-w-[100%] px-0 text-left">
+              <div className="flex w-full max-w-full px-0 text-left">
                 <Link
                   className="mx-[0.12em] flex h-[1.8em] w-[1.8em] justify-center rounded-[999px] border-2 border-white px-0 pt-[0.2em] hover:border-none hover:bg-black"
                   target="_blank"

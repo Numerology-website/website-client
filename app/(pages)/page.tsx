@@ -5,6 +5,7 @@ import ShareAboutNumerology from "@/components/pages/ShareAboutNumerology"
 import { FormReadNumerology } from "@/components/xem/FormReadNumerology"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
 import { NumbersMeaningInNumerology } from "@/components/pages/NumbersMeaningInNumerology"
+import CarouselSharingFromIndivisuals from "@/components/blogs/CarouselSharingFromIndivisuals"
 
 export default function Home() {
   return (
@@ -214,108 +215,23 @@ export default function Home() {
         </section>
 
         <section className="relative flex items-center justify-center">
-          <div className="relative w-full">
-            <div className="mx-[auto] flex w-full max-w-[1230px] flex-row flex-wrap">
-              <div className="relative mt-[120px] basis-full px-[15px] pb-[30px] md:mt-[-120px]">
-                <div className="mt-[-20px] bg-[white] p-[15px] shadow-[0_0_20px_0_#fc6e8f]">
-                  <div className="position inset-[15px] bg-[url('https://tracuuthansohoc.com/wp-content/themes/devvn-child/images/bg_customer.png')] bg-cover bg-scroll bg-left-top bg-no-repeat bg-origin-content">
-                    <div className="mb-[30px]">
-                      <br />
-                      <div className="mx-[auto]  px-0">
-                        <h3 className="relative flex flex-row flex-wrap justify-center font-bold">
-                          <span className="mx-[15px] text-center text-[30px] uppercase leading-[1.6] text-[#061729]">
-                            CHIA SẺ TỪ NHỮNG CÁ NHÂN <br />
-                            ĐÃ TÌM THẤY SỰ ĐỘT PHÁ CUỘC ĐỜI NHỜ NHÂN SỐ HỌC
-                          </span>
-                        </h3>
-                      </div>
+          <div className="mx-[auto] flex h-auto w-full max-w-[1230px] flex-row flex-wrap">
+            <div className="relative mt-[120px] basis-full px-[15px] pb-[30px] md:mt-[-120px]">
+              <div className="mt-[-20px] bg-[white] p-[15px] shadow-[0_0_20px_0_#fc6e8f]">
+                <div className="position inset-[15px] bg-[url('https://tracuuthansohoc.com/wp-content/themes/devvn-child/images/bg_customer.png')] bg-cover bg-scroll bg-left-top bg-no-repeat bg-origin-content">
+                  <div className="mb-[30px]">
+                    <br />
+                    <div className="mx-[auto]  px-0">
+                      <h3 className="relative flex flex-row flex-wrap justify-center font-bold">
+                        <span className="mx-[15px] text-center text-[30px] uppercase leading-[1.6] text-[#061729]">
+                          CHIA SẺ TỪ NHỮNG CÁ NHÂN <br />
+                          ĐÃ TÌM THẤY SỰ ĐỘT PHÁ CUỘC ĐỜI NHỜ NHÂN SỐ HỌC
+                        </span>
+                      </h3>
                     </div>
-                    <div className="relative block">
-                      <div className="relative h-[576px] overflow-hidden">
-                        <div>
-                          <section className="relative flex flex-row flex-nowrap justify-center px-[30px] py-0">
-                            <div className="relative justify-items-center">
-                              <div className="mx-[auto]  text-center">
-                                <div className="mx-[auto] flex flex-col justify-between  ">
-                                  <div className=" max-w-[935px] text-center text-[17px] font-bold leading-[2] text-[#061729]">
-                                    <p>
-                                      Luôn là người thất bại trong một tập thể,
-                                      tôi thực sự không hiểu tại sao công sức bỏ
-                                      ra là như nhau, thậm chí tôi đã làm việc
-                                      không nghĩ đến sức khỏe. Nhưng bạn bè đồng
-                                      nghiệp đều phát triển tốt còn tôi thì
-                                      không. Đến khi đọc được câu nói “lựa chọn
-                                      quan trọng hơn nỗ lực”, tôi đặt ra câu hỏi
-                                      “liệu lựa chọn của mình đã phù hợp hay
-                                      chưa?”. Để giải quyết vấn đề này, tôi bắt
-                                      đầu đi khám phá sâu hơn bản thân. Tình cờ
-                                      tôi đã biết đến trang web
-                                      Tracuuthansohoc.com, nơi có tất cả thông
-                                      tin mà mình luôn đi tìm kiếm. Trang web
-                                      này cung cấp kiến thức cụ thể về tính
-                                      cách, mối quan hệ, điểm mạnh yếu… của bản
-                                      thân theo Thần Số Học Pitago. Từ những thứ
-                                      đó tôi đã vẽ cho mình con đường phù hợp
-                                      nhất. Sau một năm trải nghiệm, tôi thấy
-                                      đây là lựa chọn hoàn toàn đúng đắn. Hơn
-                                      nữa tôi thấy Nhân số học khá thú vị và sẽ
-                                      tìm hiểu sâu hơn về lĩnh vực này.
-                                    </p>
-                                  </div>
-                                  <div className="mx-[auto] pb-[20px] pt-[50px] text-center">
-                                    <div className="relative m-[0_auto_1em] h-[118px] w-[118px]">
-                                      <img
-                                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/nam-20220810073543-1-80x80.png"
-                                        alt=""
-                                        className="w-full rounded-[999px] object-cover transition-[opacity_1s]"
-                                      />
-                                    </div>
-                                    <strong className="block text-center text-[25px] leading-[1.6] text-[#092035]">
-                                      Đức Anh
-                                    </strong>
-                                    <span className="text-center text-[16px] leading-[1.6] text-[#092035]">
-                                      Diễn viên & Tiktoker
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                        </div>
-                        <button className="absolute bottom-[40%] left-0  top-[40%] m-0 w-[50px] p-0 ">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="h-[40px] w-[40px] "
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        </button>
-                        <button className="absolute bottom-[40%] right-0 top-[40%] m-0 w-[50px] p-0">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="h-[40px] w-[40px]"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
+                  </div>
+                  <div className="relative h-full w-full flex justify-center overflow-hidden">
+                    <CarouselSharingFromIndivisuals/>
                   </div>
                 </div>
               </div>
@@ -491,7 +407,7 @@ export default function Home() {
               <div className="relative m-0 mb-0 w-full max-w-full basis-full p-[0_9.8px_19.6px] pb-0  md:max-w-[25%] md:basis-[25%]">
                 <div className="relative ml-0 mr-[auto] w-full bg-cover bg-[50%_50%] bg-no-repeat">
                   <div className="mb-0 ml-[-10px] mr-[-10px] flex w-[auto] max-w-[1222.5px] flex-row flex-wrap px-0">
-                    <div className="relative m-0 mb-0  w-full max-w-[50%] basis-[50%]  p-[0_9.8px_19.6px] md:max-w-full md:basis-full">
+                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
                       <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
                         <Link
                           href="https://tracuuthansohoc.com/ten-bang/"
@@ -524,7 +440,7 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                    <div className="relative m-0 mb-0 w-full max-w-[50%] basis-[50%]  p-[0_9.8px_19.6px] md:max-w-full md:basis-full">
+                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
                       <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
                         <Link
                           href="https://tracuuthansohoc.com/ten-bang/"
@@ -557,7 +473,7 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                    <div className="relative m-0 mb-0 w-full max-w-[50%] basis-[50%]  p-[0_9.8px_19.6px] md:max-w-full md:basis-full">
+                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
                       <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
                         <Link
                           href="https://tracuuthansohoc.com/ten-bang/"
@@ -590,7 +506,7 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                    <div className="relative m-0 mb-0 w-full max-w-[50%] basis-[50%]  p-[0_9.8px_19.6px] md:max-w-full md:basis-full">
+                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
                       <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
                         <Link
                           href="https://tracuuthansohoc.com/ten-bang/"
@@ -623,7 +539,7 @@ export default function Home() {
                         </Link>
                       </div>
                     </div>
-                    <div className="relative m-0 mb-0 w-full max-w-[50%] basis-[50%]  p-[0_9.8px_19.6px] md:max-w-full md:basis-full">
+                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
                       <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
                         <Link
                           href="https://tracuuthansohoc.com/ten-bang/"

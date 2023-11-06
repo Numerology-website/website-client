@@ -10,7 +10,7 @@ export default async function Purchased() {
 
   return (
     <>
-      <div className="mx-auto my-[15px] w-[100%] max-w-[99%] md:max-w-[1230px]">
+      <div className="mx-auto my-[15px] w-full max-w-[99%] md:max-w-[1230px]">
         {response.items.length === 0 ? (
           <div className="mb-[30px] mt-5 text-center text-sm font-bold text-[#dc3545]">
             Bạn chưa có đơn mua thành công nào!

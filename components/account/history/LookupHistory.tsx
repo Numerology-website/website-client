@@ -19,7 +19,7 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
   const onPageChange = (page: number) => setCurrentPage(page)
   return (
     <>
-      <div className="mx-auto flex w-[100%] max-w-[99%] flex-col px-[15px] md:max-w-[1140px]">
+      <div className="mx-auto flex w-full max-w-[99%] flex-col px-[15px] md:max-w-[1140px]">
         <div className="m-[5px_0]">
           <div className="float-left ml-[10px] mt-1 text-xs">
             <Select id="countries" required>
@@ -84,7 +84,7 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
                         <p>Loại tra: {item.lookupType}</p>
                       </Table.Cell>
                       <Table.Cell className="whitespace-nowrap font-medium dark:text-white">
-                        <div className="flex w-[100%] justify-center">
+                        <div className="flex w-full justify-center">
                           <Button
                             onClick={() => props.setOpenModal("default")}
                             color="success"

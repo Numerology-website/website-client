@@ -12,7 +12,7 @@ const AppHeader = () => {
   return (
     <>
       <div className="sticky top-0 z-10 bg-white">
-        <div className="container mx-auto flex h-[63px] w-[100%] max-w-[1230px] justify-between px-[15px] ">
+        <div className="container mx-auto flex h-[63px] w-full max-w-[1230px] justify-between px-[15px] ">
           <div className="my-auto flex lg:flex-1">
             <Link href="#" className="">
               <img
@@ -403,7 +403,7 @@ const AppHeader = () => {
         <Modal.Body className="fixed bottom-0 left-auto right-0 top-0 w-[300px] bg-[url(https://tracuuthansohoc.com/wp-content/themes/devvn-child/images/bg_mobile_menu.jpg)] bg-cover bg-center bg-no-repeat p-0">
           <button
             onClick={() => props.setOpenModal(undefined)}
-            className="absolute right-3 top-3 flex h-[30px] w-[30px] items-center justify-center bg-[#af3589]"
+            className="fixed right-6 top-3 flex h-[30px] w-[30px] items-center justify-center z-10 bg-[#af3589]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -421,7 +421,7 @@ const AppHeader = () => {
             </svg>
           </button>
           <div className="p-[30px_0]">
-            <ul className="relative flex w-[100%] list-none flex-col items-center px-[30px] pt-[30px] text-left text-white">
+            <ul className="relative flex w-full list-none flex-col items-center px-[30px] pt-[30px] text-left text-white">
               {MenuItemHeader("Home", [])}
               {MenuItemHeader("Giới thiệu", ["Liên hệ"])}
               {MenuItemHeader("Tra cứu", [
@@ -451,8 +451,8 @@ const AppHeader = () => {
                 "MBTI",
               ])}
               {MenuItemHeader("Affiliate", [])}
-              <li className="relative m-0 flex w-[100%] flex-row flex-wrap  p-0">
-                <div className="flex w-[100%] justify-between">
+              <li className="relative m-0 flex w-full flex-row flex-wrap  p-0">
+                <div className="flex w-full justify-between">
                   <Link
                     className="p-[13px_0] text-base font-semibold"
                     href="/login"

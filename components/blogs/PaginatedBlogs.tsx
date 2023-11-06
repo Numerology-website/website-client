@@ -33,22 +33,22 @@ export const PaginatedBlogs = ({ documents }: ITableBlog) => {
             currentItems.map((document, index) => (
               <div
                 key={index + 1}
-                className="relative m-0 w-[100%] max-w-[50%] basis-[50%] p-[0_15px_30px] md:max-w-[25%] md:basis-[25%]"
+                className="relative m-0 w-full max-w-[50%] basis-[50%] p-[0_15px_30px] md:max-w-[25%] md:basis-[25%]"
               >
-                <div className="relative ml-0 mr-auto w-[100%] bg-cover bg-[50%_50%] bg-no-repeat">
+                <div className="relative ml-0 mr-auto w-full bg-cover bg-[50%_50%] bg-no-repeat">
                   <Link href={document.slug}>
-                    <div className="relative m-[0_auto] w-[100%]">
+                    <div className="relative m-[0_auto] w-full">
                       <div className="relative m-[0_auto] h-auto overflow-hidden">
                         <div className="relative h-auto bg-cover bg-[50%_50%] pt-[56%]">
                           <img
-                            className="absolute bottom-0 left-0 right-0 top-0 h-[100%] w-[100%]"
+                            className="absolute bottom-0 left-0 right-0 top-0 h-full w-full"
                             src={document.thumbnail_img_link}
                             alt=""
                           />
                         </div>
                       </div>
                     </div>
-                    <div className="relative w-[100%] pt-3 text-left">
+                    <div className="relative w-full pt-3 text-left">
                       <h3 className="mb-1 text-lg font-bold">
                         {document.title}
                       </h3>
@@ -65,7 +65,7 @@ export const PaginatedBlogs = ({ documents }: ITableBlog) => {
     }
     return (
       <>
-        <div className="relative m-0 w-[100%] basis-[100%] p-[0_15px_30px]">
+        <div className="relative m-0 w-full basis-full p-[0_15px_30px]">
           <div className="mx-[-15px] flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
             <Items currentItems={currentItems} />
           </div>

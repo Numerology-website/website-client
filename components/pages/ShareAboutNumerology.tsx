@@ -5,14 +5,14 @@ import { Accordion } from "flowbite-react"
 export default function ShareAboutNumerology() {
   return (
     <section className="relative flex min-h-[auto] flex-row items-center bg-[#ffffff] p-[30px_0] pb-[150px] pt-0">
-      <div className="absolute left-0 right-0 top-0 m-0 h-[100%] bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/800-20221007094032-stp6d-1.png')] bg-cover bg-fixed bg-[50%_50%] bg-no-repeat p-0 opacity-100 "></div>
-      <div className="relative w-[100%]">
+      <div className="absolute left-0 right-0 top-0 m-0 h-full bg-[url('https://tracuuthansohoc.com/wp-content/uploads/2022/10/800-20221007094032-stp6d-1.png')] bg-cover bg-fixed bg-[50%_50%] bg-no-repeat p-0 opacity-100 "></div>
+      <div className="relative w-full">
         <div className="mx-[auto] flex  max-w-[1230px] flex-row flex-wrap">
-          <div className="relative m-0 w-[100%] basis-[100%] p-[0_15px_30px]">
-            <div className="relative  ml-[auto] mr-0 w-[100%] bg-cover bg-[50%_50%] bg-no-repeat text-center">
+          <div className="relative m-0 w-full basis-full p-[0_15px_30px]">
+            <div className="relative  ml-[auto] mr-0 w-full bg-cover bg-[50%_50%] bg-no-repeat text-center">
               <div className="mx-[auto] mb-[70px] mt-[30px] max-w-[1230px]  px-0">
                 <div className="relative mx-[auto] flex flex-row flex-wrap items-center justify-between">
-                  <h2 className=" w-[100%]">
+                  <h2 className=" w-full">
                     <span className="m-[0_15px] text-center text-[35px] font-bold uppercase leading-[1.6] text-[#061729]">
                       ĐÔI LỜI CHIA SẺ VỀ THẦN SỐ HỌC Miễn phí
                     </span>
@@ -146,7 +146,7 @@ export default function ShareAboutNumerology() {
                           hợp với nhau để chỉ ra hơn 20 chỉ số và sự kết hợp của
                           chúng cho riêng bạn.
                         </p>
-                        <table className="h-[105px] w-[100%]">
+                        <table className="h-[105px] w-full">
                           <tbody>
                             <tr className="h-[21px]">
                               <td className="h-[21px] w-[50%]">
@@ -234,10 +234,10 @@ export default function ShareAboutNumerology() {
           </div>
         </div>
         <div className="mx-[auto] flex max-w-[1230px] flex-row flex-wrap">
-          <div className="relative m-0 w-[100%] p-[0_15px_30px]">
+          <div className="relative m-0 w-full p-[0_15px_30px]">
             <div className="mx-[auto] mb-[70px] mt-[30px] px-0">
               <div className="flex flex-row flex-wrap items-center justify-between">
-                <h2 className="w-[100%]">
+                <h2 className="w-full">
                   <span className="text-center text-[35px] font-bold leading-[1.6] text-white">
                     KIẾN THỨC THÚ VỊ TRONG THẦN SỐ HỌC PYTHAGORAS
                   </span>
@@ -374,7 +374,7 @@ export default function ShareAboutNumerology() {
                     </span>
                   </Accordion.Title>
                   <Accordion.Content className="mb-[50px] border-[1px_solid_#092c49] bg-[white] p-[1em_2.3em] text-justify text-[18px] leading-[1.6] text-[black]">
-                    <table className=" collapse h-[105px] w-[100%]">
+                    <table className=" collapse h-[105px] w-full">
                       <tbody>
                         <tr className="h-[21px] ">
                           <td className="h-[21px] w-[50%]">

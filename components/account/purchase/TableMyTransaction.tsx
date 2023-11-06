@@ -108,7 +108,7 @@ export default function TableMyTransaction({ documents }: ITableTransaction) {
                   </div>
                 </Table.Cell>
                 <Table.Cell className="whitespace-nowrap p-3 font-medium dark:text-white">
-                  <div className="flex w-[100%] flex-col justify-center text-center">
+                  <div className="flex w-full flex-col justify-center text-center">
                     <b>
                       {item.currency === "VND"
                         ? getFormatNumber(item.plan.price_after_discount.vnd)
@@ -122,7 +122,7 @@ export default function TableMyTransaction({ documents }: ITableTransaction) {
                     ) : (
                       <span
                         onClick={() => handleCancelOrder(item.id)}
-                        className="mt-5 flex w-[100%] cursor-pointer justify-center text-xs text-red-600"
+                        className="mt-5 flex w-full cursor-pointer justify-center text-xs text-red-600"
                       >
                         <div className="mr-1 mt-[0.15rem]">
                           <GiCancel />

@@ -9,7 +9,7 @@ export default async function affiliate() {
   return (
     <>
       <div className="m-0 h-5"></div>
-      <div className="mx-auto w-[100%] max-w-[99%] px-[15px] md:max-w-[1140px]">
+      <div className="mx-auto w-full max-w-[99%] px-[15px] md:max-w-[1140px]">
         <div className="mt-5 text-center text-2xl font-bold text-[#007bff]">
           MÃ GIỚI THIỆU (AFFILIATE) CỦA BẠN
         </div>

@@ -15,7 +15,7 @@ export default async function PurchaseKid() {
   const myTransaction = await TransactionService.getMyTransactions()
   return (
     <>
-      <div className="mx-auto flex w-[100%] max-w-[99%] flex-col px-[15px] md:max-w-[1190px]">
+      <div className="mx-auto flex w-full max-w-[99%] flex-col px-[15px] md:max-w-[1190px]">
         <div className=" flex flex-col  justify-center  p-[10px] ">
           {myTransaction.items.length === 0 ? (
             <>
@@ -31,7 +31,7 @@ export default async function PurchaseKid() {
           )}
           <div className="my-[15px]">
             <div className="-mx-[15px] flex flex-wrap justify-center">
-              <div className="relative w-[100%] max-w-[100%] basis-[100%] px-[15px] md:max-w-[50%] md:basis-[50%]">
+              <div className="relative w-full max-w-full basis-full px-[15px] md:max-w-[50%] md:basis-[50%]">
                 <iframe
                   width="560"
                   height="315"
@@ -41,7 +41,7 @@ export default async function PurchaseKid() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
-                <div className="mt-2 w-[100%] text-center italic">
+                <div className="mt-2 w-full text-center italic">
                   Người nổi tiếng nói về tracuuthansohoc
                 </div>
               </div>
@@ -52,47 +52,47 @@ export default async function PurchaseKid() {
             RẤT NHIỀU NGƯỜI ĐÃ TÌM ĐƯỢC NHỮNG CON SỐ CỦA RIÊNG MÌNH!
           </div>
           <div className="box-border h-[50vh] overflow-y-auto overflow-x-hidden pt-1">
-            <div className="-mx-[15px] flex w-[100%] max-w-[100%] flex-wrap justify-center">
-              <div className="relative mx-[15px] w-[100%] max-w-[45%] basis-[45%]  md:max-w-[30%] md:basis-[30%]">
+            <div className="-mx-[15px] flex w-full max-w-full flex-wrap justify-center">
+              <div className="relative mx-[15px] w-full max-w-[45%] basis-[45%]  md:max-w-[30%] md:basis-[30%]">
                 <img
                   src="https://xem.tracuuthansohoc.com/uploads/orders/01.jpg"
                   alt=""
-                  className="w-[100%]"
+                  className="w-full"
                 />
               </div>
-              <div className="relative mx-[15px] w-[100%] max-w-[45%] basis-[45%]  md:max-w-[30%] md:basis-[30%]">
+              <div className="relative mx-[15px] w-full max-w-[45%] basis-[45%]  md:max-w-[30%] md:basis-[30%]">
                 <img
                   src="https://xem.tracuuthansohoc.com/uploads/orders/01.jpg"
                   alt=""
-                  className="w-[100%]"
+                  className="w-full"
                 />
               </div>
-              <div className="relative mx-[15px] w-[100%] max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
+              <div className="relative mx-[15px] w-full max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
                 <img
                   src="https://xem.tracuuthansohoc.com/uploads/orders/01.jpg"
                   alt=""
-                  className="w-[100%]"
+                  className="w-full"
                 />
               </div>
-              <div className="relative mx-[15px] w-[100%] max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
+              <div className="relative mx-[15px] w-full max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
                 <img
                   src="https://xem.tracuuthansohoc.com/uploads/orders/01.jpg"
                   alt=""
-                  className="w-[100%]"
+                  className="w-full"
                 />
               </div>
-              <div className="relative mx-[15px] w-[100%] max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
+              <div className="relative mx-[15px] w-full max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
                 <img
                   src="https://xem.tracuuthansohoc.com/uploads/orders/01.jpg"
                   alt=""
-                  className="w-[100%]"
+                  className="w-full"
                 />
               </div>
-              <div className="relative mx-[15px] w-[100%] max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
+              <div className="relative mx-[15px] w-full max-w-[45%] basis-[45%] md:max-w-[30%] md:basis-[30%]">
                 <img
                   src="https://xem.tracuuthansohoc.com/uploads/orders/01.jpg"
                   alt=""
-                  className="w-[100%]"
+                  className="w-full"
                 />
               </div>
             </div>
@@ -100,7 +100,7 @@ export default async function PurchaseKid() {
           <BuyNumericVipPackage documents={kidPlans} />
           <div className="container mx-auto my-[15px] ">
             <div className="-mx-[15px] flex flex-wrap md:flex-row">
-              <div className="relative w-[100%] max-w-[100%] basis-[100%] px-[15px] py-[5px] md:max-w-[50%] md:basis-[50%]">
+              <div className="relative w-full max-w-full basis-full px-[15px] py-[5px] md:max-w-[50%] md:basis-[50%]">
                 <iframe
                   width="100%"
                   height="315"
@@ -111,7 +111,7 @@ export default async function PurchaseKid() {
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="relative w-[100%] max-w-[100%] basis-[100%] px-[15px] py-[5px] md:max-w-[50%] md:basis-[50%]">
+              <div className="relative w-full max-w-full basis-full px-[15px] py-[5px] md:max-w-[50%] md:basis-[50%]">
                 <iframe
                   width="100%"
                   height="315"

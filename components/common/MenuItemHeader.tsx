@@ -3,8 +3,8 @@ import { useState } from "react"
 const MenuItemHeader = (nameItem: string, menuItems: string[]) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   return (
-    <li className="relative m-0 flex w-[100%] flex-row flex-wrap border-b border-white p-0">
-      <div className="flex w-[100%] justify-between">
+    <li className="relative m-0 flex w-full flex-row flex-wrap border-b border-white p-0">
+      <div className="flex w-full justify-between">
         <Link className="p-[13px_0] text-base font-semibold" href="">
           {nameItem}
         </Link>
