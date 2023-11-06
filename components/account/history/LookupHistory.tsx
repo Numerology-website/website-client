@@ -4,7 +4,7 @@ import { TNumerologyRecord } from "@/interfaces/numerology-records.interface"
 import { Select, Button, Table, Pagination, Modal } from "flowbite-react"
 import moment from "moment"
 import Link from "next/link"
-import { useState,ChangeEvent } from "react"
+import { useState, ChangeEvent } from "react"
 import { BsEyeFill } from "react-icons/bs"
 
 interface ITableLookupHistory {
@@ -16,7 +16,7 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
   const props = { openModal, setOpenModal }
   const [tableLookupHistory, setTableLookupHistory] =
     useState<TNumerologyRecord[]>(documents)
-    
+
   const [openModalOrderSuccess, setOpenOrderSuccess] = useState<
     string | undefined
   >()
@@ -31,10 +31,12 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target
-    if (value ==="All"){
+    if (value === "All") {
       setTableLookupHistory(documents)
-    }else{
-      setTableLookupHistory(documents.filter((document) => document.plan.includes(value)))
+    } else {
+      setTableLookupHistory(
+        documents.filter((document) => document.plan.includes(value)),
+      )
     }
   }
   return (
@@ -42,10 +44,7 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
       <div className="mx-auto flex w-full max-w-[99%] flex-col px-[15px] md:max-w-[1140px]">
         <div className="m-[5px_0]">
           <div className="float-left ml-[10px] mt-1 text-xs">
-            <Select
-              required
-              onChange={handleSelectChange}
-            >
+            <Select required onChange={handleSelectChange}>
               <option value="All">Tất cả lượt tra</option>
               <option value="Free">Lượt tra Free</option>
               <option value="Online">Lượt tra Online</option>
