@@ -55,8 +55,8 @@ export const NumbersMeaningInNumerology = () => {
             <div className="relative ml-auto mr-0 w-[100%] bg-cover bg-[50%_50%] bg-no-repeat">
               <div className="flex flex-col items-center md:flex-row">
                 {/* hoa */}
-                <div className="w-[100%] max-w-[560px] pl-[40px] pr-5">
-                  <ul className="relative m-[0_auto] flex h-[486px] w-[445px] list-none flex-row flex-wrap items-center justify-start p-0">
+                <div className="relative flex w-[100%] max-w-[560px] justify-center md:pl-[40px] md:pr-5">
+                  <ul className="relative m-[0_auto] flex h-[486px] w-[445px] scale-[.7] list-none flex-row flex-wrap justify-center sm:transform-none md:left-0  md:transform-none">
                     <li className="transition-[background-color .3s] absolute left-[152px] top-[-2px] ml-0 inline-block  h-auto w-[138px] p-0">
                       <button
                         className="z-50 inline-flex flex-wrap items-center font-bold uppercase no-underline"
@@ -75,7 +75,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] w-[399] overflow-clip"
+                            className="aspect-[auto_399/477] w-[399px] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/1-20221007070653-g6rq3.png"
                             alt="1"
                           />
@@ -100,7 +100,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/2-20221007070648-frb_e.png"
                             alt="2"
                           />
@@ -125,7 +125,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/3-20221007070648-cubjq.png"
                             alt="3"
                           />
@@ -150,7 +150,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/4-20221007070648-49_sl.png"
                             alt="4"
                           />
@@ -175,7 +175,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/5-20221007070648-iimfr.png"
                             alt="5"
                           />
@@ -200,7 +200,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_450/538] h-auto w-[450] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_450/538] h-auto w-[450px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/6-20221007070648-wa_e7.png"
                             alt="6"
                           />
@@ -225,7 +225,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/7-20221007070648-sfvxj.png"
                             alt="7"
                           />
@@ -250,7 +250,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_450/538] h-auto w-[450] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_450/538] h-auto w-[450px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/8-20221007070648-ni4u2.png"
                             alt="8"
                           />
@@ -275,7 +275,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/9-20221007070647-rc_1t.png"
                             alt="9"
                           />
@@ -300,7 +300,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_399/477] h-auto w-[399] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_399/477] h-auto w-[399px] max-w-[100%] overflow-clip"
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/11-20221007070647-qyjsf.png"
                             alt="11"
                           />
@@ -315,7 +315,7 @@ export const NumbersMeaningInNumerology = () => {
                         <img
                           src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/22-20221007073443-sjnwy.png"
                           alt=""
-                          className="inline-block aspect-[auto_468/468] h-auto w-[468px] max-w-[100%] overflow-clip opacity-100"
+                          className="inline-block aspect-[auto_468/468] h-auto w-[468px] max-w-[100%] overflow-clip opacity-100 "
                         />
                         <span
                           className={
@@ -325,7 +325,7 @@ export const NumbersMeaningInNumerology = () => {
                           }
                         >
                           <img
-                            className="aspect-[auto_312/312] h-auto w-[312] max-w-[100%] overflow-clip"
+                            className="aspect-[auto_312/312] h-auto w-[312px] max-w-[100%] overflow-clip "
                             src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/22-b-20221007073443-enh-a.png"
                             alt="22"
                           />
