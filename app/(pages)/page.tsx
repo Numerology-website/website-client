@@ -6,6 +6,8 @@ import { FormReadNumerology } from "@/components/xem/FormReadNumerology"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
 import { NumbersMeaningInNumerology } from "@/components/pages/NumbersMeaningInNumerology"
 import CarouselSharingFromIndivisuals from "@/components/blogs/CarouselSharingFromIndivisuals"
+import CarouselNumerologyTrainningProgram from "@/components/blogs/CarouselNumerologyTrainningProgram"
+import CarouselApplyOfNumerology from "@/components/blogs/CarouselApplyOfNumerology"
 
 export default function Home() {
   return (
@@ -230,8 +232,8 @@ export default function Home() {
                       </h3>
                     </div>
                   </div>
-                  <div className="relative h-full w-full flex justify-center overflow-hidden">
-                    <CarouselSharingFromIndivisuals/>
+                  <div className="relative flex h-full w-full justify-center overflow-hidden">
+                    <CarouselSharingFromIndivisuals />
                   </div>
                 </div>
               </div>
@@ -611,7 +613,7 @@ export default function Home() {
                 <div className="relative ml-[auto] mr-0 w-full bg-cover bg-[50%_50%] bg-no-repeat">
                   <div className="absolute bottom-0 left-0 right-0 top-0 m-0 rounded-none border-[3px] border-[#ea5793] border-[1px_solid_#ececec]"></div>
                   <div className="mx-[-15px] flex w-[auto] max-w-[1230px] flex-row flex-wrap px-0">
-                    <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] pb-0 md:max-w-[58%] md:basis-[58%]">
+                    <div className="relative my-auto  w-full max-w-full basis-full p-[0_15px_30px] pb-0 md:max-w-[58%] md:basis-[58%]">
                       <div className="relative ml-[auto] mr-0 w-full bg-cover bg-[50%_50%] bg-no-repeat p-[0px_15px_0px_45px] ">
                         <h2 className="mt-[15px] w-full">
                           <span className="text-[27px] font-bold leading-[1.6] text-[#af3689]">
@@ -624,32 +626,32 @@ export default function Home() {
                             LOUIS NGUYỄN
                           </strong>
                         </h2>
-                        <ul className="mb-[1.3em] mt-0 p-0 pt-5 text-[16px] text-white">
-                          <li className="relative mb-[15px] list-none pl-[30px] leading-[1.6]">
+                        <ul className="mb-[1.3em] ml-[30px] mt-0 list-disc p-0 pt-5 text-base text-white ">
+                          <li className="relative mb-[15px] pl-2  ">
                             <strong>
                               CEO Tra cứu thần số học Louis Nguyễn – Nhà nghiên
                               cứu thần số học
                             </strong>
                           </li>
-                          <li className="relative mb-[15px] list-none pl-[30px] leading-[1.6]">
+                          <li className="relative mb-[15px] pl-2  ">
                             <strong>
                               Nhà sáng lập hệ thống Tra cứu thần số học hàng đầu
                               Việt Nam
                             </strong>
                           </li>
-                          <li className="relative mb-[15px] list-none pl-[30px] leading-[1.6]">
+                          <li className="relative mb-[15px] pl-2">
                             <strong>
                               Hơn 7 năm nghiên cứu và ứng dụng Nhân số học vào
                               đời sống
                             </strong>
                           </li>
-                          <li className="relative mb-[15px] list-none pl-[30px] leading-[1.6]">
+                          <li className="relative mb-[15px] pl-2">
                             <strong>
                               Hơn 100 khóa đào tạo thần số học cho đại chúng
                               Việt Nam
                             </strong>
                           </li>
-                          <li className="relative mb-[15px] list-none pl-[30px] leading-[1.6]">
+                          <li className="relative mb-[15px] pl-2 ">
                             <strong>
                               Cố vấn định hướng cho hơn 50 doanh nghiệp lớn nhỏ
                               trong kỷ nguyên chuyển đổi số
@@ -711,128 +713,9 @@ export default function Home() {
             </div>
             <div className=" mx-[auto] flex w-full max-w-[1230px] flex-row flex-wrap">
               <div className="relative  w-full max-w-full basis-full p-[0_15px_30px] pb-0">
-                <div className="relative ml-[auto] mr-0 w-full bg-cover bg-[50%_50%] bg-no-repeat">
-                  <div className="relative mx-[-15px] mb-0 flex w-auto max-w-[1230px] flex-row flex-wrap px-0">
-                    <div className="relative block w-full">
-                      <div className="relative h-[587px] touch-pan-y overflow-hidden">
-                        <div className="relative left-0 flex h-full w-full flex-col md:flex-row">
-                          <section className="flex min-h-[auto] w-full max-w-full flex-row items-center px-[15px] pb-0 pt-[30px] md:max-w-[50%]">
-                            <div className="relative z-[1] h-full w-full pb-[15px]">
-                              <div className="relative m-[0_auto] w-full bg-white shadow-[7px_7px_9px_0_rgba(51,51,51,.2)] transition-[opacity_.3s,transform_.3s,background-color_.3s]">
-                                <div className="relative m-[0_auto] block h-auto overflow-hidden transition-[opacity_.3s,transform_.3s,background-color_.3s]">
-                                  <Link
-                                    className="block "
-                                    href="khoa-hoc-than-so-hoc"
-                                  >
-                                    <div className="relative block h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                      <img
-                                        className="bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full opacity-100"
-                                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/khoa-hoc-than-so-hoc-chuyen-sau.jpg"
-                                        alt="Khóa học Thần số học chuyên sâu"
-                                      />
-                                    </div>
-                                  </Link>
-                                </div>
-                                <div className="relative h-[322px] w-full  p-5 text-left md:p-[20px_30px_100px_50px]">
-                                  <div className="text-justify text-black">
-                                    <h3 className="mb-[15px] mt-[unset] h-[65px] overflow-hidden text-[23px] leading-[1.4]">
-                                      Khóa học thần số học chuyên sâu
-                                    </h3>
-                                    <p className="text-[15px]  leading-[1.6] ">
-                                      Khóa học giúp bạn thấu hiểu chính mình,
-                                      phát huy điểm mạnh, khắc phục điểm yếu;
-                                      thấu hiểu người thân, tìm thấy giải pháp
-                                      vun đắp mối quan hệ; thấu hiểu khách hàng,
-                                      từ đó đưa ra hướng dẫn phù hợp; dẫn lối
-                                      trở thành chuyên gia thần số học có khả
-                                      năng lắng nghe, chia sẻ, coaching hỗ trợ
-                                      giải quyết vấn đề cho mọi người và kiếm
-                                      thu nhập từ công việc này.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                          <section className=" flex min-h-[auto] w-full max-w-full flex-row items-center px-[15px] pb-0 pt-[30px] md:max-w-[50%]">
-                            <div className="relative z-[1] h-full w-full pb-[15px]">
-                              <div className="relative m-[0_auto] w-full bg-white shadow-[7px_7px_9px_0_rgba(51,51,51,.2)] transition-[opacity_.3s,transform_.3s,background-color_.3s]">
-                                <div className="relative m-[0_auto] block h-auto overflow-hidden transition-[opacity_.3s,transform_.3s,background-color_.3s]">
-                                  <Link
-                                    className="block "
-                                    href="khoa-hoc-than-so-hoc"
-                                  >
-                                    <div className="relative block h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                      <img
-                                        className="bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full opacity-100"
-                                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/khoa-hoc-than-so-hoc-chuyen-sau.jpg"
-                                        alt="Khóa học Thần số học chuyên sâu"
-                                      />
-                                    </div>
-                                  </Link>
-                                </div>
-                                <div className="relative h-[322px] w-full p-5 text-left md:p-[20px_30px_100px_50px]">
-                                  <div className=" text-justify text-black">
-                                    <h3 className="mb-[15px] mt-[unset] h-[65px] overflow-hidden text-[23px] leading-[1.4]">
-                                      Khóa học thần số học chuyên sâu
-                                    </h3>
-                                    <p className="text-[15px]  leading-[1.6] ">
-                                      Khóa học giúp bạn thấu hiểu chính mình,
-                                      phát huy điểm mạnh, khắc phục điểm yếu;
-                                      thấu hiểu người thân, tìm thấy giải pháp
-                                      vun đắp mối quan hệ; thấu hiểu khách hàng,
-                                      từ đó đưa ra hướng dẫn phù hợp; dẫn lối
-                                      trở thành chuyên gia thần số học có khả
-                                      năng lắng nghe, chia sẻ, coaching hỗ trợ
-                                      giải quyết vấn đề cho mọi người và kiếm
-                                      thu nhập từ công việc này.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                          {/* <section className="absolute left-full m-0 flex min-h-[auto] w-full max-w-full flex-row items-center px-[15px] pb-0 pt-[30px] md:max-w-[50%]">
-                            <div className="relative z-[1] h-full w-full pb-[15px]">
-                              <div className="relative m-[0_auto] w-full bg-white shadow-[7px_7px_9px_0_rgba(51,51,51,.2)] transition-[opacity_.3s,transform_.3s,background-color_.3s]">
-                                <div className="relative m-[0_auto] block h-auto overflow-hidden transition-[opacity_.3s,transform_.3s,background-color_.3s]">
-                                  <Link
-                                    className="block "
-                                    href="khoa-hoc-than-so-hoc"
-                                  >
-                                    <div className="relative block h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                      <img
-                                        className="bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full opacity-100"
-                                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/khoa-hoc-than-so-hoc-chuyen-sau.jpg"
-                                        alt="Khóa học Thần số học chuyên sâu"
-                                      />
-                                    </div>
-                                  </Link>
-                                </div>
-                                <div className="relative h-[322px] w-full p-5 text-left md:p-[20px_30px_100px_50px]">
-                                  <div className=" text-justify text-black">
-                                    <h3 className="mb-[15px] mt-[unset] h-[65px] overflow-hidden text-[23px] leading-[1.4]">
-                                      Khóa học thần số học chuyên sâu
-                                    </h3>
-                                    <p className="text-[15px]  leading-[1.6] ">
-                                      Khóa học giúp bạn thấu hiểu chính mình,
-                                      phát huy điểm mạnh, khắc phục điểm yếu;
-                                      thấu hiểu người thân, tìm thấy giải pháp
-                                      vun đắp mối quan hệ; thấu hiểu khách hàng,
-                                      từ đó đưa ra hướng dẫn phù hợp; dẫn lối
-                                      trở thành chuyên gia thần số học có khả
-                                      năng lắng nghe, chia sẻ, coaching hỗ trợ
-                                      giải quyết vấn đề cho mọi người và kiếm
-                                      thu nhập từ công việc này.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </section> */}
-                        </div>
-                      </div>
-                    </div>
+                <div className="relative h-[587px]  overflow-hidden">
+                  <div className="absolute flex h-full w-full flex-row">
+                    <CarouselNumerologyTrainningProgram />
                   </div>
                 </div>
               </div>
@@ -853,172 +736,8 @@ export default function Home() {
                 </h2>
               </div>
             </div>
-
-            <div className="mx-[auto] flex w-full max-w-[1230px] flex-row flex-wrap">
-              <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                <div className="relative ml-[auto] mr-0 w-full bg-[50%_50%] bg-no-repeat">
-                  <div className="relative m-[0_auto] flex w-full bg-white">
-                    <div className="relative m-[0_auto] h-auto w-[30%] max-w-[250px] basis-[250px] overflow-hidden p-[15px]">
-                      <img
-                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/bao-cao-20221007031024-mhudg.png"
-                        className="m-[0_auto] inline-block h-auto w-full max-w-full overflow-clip opacity-100"
-                      ></img>
-                    </div>
-                    <div className="h-[359px] w-full bg-white p-[15px_15px_15px_0]">
-                      <div className="text-left">
-                        <div className="text-left text-black">
-                          <h3 className="mb-[15px] w-full text-lg leading-[1.2] md:text-[23px]">
-                            Báo cáo thần số học trọn đời
-                          </h3>
-                          <ul className="mb-[1.3em] mt-0 list-none p-0 text-sm leading-[1.2] md:text-base">
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative pl-[15px] ">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                          </ul>
-                        </div>
-                        <Link
-                          href="/than-so-hoc-tron-doi"
-                          className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
-                        >
-                          <span>Tìm hiểu thêm</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                <div className="relative ml-0 mr-[auto] w-full bg-[50%_50%] bg-no-repeat">
-                  <div className="relative m-[0_auto] flex w-full bg-white">
-                    <div className="relative m-[0_auto] h-auto w-[30%] max-w-[250px] basis-[250px] overflow-hidden p-[15px]">
-                      <img
-                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/bao-cao-20221007031024-mhudg.png"
-                        className="m-[0_auto] inline-block h-auto w-full max-w-full overflow-clip opacity-100"
-                      ></img>
-                    </div>
-                    <div className="h-[359px] w-full bg-white p-[15px_15px_15px_0]">
-                      <div className="text-left">
-                        <div className="text-left text-black">
-                          <h3 className="mb-[15px] w-full text-lg leading-[1.2] md:text-[23px]">
-                            Báo cáo thần số học trọn đời
-                          </h3>
-                          <ul className="mb-[1.3em] mt-0 list-none p-0 text-[16px] leading-[1.2]">
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative pl-[15px] ">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                          </ul>
-                        </div>
-                        <Link
-                          href="/than-so-hoc-tron-doi"
-                          className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
-                        >
-                          <span>Tìm hiểu thêm</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                <div className="relative ml-0 mr-[auto] w-full bg-[50%_50%] bg-no-repeat">
-                  <div className="relative m-[0_auto] flex w-full bg-white">
-                    <div className="relative m-[0_auto] h-auto w-[30%] max-w-[250px] basis-[250px] overflow-hidden p-[15px]">
-                      <img
-                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/bao-cao-20221007031024-mhudg.png"
-                        className="m-[0_auto] inline-block h-auto w-full max-w-full overflow-clip opacity-100"
-                      ></img>
-                    </div>
-                    <div className="h-[359px] w-full bg-white p-[15px_15px_15px_0]">
-                      <div className="text-left">
-                        <div className="text-left text-black">
-                          <h3 className="mb-[15px] w-full text-[23px] leading-[1.2]">
-                            Báo cáo thần số học trọn đời
-                          </h3>
-                          <ul className="mb-[1.3em] mt-0 list-none p-0 text-[16px] leading-[1.2]">
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative pl-[15px] ">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                          </ul>
-                        </div>
-                        <Link
-                          href="/than-so-hoc-tron-doi"
-                          className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
-                        >
-                          <span>Tìm hiểu thêm</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[50%] md:basis-[50%]">
-                <div className="relative ml-0 mr-[auto] w-full bg-[50%_50%] bg-no-repeat">
-                  <div className="relative m-[0_auto] flex w-full bg-white">
-                    <div className="relative m-[0_auto] h-auto w-[30%] max-w-[250px] basis-[250px] overflow-hidden p-[15px]">
-                      <img
-                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/bao-cao-20221007031024-mhudg.png"
-                        className="m-[0_auto] inline-block h-auto w-full max-w-full overflow-clip opacity-100"
-                      ></img>
-                    </div>
-                    <div className="h-[359px] w-full bg-white p-[15px_15px_15px_0]">
-                      <div className="text-left">
-                        <div className="text-left text-black">
-                          <h3 className="mb-[15px] w-full text-[23px] leading-[1.2]">
-                            Báo cáo thần số học trọn đời
-                          </h3>
-                          <ul className="mb-[1.3em] mt-0 list-none p-0 text-[16px] leading-[1.2]">
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative mb-[16px] pl-[15px]">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                            <li className="relative pl-[15px] ">
-                              Dự báo từng năm trong cuộc đời và các hướng phát
-                              triển phù hợp
-                            </li>
-                          </ul>
-                        </div>
-                        <Link
-                          href="/than-so-hoc-tron-doi"
-                          className="transition-transform-[transform_.3s,box-shadow_.3s,background-color_.3s,color_.3s,opacity_.3s] mb-[20px] mt-[1em] inline-flex min-h-[64px] items-center overflow-hidden rounded-[99px] bg-[#af3689] pl-[40px] pr-[25px] text-center text-[18px] leading-[1.6] shadow-[0_10px_20px_rgba(0,0,0,.19),_0_6px_6px_rgba(0,0,0,.22)]"
-                        >
-                          <span>Tìm hiểu thêm</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative">
+              <CarouselApplyOfNumerology />
             </div>
           </div>
         </section>

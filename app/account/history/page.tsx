@@ -1,20 +1,13 @@
+import { NumerologyRecordService } from "@/app/services/numerology-records/numerology-records.service"
 import LookupHistory from "@/components/account/history/LookupHistory"
-export default function History() {
-  const lookupHistory = [
-    {
-      title: "Đỗ Nam Trung - 1/1/1919",
-      created: " 2023-10-20 21:15:44",
-      lookupType: "Free",
-    },
-    {
-      title: "Đỗ Nam Trung - 1/1/1919",
-      created: " 2023-10-20 21:15:44",
-      lookupType: "Freedom",
-    },
-  ]
+export default async function History() {
+  const readNumerologyHistory =
+    await NumerologyRecordService.getReadNumerologyHistory()
+  console.log(readNumerologyHistory)
+
   return (
     <>
-      <LookupHistory documents={lookupHistory} />
+      <LookupHistory documents={readNumerologyHistory.items} />
     </>
   )
 }
