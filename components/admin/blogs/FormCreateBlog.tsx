@@ -46,6 +46,8 @@ export const FormCreateBlog = () => {
     [EBlogType.HOROSCOPE]: "Lá số tử vi",
     [EBlogType.LOVE]: "Bói tình yêu",
     [EBlogType.OTHER]: "Khác",
+    [EBlogType.QUESTION]: "Câu hỏi thường gặp",
+    [EBlogType.COMPATIBLE]: "Tương hợp",
   }
 
   const { data, status } = useSession()
