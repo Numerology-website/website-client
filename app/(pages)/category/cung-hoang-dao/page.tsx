@@ -17,7 +17,7 @@ export default async function CungHoangDao() {
   return (
     <>
       <div className="bg-[#af368929] py-[10px]">
-        <div className="container mx-auto flex w-[1230px] px-[15px]">
+        <div className="container mx-auto flex w-full max-w-full px-[15px] md:max-w-[1230px]">
           <Link href="/" className="pr-1 text-[#af3689] hover:text-black">
             Trang chủ
           </Link>
@@ -97,10 +97,14 @@ export default async function CungHoangDao() {
                         <Link href={`/${item.slug}`}>
                           <div className="relative m-[0_auto] flex w-full">
                             <div className="relative h-auto max-w-[30%] bg-cover bg-[50%_50%] md:w-[30%]">
-                              <img src={item.thumbnail_img_link} alt="" />
+                              <img
+                                className="aspect-[300/180]"
+                                src={item.thumbnail_img_link}
+                                alt=""
+                              />
                             </div>
                             <div className="relative  max-w-[70%] pb-[15px]  pl-[11px] text-left md:w-[70%]">
-                              <div className="border-b-2 pb-4">
+                              <div className="h-[150px] border-b-2 pb-4">
                                 <h3 className="mb-2 w-full text-sm font-bold">
                                   {item.title}
                                 </h3>
@@ -108,7 +112,7 @@ export default async function CungHoangDao() {
                                   {moment(item.created_at).format("DD/MM/YYYY")}
                                 </div>
                                 <p className="mb-[10px] text-sm">
-                                  {shortenWithCommas(item.description, 50)}
+                                  {shortenWithCommas(item.description, 70)}
                                 </p>
                               </div>
                             </div>
@@ -161,10 +165,14 @@ export default async function CungHoangDao() {
                         <Link href={`/${item.slug}`}>
                           <div className="relative m-[0_auto] flex w-full">
                             <div className="relative h-auto max-w-[30%] bg-cover bg-[50%_50%] md:w-[30%]">
-                              <img src={item.thumbnail_img_link} alt="" />
+                              <img
+                                className="aspect-[300/180]"
+                                src={item.thumbnail_img_link}
+                                alt=""
+                              />
                             </div>
                             <div className="relative  max-w-[70%] pb-[15px]  pl-[11px] text-left md:w-[70%]">
-                              <div className="border-b-2 pb-4">
+                              <div className="h-[150px] border-b-2 pb-4">
                                 <h3 className="mb-2 w-full text-sm font-bold">
                                   {item.title}
                                 </h3>
@@ -172,7 +180,7 @@ export default async function CungHoangDao() {
                                   {moment(item.created_at).format("DD/MM/YYYY")}
                                 </div>
                                 <p className="mb-[10px] text-sm">
-                                  {shortenWithCommas(item.description, 50)}
+                                  {shortenWithCommas(item.description, 70)}
                                 </p>
                               </div>
                             </div>

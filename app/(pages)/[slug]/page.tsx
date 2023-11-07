@@ -2,6 +2,7 @@ import { BlogService } from "@/app/services/blogs/blogs.service"
 import ContentBlog from "@/components/blogs/ContentBlog"
 import LatestBlogs from "@/components/blogs/LatestBlogs"
 import RelatedBlogs from "@/components/blogs/RelatedBlogs"
+import Link from "next/link"
 
 interface BlogPage {
   params: {
@@ -13,10 +14,13 @@ export default async function Blog({ params }: BlogPage) {
   return (
     <section>
       <div className=" bg-[#af368929] py-[10px]">
-        <div className="container mx-auto block  w-full max-w-[1230px]  px-[15px]">
-          <a href="" className="inline pr-1 text-[#af3689] hover:text-black">
+        <div className="container mx-auto flex w-full max-w-full px-[15px] md:max-w-[1230px]">
+          <Link
+            href="/"
+            className="inline pr-1 text-[#af3689] hover:text-black"
+          >
             Trang chủ
-          </a>
+          </Link>
           {/* » {blog.title} */}
           <span> »</span>
           <div className="ml-3 inline">{blog.title}</div>

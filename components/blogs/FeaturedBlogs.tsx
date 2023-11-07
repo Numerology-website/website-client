@@ -14,7 +14,11 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
         <div className="relative m-[0_auto] h-auto overflow-hidden">
           <Link href="">
             <div className="relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
-              <img src={featuredBlogs.items[0]?.thumbnail_img_link} alt="" />
+              <img
+                className="aspect-[600/450]"
+                src={featuredBlogs.items[0]?.thumbnail_img_link}
+                alt=""
+              />
             </div>
           </Link>
         </div>
@@ -47,7 +51,11 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
                   <Link href="">
                     <div className="relative  flex w-full flex-row">
                       <div className=" relative h-auto w-[30%] overflow-hidden bg-cover bg-[50%_50%]">
-                        <img src={item.thumbnail_img_link} alt="" />
+                        <img
+                          className="aspect-[300/200]"
+                          src={item.thumbnail_img_link}
+                          alt=""
+                        />
                       </div>
                       <div className="relative w-full pl-[10px] text-left">
                         <h3 className="mb-2 text-sm font-bold">{item.title}</h3>

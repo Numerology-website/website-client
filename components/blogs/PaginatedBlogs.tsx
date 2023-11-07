@@ -41,7 +41,7 @@ export const PaginatedBlogs = ({ documents }: ITableBlog) => {
                       <div className="relative m-[0_auto] h-auto overflow-hidden">
                         <div className="relative h-auto bg-cover bg-[50%_50%] pt-[56%]">
                           <img
-                            className="absolute bottom-0 left-0 right-0 top-0 h-full w-full"
+                            className="absolute bottom-0 left-0 right-0 top-0 aspect-[1000/667] h-full w-full"
                             src={document.thumbnail_img_link}
                             alt=""
                           />

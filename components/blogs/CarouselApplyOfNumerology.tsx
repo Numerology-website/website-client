@@ -11,7 +11,7 @@ export default function CarouselApplyOfNumerology() {
               <div className="relative m-[0_auto] h-auto w-[30%] max-w-[250px] basis-[250px] overflow-hidden p-[15px]">
                 <img
                   src="https://tracuuthansohoc.com/wp-content/uploads/2022/10/bao-cao-20221007031024-mhudg.png"
-                  className="m-[0_auto] inline-block h-auto w-full max-w-full overflow-clip opacity-100"
+                  className="m-[0_auto] inline-block aspect-[550/779] h-auto w-full max-w-full overflow-clip opacity-100"
                 ></img>
               </div>
               <div className="h-[359px] w-full bg-white p-[15px_15px_15px_0]">

@@ -15,8 +15,6 @@ export const UserService = {
     accessToken: string,
   ): Promise<string> {
     try {
-      console.log(oldPassword, newPassword);
-      
       return await PostAPI<string>({
         url: "/users/password",
         method: "PATCH",

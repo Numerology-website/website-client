@@ -7,10 +7,10 @@ export default async function AboutUs() {
   return (
     <>
       <div className="bg-[#af368929] py-[10px]">
-        <div className="container mx-auto flex w-[1230px] px-[15px]">
-          <a href="" className="text-[#af3689] hover:text-black">
+        <div className="container mx-auto flex w-full max-w-full px-[15px] md:max-w-[1230px]">
+          <Link href="/" className="text-[#af3689] hover:text-black">
             Trang chủ
-          </a>
+          </Link>
           {" » "}
           MBTI
         </div>

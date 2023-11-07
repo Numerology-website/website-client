@@ -8,8 +8,12 @@ import { NumbersMeaningInNumerology } from "@/components/pages/NumbersMeaningInN
 import CarouselSharingFromIndivisuals from "@/components/blogs/CarouselSharingFromIndivisuals"
 import CarouselNumerologyTrainningProgram from "@/components/blogs/CarouselNumerologyTrainningProgram"
 import CarouselApplyOfNumerology from "@/components/blogs/CarouselApplyOfNumerology"
+import { BlogService } from "../services/blogs/blogs.service"
+import { shortenWithCommas } from "@/utils/helpers"
+import moment from "moment"
 
-export default function Home() {
+export default async function Home() {
+  const { items: blogs } = await BlogService.getLatestBlogs(9)
   return (
     <main className="box-border flex min-h-screen  flex-col justify-between ">
       <div className="">
@@ -264,27 +268,22 @@ export default function Home() {
                   <div className="relative m-[0_auto] h-auto w-full max-w-full p-[10px] md:max-w-[52%]">
                     <div className="relative h-[auto] bg-cover bg-[50%_50%]">
                       <img
-                        src="https://tracuuthansohoc.com/wp-content/uploads/2022/09/cach-tinh-than-so-hoc.jpg"
+                        src={blogs[0]?.thumbnail_img_link}
                         alt=""
-                        className="bottom-0 left-0 right-0 top-0 h-full w-full"
+                        className="bottom-0 left-0 right-0 top-0 aspect-[600/338] h-full w-full"
                       />
                     </div>
                   </div>
                   <div className="w-full max-w-full p-[10px] text-center md:max-w-[48%] md:text-left">
                     <div>
                       <p className="mb-2 text-[19px] font-bold leading-[1.4]">
-                        <strong>
-                          Cách tính Thần số học chuẩn Pythagoras theo tên và
-                          ngày sinh mới nhất 2023
-                        </strong>
+                        <strong>{blogs[0]?.title}</strong>
                       </p>
-                      <p className="mb-2 text-justify text-[15px] font-bold leading-[1.4]">
-                        Bài viết hướng dẫn chi tiết nhất cách tính thần số học,
-                        nhân số học từ ngày tháng năm sinh và họ tên, kèm luận
-                        giải cho riêng bạn…
+                      <p className="mb-2 text-justify text-[15px] leading-[1.4]">
+                        {shortenWithCommas(blogs[0]?.description, 100)}
                       </p>
                       <Link
-                        href="https://tracuuthansohoc.com/cach-tinh-than-so-hoc/"
+                        href={`/${blogs[0]?.slug}`}
                         target="_self"
                         type="button"
                         className=" m-[18px_0_0] inline-flex  min-h-[38px] flex-wrap rounded-[99px] border border-[#af3689] bg-[#af3689] pl-[40px] pr-[25px] pt-1 text-center text-[18px] leading-[1.6] text-[white] no-underline hover:bg-[white] hover:text-[#af3689]"
@@ -311,269 +310,83 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="relative mx-[-10px] mb-0 flex w-[auto] max-w-[1222.5px] flex-row flex-wrap px-0">
-                  <div className="relative m-0 w-full max-w-full basis-full p-[0_9.8px_19.6px] md:max-w-[33.33%] md:basis-[33.33%]">
-                    <div className="relative ml-[auto] mr-0 w-full bg-no-repeat">
-                      <div className="relative m-[0_auto] flex w-full flex-row bg-white md:flex-col">
-                        <div className="relative m-[0_auto] h-[auto] w-full max-w-[40%] overflow-hidden  p-[10px] md:max-w-full">
-                          <img
-                            className="m-[0_auto] inline-block h-[auto] w-full max-w-full align-middle"
-                            src="https://tracuuthansohoc.com/wp-content/uploads/2022/08/bang-chu-cai-than-so-hoc-1.jpg"
-                            alt="Bảng Chữ Cái Thần Số Học Pitago Và Cách Quy Đổi Tên Ra Các Con Số"
-                          />
-                        </div>
-                        <div className="relative h-[210px] w-full max-w-[60%] p-[0_10px_10px] text-left md:max-w-full">
-                          <div className="min-h-[200px] text-left ">
-                            <p className="mb-[5px] text-[19px] leading-[1.4] text-black">
-                              <strong>
-                                Giải Mã Chi Tiết Bảng Chữ Cái Thần Số Học Chính
-                                Xác Nhất
-                              </strong>
-                            </p>
-                            <p>
-                              <Link
-                                href="https://tracuuthansohoc.com/bang-chu-cai-than-so-hoc/"
-                                className="text-justify text-[16px] font-bold leading-[1.4] text-[#af3689] no-underline"
-                              >
-                                Xem chi tiết »
-                              </Link>
-                            </p>
+                  {blogs.slice(1, 4).map((item, index) => (
+                    <div
+                      key={index + 1}
+                      className="relative m-0 w-full max-w-full basis-full p-[0_9.8px_19.6px] md:max-w-[33.33%] md:basis-[33.33%]"
+                    >
+                      <div className="relative ml-[auto] mr-0 w-full bg-no-repeat">
+                        <div className="relative m-[0_auto] flex w-full flex-row bg-white md:flex-col">
+                          <div className="relative m-[0_auto] h-[auto] w-full max-w-[40%] overflow-hidden  p-[10px] md:max-w-full">
+                            <img
+                              className="m-[0_auto] inline-block aspect-[1000/667] h-[auto] w-full max-w-full align-middle"
+                              src={item.thumbnail_img_link}
+                              alt=""
+                            />
+                          </div>
+                          <div className="relative h-[210px] w-full max-w-[60%] p-[0_10px_10px] text-left md:max-w-full">
+                            <div className="min-h-[200px] text-left ">
+                              <p className="mb-[5px] text-[19px] leading-[1.4] text-black">
+                                <strong>{item.title}</strong>
+                              </p>
+                              <p>
+                                <Link
+                                  href={`/${item.slug}`}
+                                  className="text-justify text-[16px] font-bold leading-[1.4] text-[#af3689] no-underline"
+                                >
+                                  Xem chi tiết »
+                                </Link>
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="relative m-0 w-full max-w-full basis-full p-[0_9.8px_19.6px] md:max-w-[33.33%] md:basis-[33.33%]">
-                    <div className="relative ml-[auto] mr-0 w-full bg-no-repeat">
-                      <div className="relative m-[0_auto] flex w-full flex-row bg-white md:flex-col">
-                        <div className="relative m-[0_auto] h-[auto] w-full max-w-[40%] overflow-hidden  p-[10px] md:max-w-full">
-                          <img
-                            className="m-[0_auto] inline-block h-[auto] w-full max-w-full align-middle"
-                            src="https://tracuuthansohoc.com/wp-content/uploads/2022/08/bang-chu-cai-than-so-hoc-1.jpg"
-                            alt="Bảng Chữ Cái Thần Số Học Pitago Và Cách Quy Đổi Tên Ra Các Con Số"
-                          />
-                        </div>
-                        <div className="relative h-[210px] w-full max-w-[60%] p-[0_10px_10px] text-left md:max-w-full">
-                          <div className="min-h-[200px] text-left ">
-                            <p className="mb-[5px] text-[19px] leading-[1.4] text-black">
-                              <strong>
-                                Giải Mã Chi Tiết Bảng Chữ Cái Thần Số Học Chính
-                                Xác Nhất
-                              </strong>
-                            </p>
-                            <p>
-                              <Link
-                                href="https://tracuuthansohoc.com/bang-chu-cai-than-so-hoc/"
-                                className="text-justify text-[16px] font-bold leading-[1.4] text-[#af3689] no-underline"
-                              >
-                                Xem chi tiết »
-                              </Link>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative m-0 w-full max-w-full basis-full p-[0_9.8px_19.6px] md:max-w-[33.33%] md:basis-[33.33%]">
-                    <div className="relative ml-[auto] mr-0 w-full bg-no-repeat">
-                      <div className="relative m-[0_auto] flex w-full flex-row bg-white md:flex-col">
-                        <div className="relative m-[0_auto] h-[auto] w-full max-w-[40%] overflow-hidden  p-[10px] md:max-w-full">
-                          <img
-                            className="m-[0_auto] inline-block h-[auto] w-full max-w-full align-middle"
-                            src="https://tracuuthansohoc.com/wp-content/uploads/2022/08/bang-chu-cai-than-so-hoc-1.jpg"
-                            alt="Bảng Chữ Cái Thần Số Học Pitago Và Cách Quy Đổi Tên Ra Các Con Số"
-                          />
-                        </div>
-                        <div className="relative h-[210px] w-full max-w-[60%] p-[0_10px_10px] text-left md:max-w-full">
-                          <div className="min-h-[200px] text-left ">
-                            <p className="mb-[5px] text-[19px] leading-[1.4] text-black">
-                              <strong>
-                                Giải Mã Chi Tiết Bảng Chữ Cái Thần Số Học Chính
-                                Xác Nhất
-                              </strong>
-                            </p>
-                            <p>
-                              <Link
-                                href="https://tracuuthansohoc.com/bang-chu-cai-than-so-hoc/"
-                                className="text-justify text-[16px] font-bold leading-[1.4] text-[#af3689] no-underline"
-                              >
-                                Xem chi tiết »
-                              </Link>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
               <div className="relative m-0 mb-0 w-full max-w-full basis-full p-[0_9.8px_19.6px] pb-0  md:max-w-[25%] md:basis-[25%]">
                 <div className="relative ml-0 mr-[auto] w-full bg-cover bg-[50%_50%] bg-no-repeat">
                   <div className="mb-0 ml-[-10px] mr-[-10px] flex w-[auto] max-w-[1222.5px] flex-row flex-wrap px-0">
-                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
-                      <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
-                        <Link
-                          href="https://tracuuthansohoc.com/ten-bang/"
-                          className="text-de bg-[#092035] no-underline transition-[color_.3s,opacity_.3s,transform_.3s]"
-                        >
-                          <div className="relative m-[0_auto] flex w-full">
-                            <div className=" relative m-[0_auto] h-auto w-full max-w-[130px] overflow-hidden bg-[#092035] p-2">
-                              <div className="pt-full relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                <img
-                                  className="absolute bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full
-                                 object-cover object-[50%_50%] opacity-100"
-                                  src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/bang-title.jpg"
-                                  alt=""
-                                />
+                    {blogs.slice(4, 9).map((item, index) => (
+                      <div
+                        key={index + 1}
+                        className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full"
+                      >
+                        <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
+                          <Link
+                            href={`/${item.slug}`}
+                            className="text-de bg-[#092035] no-underline transition-[color_.3s,opacity_.3s,transform_.3s]"
+                          >
+                            <div className="relative m-[0_auto] flex w-full">
+                              <div className=" relative m-[0_auto] h-auto w-full max-w-[130px] overflow-hidden bg-[#092035] p-2">
+                                <div className="pt-full relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
+                                  <img
+                                    className=" bottom-0 left-0 right-0 top-0 z-10 m-[0_auto] inline-block aspect-[650/450] h-auto w-full
+                               max-w-full object-cover object-[50%_50%]"
+                                    src={item.thumbnail_img_link}
+                                    alt=""
+                                  />
+                                </div>
                               </div>
-                            </div>
-                            <div className="bg-white p-[10px_10px_10px_5px] text-left">
-                              <div>
-                                <p className="mb-2 text-[14px] font-bold leading-[1.4] text-black">
-                                  Tên Băng mang ý nghĩa gì? Số phận của Băng sẽ
-                                  như thế nào?
-                                </p>
-                                <div className="text-[.8em] text-black">
-                                  {" "}
-                                  08/10/2023
+                              <div className="bg-white p-[10px_10px_10px_5px] text-left">
+                                <div>
+                                  <p className="mb-2 text-[14px] font-bold leading-[1.4] text-black">
+                                    {item.title}
+                                  </p>
+                                  <div className="text-[.8em] text-black">
+                                    {" "}
+                                    {moment(item.created_at).format(
+                                      "DD/MM/YYYY",
+                                    )}
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
-                      <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
-                        <Link
-                          href="https://tracuuthansohoc.com/ten-bang/"
-                          className="text-de bg-[#092035] no-underline transition-[color_.3s,opacity_.3s,transform_.3s]"
-                        >
-                          <div className="relative m-[0_auto] flex w-full">
-                            <div className=" relative m-[0_auto] h-auto w-full max-w-[130px] overflow-hidden bg-[#092035] p-2">
-                              <div className="pt-full relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                <img
-                                  className="absolute bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full
-                                 object-cover object-[50%_50%] opacity-100"
-                                  src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/bang-title.jpg"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                            <div className="bg-white p-[10px_10px_10px_5px] text-left">
-                              <div>
-                                <p className="mb-2 text-[14px] font-bold leading-[1.4] text-black">
-                                  Tên Băng mang ý nghĩa gì? Số phận của Băng sẽ
-                                  như thế nào?
-                                </p>
-                                <div className="text-[.8em] text-black">
-                                  {" "}
-                                  08/10/2023
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
-                      <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
-                        <Link
-                          href="https://tracuuthansohoc.com/ten-bang/"
-                          className="text-de bg-[#092035] no-underline transition-[color_.3s,opacity_.3s,transform_.3s]"
-                        >
-                          <div className="relative m-[0_auto] flex w-full">
-                            <div className=" relative m-[0_auto] h-auto w-full max-w-[130px] overflow-hidden bg-[#092035] p-2">
-                              <div className="pt-full relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                <img
-                                  className="absolute bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full
-                                 object-cover object-[50%_50%] opacity-100"
-                                  src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/bang-title.jpg"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                            <div className="bg-white p-[10px_10px_10px_5px] text-left">
-                              <div>
-                                <p className="mb-2 text-[14px] font-bold leading-[1.4] text-black">
-                                  Tên Băng mang ý nghĩa gì? Số phận của Băng sẽ
-                                  như thế nào?
-                                </p>
-                                <div className="text-[.8em] text-black">
-                                  {" "}
-                                  08/10/2023
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
-                      <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
-                        <Link
-                          href="https://tracuuthansohoc.com/ten-bang/"
-                          className="text-de bg-[#092035] no-underline transition-[color_.3s,opacity_.3s,transform_.3s]"
-                        >
-                          <div className="relative m-[0_auto] flex w-full">
-                            <div className=" relative m-[0_auto] h-auto w-full max-w-[130px] overflow-hidden bg-[#092035] p-2">
-                              <div className="pt-full relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                <img
-                                  className="absolute bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full
-                                 object-cover object-[50%_50%] opacity-100"
-                                  src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/bang-title.jpg"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                            <div className="bg-white p-[10px_10px_10px_5px] text-left">
-                              <div>
-                                <p className="mb-2 text-[14px] font-bold leading-[1.4] text-black">
-                                  Tên Băng mang ý nghĩa gì? Số phận của Băng sẽ
-                                  như thế nào?
-                                </p>
-                                <div className="text-[.8em] text-black">
-                                  {" "}
-                                  08/10/2023
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="relative m-0 mb-0  w-full max-w-full basis-full  p-[0_9.8px_19.6px] sm:max-w-[50%] sm:basis-[50%] md:max-w-full md:basis-full">
-                      <div className="relative ml-0 mr-[auto] w-full bg-white bg-cover bg-[50%_50%] bg-no-repeat">
-                        <Link
-                          href="https://tracuuthansohoc.com/ten-bang/"
-                          className="text-de bg-[#092035] no-underline transition-[color_.3s,opacity_.3s,transform_.3s]"
-                        >
-                          <div className="relative m-[0_auto] flex w-full">
-                            <div className=" relative m-[0_auto] h-auto w-full max-w-[130px] overflow-hidden bg-[#092035] p-2">
-                              <div className="pt-full relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
-                                <img
-                                  className="absolute bottom-0 left-0 right-0 top-0 m-[0_auto] inline-block h-full w-full max-w-full
-                                 object-cover object-[50%_50%] opacity-100"
-                                  src="https://tracuuthansohoc.com/wp-content/uploads/2023/09/bang-title.jpg"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                            <div className="bg-white p-[10px_10px_10px_5px] text-left">
-                              <div>
-                                <p className="mb-2 text-[14px] font-bold leading-[1.4] text-black">
-                                  Tên Băng mang ý nghĩa gì? Số phận của Băng sẽ
-                                  như thế nào?
-                                </p>
-                                <div className="text-[.8em] text-black">
-                                  {" "}
-                                  08/10/2023
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>

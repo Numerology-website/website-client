@@ -5,7 +5,6 @@ import Link from "next/link"
 export default async function affiliate() {
   let myProfile: IUsers | undefined = undefined
   myProfile = await UserService.myProfile()
-  console.log(myProfile)
   return (
     <>
       <div className="m-0 h-5"></div>

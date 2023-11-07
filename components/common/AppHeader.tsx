@@ -14,7 +14,7 @@ const AppHeader = () => {
       <div className="sticky top-0 z-10 bg-white">
         <div className="container mx-auto flex h-[63px] w-full max-w-[1230px] justify-between px-[15px] ">
           <div className="my-auto flex lg:flex-1">
-            <Link href="#" className="">
+            <Link href="/" className="">
               <img
                 className="w-[148px] "
                 src="https://tracuuthansohoc.com/wp-content/uploads/2023/02/logo-color-min.png"
@@ -239,7 +239,7 @@ const AppHeader = () => {
               <li className="mr-[35px] inline-block">
                 <div className="group relative inline-block">
                   <button className="  inline-flex items-center rounded font-semibold">
-                    <Link href="" className="mr-1">
+                    <Link href="/kien-thuc" className="mr-1">
                       Blog
                     </Link>
                     <svg

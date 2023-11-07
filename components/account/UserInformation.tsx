@@ -67,8 +67,6 @@ export default function UserInformation({ document }: { document: IUsers }) {
 
     UserService.changePassword(oldPass, newPass, accessToken)
       .then(() => {
-        console.log(111111111111111)
-
         toastify({ message: "Cập nhật thành công", type: "success" })
         propsChangePass.setOpenModalChangePass(undefined)
       })
@@ -92,7 +90,7 @@ export default function UserInformation({ document }: { document: IUsers }) {
         <div className="mt-5 text-center text-white">
           <button
             onClick={() => propsChangeName.setOpenModalChangeName("default")}
-            className="rounded m-1 border-[#007bff] bg-[#007bff] px-3 py-2 text-base font-normal hover:bg-blue-600"
+            className="m-1 rounded border-[#007bff] bg-[#007bff] px-3 py-2 text-base font-normal hover:bg-blue-600"
           >
             <div className="flex text-2xl">
               <IoInformationCircle />

@@ -4,8 +4,6 @@ import Link from "next/link"
 
 export default async function AdminBlogsPage() {
   const blogs = await AdminBlogService.listBlogs()
-  console.log(blogs)
-
   return (
     <div className="relative overflow-x-auto sm:rounded-lg">
       <h3>List Blog</h3>
