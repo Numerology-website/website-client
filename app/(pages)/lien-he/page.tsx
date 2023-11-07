@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { redirect } from "next/navigation"
 
 export default function AboutUs() {
   return (
@@ -13,7 +13,7 @@ export default function AboutUs() {
         </div>
       </div>
       <div className="bg-white py-[30px] ">
-        <div className="container mx-auto flex w-[1230px] flex-col">
+        <div className="container mx-auto  w-full max-w-full  py-8 md:max-w-[1230px]">
           <div className="mb-6 px-[15px]">
             <h3 className="mb-[30px]  ">
               <b></b>
@@ -39,9 +39,9 @@ export default function AboutUs() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-col justify-between md:flex-row">
             <div className="px-[15px] pb-[30px] ">
-              <div className="w-[330px]">
+              <div className="w-1/3">
                 <h3 className="mr[15px] mb-[30px]">
                   <strong className="text-xl">Địa chỉ</strong>
                 </h3>
@@ -49,7 +49,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="px-[15px] pb-[30px]">
-              <div className="w-[330px]">
+              <div className="w-1/3">
                 <h3 className="mr[15px] mb-[30px]">
                   <strong className="text-xl">Zalo</strong>
                 </h3>
@@ -66,7 +66,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="px-[15px] pb-[30px]">
-              <div className="w-[330px]">
+              <div className="w-1/3">
                 <h3 className="mr[15px] mb-[30px]">
                   <strong className="text-xl">Mail</strong>
                 </h3>
@@ -84,5 +84,5 @@ export default function AboutUs() {
         </div>
       </div>
     </>
-  );
+  )
 }

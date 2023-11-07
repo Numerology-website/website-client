@@ -403,7 +403,7 @@ const AppHeader = () => {
         <Modal.Body className="fixed bottom-0 left-auto right-0 top-0 w-[300px] bg-[url(https://tracuuthansohoc.com/wp-content/themes/devvn-child/images/bg_mobile_menu.jpg)] bg-cover bg-center bg-no-repeat p-0">
           <button
             onClick={() => props.setOpenModal(undefined)}
-            className="fixed right-6 top-3 flex h-[30px] w-[30px] items-center justify-center z-10 bg-[#af3589]"
+            className="fixed right-6 top-3 z-10 flex h-[30px] w-[30px] items-center justify-center bg-[#af3589]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -422,35 +422,49 @@ const AppHeader = () => {
           </button>
           <div className="p-[30px_0]">
             <ul className="relative flex w-full list-none flex-col items-center px-[30px] pt-[30px] text-left text-white">
-              {MenuItemHeader("Home", [])}
-              {MenuItemHeader("Giới thiệu", ["Liên hệ"])}
-              {MenuItemHeader("Tra cứu", [
-                "Tra cứu thần số học",
-                "Tra cứu thần số học cho con",
-                "Tra cứu DISC",
+              {MenuItemHeader({ label: "Home", url: "/" }, [])}
+              {MenuItemHeader({ label: "Giới thiệu", url: "/ve-chung-toi" }, [
+                { label: "Liên hệ", url: "/lien-he" },
               ])}
-              {MenuItemHeader("Dịch vụ", [
-                "Mua vip thần số học",
-                "Mua vip thần số học cho con",
-                "Thần số học trọn đời",
-                "Đặt tên danh xưng",
-                "Đặt Tên Khai Sinh",
-                "Báo cáo định hướng nghề nghiệp",
-                "Đào tạo thần số học",
-                "Đặt tên thương hiệu",
-                "Coaching 1-1 với chuyên gia",
-                "Khóa học: Cân bằng năng lượng",
+              {MenuItemHeader({ label: "Tra cứu", url: "/xem" }, [
+                { label: "Tra cứu thần số học", url: "/xem" },
+                { label: "Tra cứu thần số học cho con", url: "/xem/kids" },
+                { label: "Tra cứu DISC", url: "/test-nghe-nghiep-disc" },
               ])}
-              {MenuItemHeader("Blog", [
-                "Kiến thức Thần số học",
-                "DISC",
-                "Cung Hoàng Đạo",
-                "Đặt tên",
-                "Bói Tình Yêu",
-                "Ý nghĩa các con số",
-                "MBTI",
+              {MenuItemHeader({ label: "Dịch vụ", url: "" }, [
+                { label: "Mua vip thần số học", url: "/account/purchase" },
+                {
+                  label: "Mua vip thần số học cho con",
+                  url: "/account/purchase_kid",
+                },
+                { label: "Thần số học trọn đời", url: "than-so-hoc-tron-doi" },
+                { label: "Đặt tên danh xưng", url: "/danh-xung" },
+                { label: "Đặt Tên Khai Sinh", url: "/ten-khai-sinh" },
+                {
+                  label: "Báo cáo định hướng nghề nghiệp",
+                  url: "/nghe-nghiep",
+                },
+                { label: "Đào tạo thần số học", url: "/khoa-hoc-than-so-hoc" },
+                { label: "Đặt tên thương hiệu", url: "/dat-ten-thuong-hieu" },
+                { label: "Coaching 1-1 với chuyên gia", url: "/coaching" },
+                {
+                  label: "Khóa học: Cân bằng năng lượng",
+                  url: "/can-bang-nang-luong",
+                },
               ])}
-              {MenuItemHeader("Affiliate", [])}
+              {MenuItemHeader({ label: "Blog", url: "/kien-thuc" }, [
+                {
+                  label: "Kiến thức Thần số học",
+                  url: "/category/kien-thuc-nen-tang",
+                },
+                { label: "DISC", url: "/category/disc" },
+                { label: "Cung Hoàng Đạo", url: "/category/cung-hoang-dao" },
+                { label: "Đặt tên", url: "/category/dat-ten" },
+                { label: "Bói Tình Yêu", url: "/boi-tinh-yeu" },
+                { label: "Ý nghĩa các con số", url: "/y-nghia-cac-con-so" },
+                { label: "MBTI", url: "/category/mbti" },
+              ])}
+              {MenuItemHeader({ label: "Affiliate", url: "/affiliate" }, [])}
               <li className="relative m-0 flex w-full flex-row flex-wrap  p-0">
                 <div className="flex w-full justify-between">
                   <Link
