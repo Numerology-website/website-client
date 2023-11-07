@@ -185,7 +185,17 @@ class Editor extends ClassicEditor {
       ],
     },
     simpleUpload: {
-      uploadUrl: "http://localhost:3001/api/upload/images",
+      uploadUrl: "http://54.254.188.98:3000/api/upload/images",
+    },
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: /.*/,
+          classes: /.*/,
+          styles: /.*/,
+        },
+      ],
     },
   }
 }
