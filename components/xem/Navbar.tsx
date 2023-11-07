@@ -69,15 +69,6 @@ export const NavbarWithDropdown = ({
                 <span>Thần số học cho con</span>
               </Link>
             </Dropdown.Item>
-            <Dropdown.Item>
-              <Link
-                href={"/xem/disc"}
-                className="flex w-full items-center gap-2"
-              >
-                <LuClipboardEdit />
-                <span>Trắc nghiệm DISC</span>
-              </Link>
-            </Dropdown.Item>
           </Dropdown>
           <Dropdown
             arrowIcon
