@@ -19,7 +19,7 @@ export default async function LatestBlogs() {
               >
                 <Link
                   className="inline-block py-2"
-                  href={item.slug}
+                  href={`/${item.slug}`}
                   target="_blank"
                 >
                   {item.title}

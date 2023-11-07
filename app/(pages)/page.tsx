@@ -241,7 +241,7 @@ export default function Home() {
           </div>
         </section>
 
-        <NumbersMeaningInNumerology />
+        {/* <NumbersMeaningInNumerology /> */}
 
         <ShareAboutNumerology />
 

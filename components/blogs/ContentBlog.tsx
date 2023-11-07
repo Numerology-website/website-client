@@ -80,7 +80,7 @@ export default function ContentBlog({ document }: { document: TBlog }) {
           </span>
         </div>
         <div className="pb-7">
-          <Link href={document.slug}>
+          <Link href={`/${document.slug}`}>
             <img className="w-full" src={document.thumbnail_img_link} alt="" />
           </Link>
         </div>

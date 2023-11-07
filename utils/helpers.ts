@@ -42,5 +42,5 @@ export const shortenWithCommas =(text: string, maxLength: number) => {
   const lastCommaIndex = shortenedText.lastIndexOf(",")
   return lastCommaIndex > 0
     ? shortenedText.substring(0, lastCommaIndex) + "..."
-    : shortenedText
+    : shortenedText + "..."
 }

@@ -36,7 +36,7 @@ export const PaginatedBlogs = ({ documents }: ITableBlog) => {
                 className="relative m-0 w-full max-w-[50%] basis-[50%] p-[0_15px_30px] md:max-w-[25%] md:basis-[25%]"
               >
                 <div className="relative ml-0 mr-auto w-full bg-cover bg-[50%_50%] bg-no-repeat">
-                  <Link href={document.slug}>
+                  <Link href={`/${document.slug}`}>
                     <div className="relative m-[0_auto] w-full">
                       <div className="relative m-[0_auto] h-auto overflow-hidden">
                         <div className="relative h-auto bg-cover bg-[50%_50%] pt-[56%]">
@@ -53,7 +53,7 @@ export const PaginatedBlogs = ({ documents }: ITableBlog) => {
                         {document.title}
                       </h3>
                       <p className="mb-[10px] overflow-hidden text-ellipsis text-sm">
-                        {shortenWithCommas(document.description, 100)}
+                        {shortenWithCommas(document.description, 50)}
                       </p>
                     </div>
                   </Link>

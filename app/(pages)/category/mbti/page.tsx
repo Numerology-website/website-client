@@ -46,7 +46,10 @@ export default async function AboutUs() {
               className=" relative w-full max-w-[50%]  basis-1/2 p-[0_15px_30px]  md:max-w-[25%] md:basis-1/4"
             >
               <div className="w-full">
-                <Link href={item.slug} className="text-black no-underline">
+                <Link
+                  href={`/${item.slug}`}
+                  className="text-black no-underline"
+                >
                   <div>
                     <img
                       src={item.thumbnail_img_link}
@@ -57,7 +60,7 @@ export default async function AboutUs() {
                   <div className="pb-5 pt-[10px]">
                     <h3 className="text-[16px] font-bold ">{item.title}</h3>
                     <p className="mb-[10px] text-sm">
-                      {shortenWithCommas(item.description, 100)}
+                      {shortenWithCommas(item.description, 50)}
                     </p>
                   </div>
                 </Link>

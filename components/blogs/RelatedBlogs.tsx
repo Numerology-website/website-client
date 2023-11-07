@@ -18,7 +18,7 @@ export default async function RelatedBlogs({ type }: MyComponentProps) {
           <ul className="text-base text-[#af3689]">
             {relatedBlogs.items.map((item, index) => (
               <li key={index + 1} className="mb-2">
-                <Link href={item.slug} target="_blank">
+                <Link href={`/${item.slug}`} target="_blank">
                   {item.title}
                 </Link>
               </li>

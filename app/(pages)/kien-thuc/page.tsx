@@ -113,7 +113,7 @@ export default async function KienThuc() {
                           key={index + 1}
                           className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
                         >
-                          <Link href={item.slug}>
+                          <Link href={`/${item.slug}`}>
                             <div className="relative m-[0_auto] flex w-full">
                               <div className="relative h-auto w-full max-w-[30%] bg-cover bg-[50%_50%] ">
                                 <img
@@ -133,7 +133,7 @@ export default async function KienThuc() {
                                     )}
                                   </div>
                                   <p className="mb-[10px] text-sm">
-                                    {shortenWithCommas(item.description, 100)}
+                                    {shortenWithCommas(item.description, 50)}
                                   </p>
                                 </div>
                               </div>
@@ -206,7 +206,7 @@ export default async function KienThuc() {
                           key={index + 1}
                           className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
                         >
-                          <Link href={item.slug}>
+                          <Link href={`/${item.slug}`}>
                             <div className="relative m-[0_auto] flex w-full">
                               <div className="relative h-auto w-full max-w-[30%] bg-cover bg-[50%_50%] ">
                                 <img
@@ -215,7 +215,7 @@ export default async function KienThuc() {
                                   alt=""
                                 />
                               </div>
-                              <div className="relative  pb-[15px] pl-[11px] text-left">
+                              <div className="relative  max-w-[70%] pb-[15px]  pl-[11px] text-left md:w-[70%]">
                                 <div className="border-b-2 pb-4">
                                   <h3 className="mb-2 w-full text-sm font-bold">
                                     {item.title}
@@ -226,7 +226,7 @@ export default async function KienThuc() {
                                     )}
                                   </div>
                                   <p className="mb-[10px] text-sm">
-                                    {shortenWithCommas(item.description, 100)}
+                                    {shortenWithCommas(item.description, 50)}
                                   </p>
                                 </div>
                               </div>
@@ -299,7 +299,7 @@ export default async function KienThuc() {
                           key={index + 1}
                           className=" relative w-full max-w-full  basis-full p-[0_15px_30px]  md:max-w-[50%] md:basis-[50%]"
                         >
-                          <Link href={item.slug}>
+                          <Link href={`/${item.slug}`}>
                             <div className="relative m-[0_auto] flex w-full">
                               <div className="relative h-auto w-full max-w-[30%] bg-cover bg-[50%_50%] ">
                                 <img
@@ -308,7 +308,7 @@ export default async function KienThuc() {
                                   alt=""
                                 />
                               </div>
-                              <div className="relative  pb-[15px] pl-[11px] text-left">
+                              <div className="relative  max-w-[70%] pb-[15px]  pl-[11px] text-left md:w-[70%]">
                                 <div className="border-b-2 pb-4">
                                   <h3 className="mb-2 w-full text-sm font-bold">
                                     {item.title}
@@ -319,7 +319,7 @@ export default async function KienThuc() {
                                     )}
                                   </div>
                                   <p className="mb-[10px] text-sm">
-                                    {shortenWithCommas(item.description, 100)}
+                                    {shortenWithCommas(item.description, 50)}
                                   </p>
                                 </div>
                               </div>
