@@ -54,7 +54,7 @@ export const KidNumerologyService = {
         url: `/admin/kid-numerology/${numerologyId}/relation`,
         method: "PATCH",
         accessToken,
-        body: { content, relation: type },
+        body: { ...content, relation: type },
       })
       return { message: "Cập nhật thành công" }
     } catch (error) {
