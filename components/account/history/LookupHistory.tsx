@@ -16,7 +16,6 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
   const props = { openModal, setOpenModal }
   const [tableLookupHistory, setTableLookupHistory] =
     useState<TNumerologyRecord[]>(documents)
-
   const [openModalOrderSuccess, setOpenOrderSuccess] = useState<
     string | undefined
   >()
