@@ -92,7 +92,7 @@ export default function UserInformation({ document }: { document: IUsers }) {
         <div className="mt-5 text-center text-white">
           <button
             onClick={() => propsChangeName.setOpenModalChangeName("default")}
-            className="rounded border-[#007bff] bg-[#007bff] px-3 py-2 text-base font-normal hover:bg-blue-600"
+            className="rounded m-1 border-[#007bff] bg-[#007bff] px-3 py-2 text-base font-normal hover:bg-blue-600"
           >
             <div className="flex text-2xl">
               <IoInformationCircle />
@@ -101,7 +101,7 @@ export default function UserInformation({ document }: { document: IUsers }) {
           </button>
           <button
             onClick={() => propsChangePass.setOpenModalChangePass("default")}
-            className="ml-2 rounded border-[#dc3545] bg-[#dc3545] px-3 py-2 text-base font-normal hover:bg-red-600"
+            className="m-1 rounded border-[#dc3545] bg-[#dc3545] px-3 py-2 text-base font-normal hover:bg-red-600"
           >
             <div className="flex text-2xl">
               <FaShieldAlt />

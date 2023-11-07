@@ -122,7 +122,7 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
         })
       })
   }
-  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null)
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | undefined>(blog.thumbnail_img_link )
   const handleImageUpload = (image: File | null) => {
     if (image) {
       try {
@@ -164,7 +164,7 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
         <Label
           className="mb-2"
           htmlFor="thumbnail_img_link"
-          value="Thumbnail_img_link"
+          value="Ảnh"
         />
         <input
           name="upload"
@@ -172,6 +172,8 @@ export const FormEditBlog: FC<IFormEditBlog> = ({ blog }) => {
           accept="image/*"
           onChange={(e) => handleImageUpload(e.target.files?.item(0) || null)}
         />
+     
+      {uploadedImageUrl && <img className="w-1/6 h-auto mt-2" src={uploadedImageUrl} alt="Preview" />}
         {errors.thumbnail_img_link && (
           <p className="text-sm text-red-500">
             {errors.thumbnail_img_link.message}

@@ -13,7 +13,7 @@ export default async function EditAdminBlog({ params }: IEditAdminBlogPage) {
     <section>
       <div className="mb-5 flex items-center gap-5">
         <BackButton href="/admin/blogs" />
-        <h1>Edit Plan</h1>
+        <h1>Edit Blog</h1>
       </div>
       <FormEditBlog blog={blog} />
     </section>

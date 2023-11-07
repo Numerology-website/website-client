@@ -4,7 +4,7 @@ import { TNumerologyRecord } from "@/interfaces/numerology-records.interface"
 import { Select, Button, Table, Pagination, Modal } from "flowbite-react"
 import moment from "moment"
 import Link from "next/link"
-import { useState } from "react"
+import { useState,ChangeEvent } from "react"
 import { BsEyeFill } from "react-icons/bs"
 
 interface ITableLookupHistory {
@@ -14,14 +14,14 @@ interface ITableLookupHistory {
 export default function LookupHistory({ documents }: ITableLookupHistory) {
   const [openModal, setOpenModal] = useState<string | undefined>()
   const props = { openModal, setOpenModal }
-
+  const [tableLookupHistory, setTableLookupHistory] =
+    useState<TNumerologyRecord[]>(documents)
+    
   const [openModalOrderSuccess, setOpenOrderSuccess] = useState<
     string | undefined
   >()
   const propsOrderSuccess = { openModalOrderSuccess, setOpenOrderSuccess }
-
   const [readNumerology, setReadNumerology] = useState<string | undefined>("")
-
   const [currentPage, setCurrentPage] = useState(1)
   const onPageChange = (page: number) => setCurrentPage(page)
   const openModalread = (url: string | undefined) => {
@@ -29,19 +29,30 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
     setReadNumerology(url)
   }
 
+  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target
+    if (value ==="All"){
+      setTableLookupHistory(documents)
+    }else{
+      setTableLookupHistory(documents.filter((document) => document.plan.includes(value)))
+    }
+  }
   return (
     <>
       <div className="mx-auto flex w-full max-w-[99%] flex-col px-[15px] md:max-w-[1140px]">
         <div className="m-[5px_0]">
           <div className="float-left ml-[10px] mt-1 text-xs">
-            <Select id="countries" required>
-              <option>Tất cả lượt tra</option>
-              <option>Lượt tra Free</option>
-              <option>Lượt tra Online</option>
-              <option>Lượt tra Vip + Pdf</option>
+            <Select
+              required
+              onChange={handleSelectChange}
+            >
+              <option value="All">Tất cả lượt tra</option>
+              <option value="Free">Lượt tra Free</option>
+              <option value="Online">Lượt tra Online</option>
+              <option value="Vip">Lượt tra Vip + Pdf</option>
             </Select>
           </div>
-          <div className="float-right ml-[10px] mt-1 text-xs">
+          {/* <div className="float-right ml-[10px] mt-1 text-xs">
             <Pagination
               currentPage={1}
               layout="table"
@@ -50,37 +61,39 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
               }}
               totalPages={1000}
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="overflow-y-auto overflow-x-hidden p-[10px]">
-          {documents.length === 0 ? (
+          {tableLookupHistory.length === 0 ? (
             <p className="mb-[10px] mt-5 text-center text-red-600">
               Chưa có lượt tra cứu nào!
             </p>
           ) : (
             <Table className="">
               <Table.Head>
-                <Table.HeadCell className="w-[3%] bg-[#86cfda] text-center">
+                <Table.HeadCell className="  bg-[#86cfda] p-2 text-center md:w-[3%]">
                   #
                 </Table.HeadCell>
-                <Table.HeadCell className="w-[10%] bg-[#86cfda] text-center">
+                <Table.HeadCell className=" bg-[#86cfda] p-2  text-center">
                   {" "}
                   Lịch sử tra cứu
                 </Table.HeadCell>
-                <Table.HeadCell className="w-[10%] bg-[#86cfda] text-center">
+                <Table.HeadCell className=" bg-[#86cfda] p-2 text-center md:w-[10%]">
                   {" "}
                   PDF báo cáo
                 </Table.HeadCell>
               </Table.Head>
               <Table.Body className="divide-y text-black">
-                {documents.map((item, index) => (
+                {tableLookupHistory.map((item, index) => (
                   <Table.Row
                     key={index + 1}
                     className="bg-white dark:border-gray-700 dark:bg-gray-800"
                   >
-                    <Table.Cell className="text-center">{index + 1}</Table.Cell>
-                    <Table.Cell className="whitespace-nowrap text-xs font-medium dark:text-white">
+                    <Table.Cell className="p-2 text-center">
+                      {index + 1}
+                    </Table.Cell>
+                    <Table.Cell className="whitespace-nowrap p-2 text-xs font-medium  dark:text-white">
                       <p className="font-bold">
                         {item.full_name} - {item.birthday}
                       </p>
@@ -93,17 +106,23 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
                         <strong className="text-red-600">{item.plan}</strong>{" "}
                       </p>
                     </Table.Cell>
-                    <Table.Cell className="whitespace-nowrap font-medium dark:text-white">
+                    <Table.Cell className="whitespace-nowrap p-2 font-medium dark:text-white">
                       <div className="flex w-full justify-center">
                         <Button
                           onClick={() => {
                             openModalread(item.pdf_url)
                           }}
                           color="success"
+                          size="xs"
                         >
-                          <div className="flex justify-center text-base">
-                            <BsEyeFill />
-                            <p className="ml-2 text-xs font-bold"> Xem trước</p>
+                          <div className="flex justify-center text-xs">
+                            <div className="my-auto">
+                              <BsEyeFill />
+                            </div>
+                            <p className="ml-1 text-[10px] font-bold ">
+                              {" "}
+                              Xem trước
+                            </p>
                           </div>
                         </Button>
                       </div>

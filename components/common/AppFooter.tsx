@@ -88,26 +88,26 @@ function AppFooter() {
             <div className="text-sm">
               <ul className="list-none">
                 <li className="mb-2">
-                  <a href="chinh-sach-bao-mat/index-1.htm">
+                  <Link href="/chinh-sach-bao-mat">
                     Chính sách bảo mật
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-2">
-                  <a href="dieu-khoan-su-dung/index-1.htm">
+                  <Link href="/dieu-khoan-su-dung">
                     Điều khoản sử dụng
-                  </a>
+                  </Link>
                 </li>
                 <li className="mb-2">
-                  <a href="kien-thuc/index-1.htm">Kiến thức</a>
+                  <Link href="/kien-thuc">Kiến thức</Link>
                 </li>
                 <li className="mb-2">
-                  <a href="lien-he/index-1.htm"> Liên hệ</a>
+                  <Link href="/lien-he"> Liên hệ</Link>
                 </li>
                 <li className="mb-2">
-                  <a href="affiliate/index-1.htm">Chương trình Affiliate</a>
+                  <Link href="/affiliate">Chương trình Affiliate</Link>
                 </li>
                 <li className="mb-2">
-                  <a href="ve-chung-toi/index-1.htm"> Về chúng tôi</a>
+                  <Link href="/ve-chung-toi"> Về chúng tôi</Link>
                 </li>
               </ul>
               <p className="mb-[18px] inline-block">

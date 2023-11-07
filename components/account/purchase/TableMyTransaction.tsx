@@ -50,13 +50,13 @@ export default function TableMyTransaction({ documents }: ITableTransaction) {
               GIÁ
             </Table.HeadCell>
           </Table.Head>
-          <Table.Body className="divide-y text-black">
+          <Table.Body className=" text-black break-words">
             {documents.map((item, index) => (
               <Table.Row
                 key={index + 1}
                 className=" bg-white dark:border-gray-700 dark:bg-gray-800"
               >
-                <Table.Cell className="whitespace-nowrap p-3 text-sm font-medium dark:text-white">
+                <Table.Cell className=" p-3 text-sm font-medium dark:text-white">
                   <div className="mb-1">
                     Mã đơn: <b className="mr-2">{item.invoice_id}</b>
                     <CopyTextButton text={item.invoice_id} />

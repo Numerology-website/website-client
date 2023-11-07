@@ -33,9 +33,9 @@ export default async function Purchase() {
 
           <div className="my-[15px]">
             <div className="-mx-[15px] flex flex-wrap justify-center">
-              <div className="relative w-full max-w-full basis-full px-[15px] md:max-w-[50%] md:basis-[50%]">
+              <div className="relative w-full max-w-full basis-full px-[15px] py-[5px] md:max-w-[50%] md:basis-[50%]">
                 <iframe
-                  width="560"
+                  width="100%"
                   height="315"
                   src="https://www.youtube.com/embed/qzENKlYLKXI?si=oMtxF7lDLXRaI_D2"
                   title="YouTube video player"
