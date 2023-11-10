@@ -144,17 +144,9 @@ export default function LookupHistory({ documents }: ITableLookupHistory) {
           </div>
         </Modal.Header>
         <Modal.Body>
-          <object
-            data="http://localhost:3001/uploads/pdf/vip_%C4%90%E1%BB%97-Nam-Trung_DPhJ8j85qIFw5k38.pdf"
-            type="application/pdf"
-            width="100%"
-            height="500px"
-          >
-            <p>
-              PDF cannot be displayed. You can download it{" "}
-              <a href={readNumerology}>here</a>.
-            </p>
-          </object>
+          <div className="h-[50vh]">
+            <embed src={readNumerology} className="relative h-full w-full" />
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button

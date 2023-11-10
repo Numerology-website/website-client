@@ -8,6 +8,7 @@ interface MyComponentProps {
 
 export default async function FeaturedBlogs({ type }: MyComponentProps) {
   const featuredBlogs = await BlogService.getHighlightBlogsByType(type)
+  const topBlogs = await BlogService.getTopBlogByType(type)
   return (
     <>
       <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[58%] md:basis-[58%]">
@@ -16,7 +17,7 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
             <div className="relative h-auto overflow-hidden bg-cover bg-[50%_50%]">
               <img
                 className="aspect-[600/450]"
-                src={featuredBlogs.items[0]?.thumbnail_img_link}
+                src={topBlogs.thumbnail_img_link}
                 alt=""
               />
             </div>
@@ -24,13 +25,9 @@ export default async function FeaturedBlogs({ type }: MyComponentProps) {
         </div>
         <div className="relative w-full bg-[#af368938] p-5 text-left">
           <Link href="">
-            <h3 className="mb-[10px] text-2xl font-bold">
-              {featuredBlogs.items[0]?.title}
-            </h3>
+            <h3 className="mb-[10px] text-2xl font-bold">{topBlogs.title}</h3>
           </Link>
-          <p className="mb-[10px] text-sm">
-            {featuredBlogs.items[0]?.description}
-          </p>
+          <p className="mb-[10px] text-sm">{topBlogs.description}</p>
         </div>
       </div>
       <div className="relative m-0 w-full max-w-full basis-full p-[0_15px_30px] md:max-w-[42%] md:basis-[42%]">

@@ -18,6 +18,17 @@ export const BlogService = {
       throw error
     }
   },
+  async getTopBlogByType(type: EBlogType) {
+    try {
+      return await GetAPI<TBlog>(
+        `/blogs/top?type=${type}`,
+      )
+    } catch (error) {
+      console.log("err", error );
+      
+      throw error
+    }
+  },
   async getBlogsByType(type: EBlogType) {
     try {
       return await GetAPI<{ total: number; items: TBlog[] }>(
