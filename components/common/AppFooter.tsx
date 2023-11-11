@@ -88,14 +88,10 @@ function AppFooter() {
             <div className="text-sm">
               <ul className="list-none">
                 <li className="mb-2">
-                  <Link href="/chinh-sach-bao-mat">
-                    Chính sách bảo mật
-                  </Link>
+                  <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
                 </li>
                 <li className="mb-2">
-                  <Link href="/dieu-khoan-su-dung">
-                    Điều khoản sử dụng
-                  </Link>
+                  <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>
                 </li>
                 <li className="mb-2">
                   <Link href="/kien-thuc">Kiến thức</Link>
@@ -106,9 +102,9 @@ function AppFooter() {
                 <li className="mb-2">
                   <Link href="/affiliate">Chương trình Affiliate</Link>
                 </li>
-                <li className="mb-2">
+                {/* <li className="mb-2">
                   <Link href="/ve-chung-toi"> Về chúng tôi</Link>
-                </li>
+                </li> */}
               </ul>
               <p className="mb-[18px] inline-block">
                 Công cụ được tùy chỉnh theo ngày sinh và tên chính xác của bạn …

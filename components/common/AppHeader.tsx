@@ -118,7 +118,7 @@ const AppHeader = () => {
                         Thần số học cho con
                       </Link>
                     </li>
-                    <li className="w-[260px] ">
+                    {/* <li className="w-[260px] ">
                       <Link
                         className=" mx-[10px] block px-[5px] py-[15px]  hover:text-fuchsia-800"
                         href="/test-nghe-nghiep-disc"
@@ -126,7 +126,7 @@ const AppHeader = () => {
                         {" "}
                         Tra cứu DISC
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </li>
