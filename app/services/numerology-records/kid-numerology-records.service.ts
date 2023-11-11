@@ -49,3 +49,17 @@ export const KidNumerologyRecordService = {
     return response
   },
 }
+
+export const AdminKidNumerologyRecordService = {
+  async getAllRecords({ user_id }: { user_id?: string }) {
+    let url = "/admin/kid-numerology-records"
+    if (user_id) {
+      url += "?user_id=" + user_id
+    }
+    const response = await GetAPI<{
+      total: number
+      items: TKidNumerologyRecord[]
+    }>(url)
+    return response
+  },
+}

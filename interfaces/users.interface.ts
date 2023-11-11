@@ -9,6 +9,7 @@ export interface IMyProfile {
   deleted_at: string
   vip_turn_remain: number
   online_turn_remain: number
+  kid_turn_remain: number
   can_affiliate: boolean
   affiliate_id: string
 }
@@ -16,3 +17,5 @@ export interface IMyProfile {
 export interface IUsers extends IMyProfile {
   role: string
 }
+
+export interface IAdminUsers extends IUsers {}

@@ -41,3 +41,17 @@ export const NumerologyRecordService = {
     return response
   },
 }
+
+export const AdminNumerologyRecordService = {
+  async getAllRecords({ user_id }: { user_id?: string }) {
+    let url = "/admin/numerology-records"
+    if (user_id) {
+      url += "?user_id=" + user_id
+    }
+    const response = await GetAPI<{
+      total: number
+      items: TNumerologyRecord[]
+    }>(url)
+    return response
+  },
+}

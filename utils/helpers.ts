@@ -34,6 +34,9 @@ export const addLeadingZero = (number: number) => {
 }
 
 export const shortenWithCommas = (text: string, maxLength: number) => {
+  if (!text) {
+    return ""
+  }
   if (text.length <= maxLength) {
     return text
   }
