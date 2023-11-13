@@ -41,16 +41,16 @@ export default function AboutUs() {
             </div>
           </div>
           <div className="flex flex-col justify-between md:flex-row">
-            <div className="px-[15px] pb-[30px] ">
-              <div className="w-1/3">
+            <div className="block px-[15px] pb-[30px]">
+              <div className="inline w-1/3">
                 <h3 className="mr[15px] mb-[30px]">
                   <strong className="text-xl">Địa chỉ</strong>
                 </h3>
                 <p className="mb-5">71 Nguyễn Chí Thanh, Hà Nội</p>
               </div>
             </div>
-            <div className="px-[15px] pb-[30px]">
-              <div className="w-1/3">
+            <div className="block px-[15px] pb-[30px]">
+              <div className="inline w-1/3">
                 <h3 className="mr[15px] mb-[30px]">
                   <strong className="text-xl">Zalo</strong>
                 </h3>
